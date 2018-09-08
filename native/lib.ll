@@ -7,7 +7,7 @@ target triple = "x86_64-apple-macosx10.12.0"
 %struct.enif_environment_t = type opaque
 %struct.enif_entry_t = type { i32, i32, i8*, i32, %struct.enif_func_t*, i32 (%struct.enif_environment_t*, i8**, i64)*, i32 (%struct.enif_environment_t*, i8**, i64)*, i32 (%struct.enif_environment_t*, i8**, i8**, i64)*, void (%struct.enif_environment_t*, i8*)*, i8*, i32, i64, i8* }
 
-@.str = private unnamed_addr constant [14 x i8] c"ArgumentError\00", align 1
+@.str = private unnamed_addr constant [16 x i8] c"ArithmeticError\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"asm_1_nif_ii\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"asm_1_nif_if\00", align 1
 @.str.3 = private unnamed_addr constant [13 x i8] c"asm_1_nif_fi\00", align 1
@@ -91,7 +91,7 @@ define internal i64 @asm_1_nif_ii(%struct.enif_environment_t*, i32, i64* nocaptu
   br label %27, !dbg !159
 
 ; <label>:24:                                     ; preds = %16, %11, %3
-  %25 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str, i64 0, i64 0)) #6, !dbg !160
+  %25 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([16 x i8], [16 x i8]* @.str, i64 0, i64 0)) #6, !dbg !160
   %26 = call i64 @enif_raise_exception(%struct.enif_environment_t* %0, i64 %25) #6, !dbg !161
   br label %27, !dbg !162
 
@@ -153,7 +153,7 @@ define internal i64 @asm_1_nif_if(%struct.enif_environment_t*, i32, i64* nocaptu
   br label %25, !dbg !197
 
 ; <label>:22:                                     ; preds = %11, %3
-  %23 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str, i64 0, i64 0)) #6, !dbg !198
+  %23 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([16 x i8], [16 x i8]* @.str, i64 0, i64 0)) #6, !dbg !198
   %24 = call i64 @enif_raise_exception(%struct.enif_environment_t* %0, i64 %23) #6, !dbg !199
   br label %25, !dbg !200
 
@@ -205,7 +205,7 @@ define internal i64 @asm_1_nif_fi(%struct.enif_environment_t*, i32, i64* nocaptu
   br label %25, !dbg !233
 
 ; <label>:22:                                     ; preds = %11, %3
-  %23 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str, i64 0, i64 0)) #6, !dbg !234
+  %23 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([16 x i8], [16 x i8]* @.str, i64 0, i64 0)) #6, !dbg !234
   %24 = call i64 @enif_raise_exception(%struct.enif_environment_t* %0, i64 %23) #6, !dbg !235
   br label %25, !dbg !236
 
@@ -252,7 +252,7 @@ define internal i64 @asm_1_nif_ff(%struct.enif_environment_t*, i32, i64* nocaptu
   br label %24, !dbg !267
 
 ; <label>:21:                                     ; preds = %11, %3
-  %22 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str, i64 0, i64 0)) #6, !dbg !268
+  %22 = call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([16 x i8], [16 x i8]* @.str, i64 0, i64 0)) #6, !dbg !268
   %23 = call i64 @enif_raise_exception(%struct.enif_environment_t* %0, i64 %22) #6, !dbg !269
   br label %24, !dbg !270
 

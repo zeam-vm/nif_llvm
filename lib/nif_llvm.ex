@@ -21,12 +21,12 @@ defmodule NifLlvm do
     try do
       IO.puts asm_1(@max_int, 1)
     rescue
-      error in [ArgumentError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+      error in [ArithmeticError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
     end
     try do
       IO.puts asm_1(@max_int + 1, 1)
     rescue
-      error in [ArgumentError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+      error in [ArithmeticError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
     end
   end
 
@@ -36,7 +36,7 @@ defmodule NifLlvm do
         {a, b} when is_integer(a) and a <= @max_int and a >=@min_int and is_float(b) -> asm_1_nif_if(a, b)
         {a, b} when is_float(a) and is_integer(b) and b <= @max_int and b >=@min_int -> asm_1_nif_fi(a, b)
         {a, b} when is_float(a) and is_float(b) -> asm_1_nif_ff(a, b)
-        _ -> raise ArgumentError, message: "the arguments #{a}, #{b} must be number"
+        _ -> raise ArithmeticError, message: "bad argument in arithmetic expression"
     end
   end
 

@@ -553,7 +553,7 @@ Lfunc_end8:
                                         ## -- End function
 	.section	__TEXT,__cstring,cstring_literals
 L_.str:                                 ## @.str
-	.asciz	"ArgumentError"
+	.asciz	"ArithmeticError"
 
 L_.str.1:                               ## @.str.1
 	.asciz	"asm_1_nif_ii"
