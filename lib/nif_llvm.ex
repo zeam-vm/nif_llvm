@@ -1,5 +1,5 @@
 defmodule NifLlvm do
-	@on_load :load_nifs
+  @on_load :load_nifs
 
   def load_nifs do
     :erlang.load_nif('./priv/libnifllvm', 0)
