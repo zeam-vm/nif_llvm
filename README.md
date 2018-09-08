@@ -1,21 +1,40 @@
 # NifLlvm
 
-**TODO: Add description**
+This is a sample code of NIF by LLVM.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `nif_llvm` to your list of dependencies in `mix.exs`:
+### for Mac
 
-```elixir
-def deps do
-  [
-    {:nif_llvm, "~> 0.1.0"}
-  ]
-end
+```bash
+$ brew install llvm
+$ brew link llvm --force
+$ git clone git@github.com:zeam-vm/nif_llvm.git
+$ cd nif_llvm
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/nif_llvm](https://hexdocs.pm/nif_llvm).
+## Running sample code
 
+```elixir
+  def main do
+    IO.puts asm_1(1, 2)
+    IO.puts asm_1(1.0, 2)
+    IO.puts asm_1(1, 2.0)
+    IO.puts asm_1(1.0, 2.0)
+    IO.puts asm_1(@max_int, 0)
+    try do
+      IO.puts asm_1(@max_int, 1)
+    rescue
+      error in [ArgumentError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+    end
+    try do
+      IO.puts asm_1(@max_int + 1, 1)
+    rescue
+      error in [ArgumentError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+    end
+  end
+```
+
+```bash
+$ mix run -e "NifLlvm.main"
+```
