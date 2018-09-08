@@ -5,7 +5,7 @@ static void init_nif_llvm(ErlNifEnv *env);
 static int
 load(ErlNifEnv *env, void **priv, ERL_NIF_TERM info)
 {
-	init_nif_llvm(env);
+  init_nif_llvm(env);
   return 0;
 }
 
