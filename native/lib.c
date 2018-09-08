@@ -2,6 +2,12 @@
 #include "erl_nif.h"
 #include "loader.c"
 
+static ERL_NIF_TERM arithmetic_error;
+
+static void init_nif_llvm(ErlNifEnv *env) {
+	arithmetic_error = enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+}
+
 static
 ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	long a, b;
@@ -17,7 +23,7 @@ ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	long result =  a + b;
 	return enif_make_int64(env, result);
 error:
-	return enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+	return arithmetic_error;
 }
 
 static
@@ -33,7 +39,7 @@ ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	double result = ((double)a) + b;
 	return enif_make_double(env, result);
 error:
-	return enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+	return arithmetic_error;
 }
 
 static
@@ -49,7 +55,7 @@ ERL_NIF_TERM asm_1_nif_fi(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	double result = a + ((double) b);
 	return enif_make_double(env, result);
 error:
-	return enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+	return arithmetic_error;
 }
 
 static
@@ -64,7 +70,7 @@ ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	double result = a + b;
 	return enif_make_double(env, result);
 error:
-	return enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+	return arithmetic_error;
 }
 
 static
