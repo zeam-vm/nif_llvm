@@ -2,6 +2,7 @@
 #include "erl_nif.h"
 #include "loader.c"
 
+static
 ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	long a, b;
 	if(enif_get_int64(env, argv[0], &a) == 0) {
@@ -19,6 +20,7 @@ error:
 	return enif_raise_exception(env, enif_make_atom(env, "ArgumentError"));
 }
 
+static
 ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	long a;
 	double b;
@@ -34,6 +36,7 @@ error:
 	return enif_raise_exception(env, enif_make_atom(env, "ArgumentError"));
 }
 
+static
 ERL_NIF_TERM asm_1_nif_fi(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	double a;
 	long b;
@@ -49,6 +52,7 @@ error:
 	return enif_raise_exception(env, enif_make_atom(env, "ArgumentError"));
 }
 
+static
 ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
 	double a, b;
 	if(enif_get_double(env, argv[0], &a) == 0) {
@@ -63,6 +67,7 @@ error:
 	return enif_raise_exception(env, enif_make_atom(env, "ArgumentError"));
 }
 
+static
 ErlNifFunc nif_funcs[] = {
   // {erl_function_name, erl_function_arity, c_function}
   {"asm_1_nif_ii", 2, asm_1_nif_ii},
