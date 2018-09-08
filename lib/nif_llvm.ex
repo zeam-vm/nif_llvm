@@ -18,6 +18,7 @@ defmodule NifLlvm do
     IO.puts asm_1(1, 2.0)
     IO.puts asm_1(1.0, 2.0)
     IO.puts asm_1(@max_int, 0)
+    IO.puts asm_1(@min_int, 0)
     try do
       IO.puts asm_1(@max_int, 1)
     rescue
