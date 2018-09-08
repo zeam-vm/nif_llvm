@@ -25,12 +25,12 @@ $ cd nif_llvm
     try do
       IO.puts asm_1(@max_int, 1)
     rescue
-      error in [ArgumentError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+      error in [ArithmeticError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
     end
     try do
       IO.puts asm_1(@max_int + 1, 1)
     rescue
-      error in [ArgumentError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+      error in [ArithmeticError, ErlangError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
     end
   end
 ```
