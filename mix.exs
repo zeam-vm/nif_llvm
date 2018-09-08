@@ -36,7 +36,7 @@ defmodule Mix.Tasks.Compile.NifLlvm do
       exit(1)
     else
       File.mkdir_p("priv")
-      {result, _error_code} = System.cmd("make", ["priv/lib.so"], stderr_to_stdout: true)
+      {result, _error_code} = System.cmd("make", ["priv/libnifllvm.so"], stderr_to_stdout: true)
       IO.binwrite result
     end
     :ok

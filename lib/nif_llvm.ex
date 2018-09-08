@@ -2,7 +2,7 @@ defmodule NifLlvm do
 	@on_load :load_nifs
 
   def load_nifs do
-    :erlang.load_nif('./priv/lib', 0)
+    :erlang.load_nif('./priv/libnifllvm', 0)
   end
 
   @max_int 9_223_372_036_854_775_807

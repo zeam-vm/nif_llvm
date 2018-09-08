@@ -30,7 +30,7 @@ native/lib.ll: native/lib.c
 native/lib.s: native/lib.ll
 	llc -o $@ $^
 
-priv/lib.so: native/lib.s
+priv/libnifllvm.so: native/lib.s
 	# $(CC) $(CFLAGS) -shared $(LDFLAGS) -o $@ native/lib.c
 	$(CC) -shared $(LDFLAGS) -o $@ $^
 
