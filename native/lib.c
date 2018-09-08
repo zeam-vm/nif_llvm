@@ -4,12 +4,14 @@
 
 static ERL_NIF_TERM arithmetic_error;
 
-static void init_nif_llvm(ErlNifEnv *env) {
+static void init_nif_llvm(ErlNifEnv *env)
+{
 	arithmetic_error = enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
 }
 
 static
-ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
+ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
 	long a, b;
 	if(enif_get_int64(env, argv[0], &a) == 0) {
 		goto error;
@@ -27,7 +29,8 @@ error:
 }
 
 static
-ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
+ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
 	long a;
 	double b;
 	if(enif_get_int64(env, argv[0], &a) == 0) {
@@ -43,7 +46,8 @@ error:
 }
 
 static
-ERL_NIF_TERM asm_1_nif_fi(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
+ERL_NIF_TERM asm_1_nif_fi(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
 	double a;
 	long b;
 	if(enif_get_double(env, argv[0], &a) == 0) {
@@ -59,7 +63,8 @@ error:
 }
 
 static
-ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
+ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
 	double a, b;
 	if(enif_get_double(env, argv[0], &a) == 0) {
 		goto error;
@@ -74,7 +79,8 @@ error:
 }
 
 static
-ErlNifFunc nif_funcs[] = {
+ErlNifFunc nif_funcs[] =
+{
   // {erl_function_name, erl_function_arity, c_function}
   {"asm_1_nif_ii", 2, asm_1_nif_ii},
   {"asm_1_nif_if", 2, asm_1_nif_if},
