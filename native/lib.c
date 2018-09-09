@@ -20,7 +20,7 @@ ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 		goto error;
 	}
 	if(a > LONG_MAX - b) {
-		goto error;
+		return enif_make_atom(env, "error");
 	}
 	long result =  a + b;
 	return enif_make_int64(env, result);
