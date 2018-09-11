@@ -3,10 +3,12 @@
 #include "loader.c"
 
 static ERL_NIF_TERM arithmetic_error;
+static ERL_NIF_TERM error_atom;
 
 static void init_nif_llvm(ErlNifEnv *env)
 {
 	arithmetic_error = enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+	error_atom = enif_make_atom(env, "error");
 }
 
 static
@@ -20,7 +22,7 @@ ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 		goto error;
 	}
 	if(a > LONG_MAX - b) {
-		return enif_make_atom(env, "error");
+		return error_atom;
 	}
 	long result =  a + b;
 	return enif_make_int64(env, result);
