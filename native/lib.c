@@ -15,13 +15,13 @@ static
 ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
 	long a, b;
-	if(enif_get_int64(env, argv[0], &a) == 0) {
+	if(__builtin_expect((enif_get_int64(env, argv[0], &a) == 0), 0)) {
 		goto error;
 	}
-	if(enif_get_int64(env, argv[1], &b) == 0) {
+	if(__builtin_expect((enif_get_int64(env, argv[1], &b) == 0), 0)) {
 		goto error;
 	}
-	if(a > LONG_MAX - b) {
+	if(__builtin_expect((a > LONG_MAX - b), 0)) {
 		return error_atom;
 	}
 	long result =  a + b;
@@ -35,10 +35,10 @@ ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
 	long a;
 	double b;
-	if(enif_get_int64(env, argv[0], &a) == 0) {
+	if(__builtin_expect((enif_get_int64(env, argv[0], &a) == 0), 0)) {
 		goto error;
 	}
-	if(enif_get_double(env, argv[1], &b) == 0) {
+	if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
 		goto error;
 	}
 	double result = ((double)a) + b;
@@ -52,10 +52,10 @@ ERL_NIF_TERM asm_1_nif_fi(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
 	double a;
 	long b;
-	if(enif_get_double(env, argv[0], &a) == 0) {
+	if(__builtin_expect((enif_get_double(env, argv[0], &a) == 0), 0)) {
 		goto error;
 	}
-	if(enif_get_int64(env, argv[1], &b) == 0) {
+	if(__builtin_expect((enif_get_int64(env, argv[1], &b) == 0), 0)) {
 		goto error;
 	}
 	double result = a + ((double) b);
@@ -68,10 +68,10 @@ static
 ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
 	double a, b;
-	if(enif_get_double(env, argv[0], &a) == 0) {
+	if(__builtin_expect((enif_get_double(env, argv[0], &a) == 0), 0)) {
 		goto error;
 	}
-	if(enif_get_double(env, argv[1], &b) == 0) {
+	if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
 		goto error;
 	}
 	double result = a + b;

@@ -87,44 +87,44 @@ define internal i64 @asm_1_nif_ii(%struct.enif_environment_t*, i32, i64* nocaptu
   call void @llvm.dbg.value(metadata i64* %4, metadata !157, metadata !DIExpression()), !dbg !167
   %9 = call i32 @enif_get_long(%struct.enif_environment_t* %0, i64 %8, i64* nonnull %4) #6, !dbg !168
   %10 = icmp eq i32 %9, 0, !dbg !169
-  br i1 %10, label %26, label %11, !dbg !170
+  br i1 %10, label %26, label %11, !dbg !170, !prof !171
 
 ; <label>:11:                                     ; preds = %3
-  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !171
-  %13 = load i64, i64* %12, align 8, !dbg !171, !tbaa !107
-  call void @llvm.dbg.value(metadata i64* %5, metadata !159, metadata !DIExpression()), !dbg !173
-  %14 = call i32 @enif_get_long(%struct.enif_environment_t* %0, i64 %13, i64* nonnull %5) #6, !dbg !174
-  %15 = icmp eq i32 %14, 0, !dbg !175
-  br i1 %15, label %26, label %16, !dbg !176
+  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !172
+  %13 = load i64, i64* %12, align 8, !dbg !172, !tbaa !107
+  call void @llvm.dbg.value(metadata i64* %5, metadata !159, metadata !DIExpression()), !dbg !174
+  %14 = call i32 @enif_get_long(%struct.enif_environment_t* %0, i64 %13, i64* nonnull %5) #6, !dbg !175
+  %15 = icmp eq i32 %14, 0, !dbg !176
+  br i1 %15, label %26, label %16, !dbg !177, !prof !171
 
 ; <label>:16:                                     ; preds = %11
-  %17 = load i64, i64* %4, align 8, !dbg !177, !tbaa !107
+  %17 = load i64, i64* %4, align 8, !dbg !178, !tbaa !107
   call void @llvm.dbg.value(metadata i64 %17, metadata !157, metadata !DIExpression()), !dbg !167
-  %18 = load i64, i64* %5, align 8, !dbg !179, !tbaa !107
-  call void @llvm.dbg.value(metadata i64 %18, metadata !159, metadata !DIExpression()), !dbg !173
-  %19 = sub nsw i64 9223372036854775807, %18, !dbg !180
-  %20 = icmp sgt i64 %17, %19, !dbg !181
-  br i1 %20, label %21, label %23, !dbg !182
+  %18 = load i64, i64* %5, align 8, !dbg !180, !tbaa !107
+  call void @llvm.dbg.value(metadata i64 %18, metadata !159, metadata !DIExpression()), !dbg !174
+  %19 = sub nsw i64 9223372036854775807, %18, !dbg !181
+  %20 = icmp sgt i64 %17, %19, !dbg !182
+  br i1 %20, label %21, label %23, !dbg !183, !prof !171
 
 ; <label>:21:                                     ; preds = %16
-  %22 = load i64, i64* @error_atom, align 8, !dbg !183, !tbaa !107
-  br label %28, !dbg !185
+  %22 = load i64, i64* @error_atom, align 8, !dbg !184, !tbaa !107
+  br label %28, !dbg !186
 
 ; <label>:23:                                     ; preds = %16
-  %24 = add nsw i64 %18, %17, !dbg !186
-  call void @llvm.dbg.value(metadata i64 %24, metadata !160, metadata !DIExpression()), !dbg !187
-  %25 = call i64 @enif_make_long(%struct.enif_environment_t* %0, i64 %24) #6, !dbg !188
-  br label %28, !dbg !189
+  %24 = add nsw i64 %18, %17, !dbg !187
+  call void @llvm.dbg.value(metadata i64 %24, metadata !160, metadata !DIExpression()), !dbg !188
+  %25 = call i64 @enif_make_long(%struct.enif_environment_t* %0, i64 %24) #6, !dbg !189
+  br label %28, !dbg !190
 
 ; <label>:26:                                     ; preds = %11, %3
-  %27 = load i64, i64* @arithmetic_error, align 8, !dbg !190, !tbaa !107
-  br label %28, !dbg !191
+  %27 = load i64, i64* @arithmetic_error, align 8, !dbg !191, !tbaa !107
+  br label %28, !dbg !192
 
 ; <label>:28:                                     ; preds = %26, %23, %21
   %29 = phi i64 [ %27, %26 ], [ %22, %21 ], [ %25, %23 ]
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !192
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !192
-  ret i64 %29, !dbg !192
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !193
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !193
+  ret i64 %29, !dbg !193
 }
 
 ; Function Attrs: argmemonly nounwind
@@ -138,50 +138,50 @@ declare i64 @enif_make_long(%struct.enif_environment_t*, i64) local_unnamed_addr
 declare void @llvm.lifetime.end.p0i8(i64, i8* nocapture) #3
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i64 @asm_1_nif_if(%struct.enif_environment_t*, i32, i64* nocapture readonly) #0 !dbg !193 {
+define internal i64 @asm_1_nif_if(%struct.enif_environment_t*, i32, i64* nocapture readonly) #0 !dbg !194 {
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
-  call void @llvm.dbg.value(metadata %struct.enif_environment_t* %0, metadata !195, metadata !DIExpression()), !dbg !201
-  call void @llvm.dbg.value(metadata i32 %1, metadata !196, metadata !DIExpression()), !dbg !202
-  call void @llvm.dbg.value(metadata i64* %2, metadata !197, metadata !DIExpression()), !dbg !203
-  %6 = bitcast i64* %4 to i8*, !dbg !204
-  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #6, !dbg !204
-  %7 = bitcast double* %5 to i8*, !dbg !205
-  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7) #6, !dbg !205
-  %8 = load i64, i64* %2, align 8, !dbg !206, !tbaa !107
-  call void @llvm.dbg.value(metadata i64* %4, metadata !198, metadata !DIExpression()), !dbg !208
-  %9 = call i32 @enif_get_long(%struct.enif_environment_t* %0, i64 %8, i64* nonnull %4) #6, !dbg !209
-  %10 = icmp eq i32 %9, 0, !dbg !210
-  br i1 %10, label %22, label %11, !dbg !211
+  call void @llvm.dbg.value(metadata %struct.enif_environment_t* %0, metadata !196, metadata !DIExpression()), !dbg !202
+  call void @llvm.dbg.value(metadata i32 %1, metadata !197, metadata !DIExpression()), !dbg !203
+  call void @llvm.dbg.value(metadata i64* %2, metadata !198, metadata !DIExpression()), !dbg !204
+  %6 = bitcast i64* %4 to i8*, !dbg !205
+  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #6, !dbg !205
+  %7 = bitcast double* %5 to i8*, !dbg !206
+  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7) #6, !dbg !206
+  %8 = load i64, i64* %2, align 8, !dbg !207, !tbaa !107
+  call void @llvm.dbg.value(metadata i64* %4, metadata !199, metadata !DIExpression()), !dbg !209
+  %9 = call i32 @enif_get_long(%struct.enif_environment_t* %0, i64 %8, i64* nonnull %4) #6, !dbg !210
+  %10 = icmp eq i32 %9, 0, !dbg !211
+  br i1 %10, label %22, label %11, !dbg !212, !prof !171
 
 ; <label>:11:                                     ; preds = %3
-  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !212
-  %13 = load i64, i64* %12, align 8, !dbg !212, !tbaa !107
-  call void @llvm.dbg.value(metadata double* %5, metadata !199, metadata !DIExpression()), !dbg !214
-  %14 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %13, double* nonnull %5) #6, !dbg !215
-  %15 = icmp eq i32 %14, 0, !dbg !216
-  br i1 %15, label %22, label %16, !dbg !217
+  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !213
+  %13 = load i64, i64* %12, align 8, !dbg !213, !tbaa !107
+  call void @llvm.dbg.value(metadata double* %5, metadata !200, metadata !DIExpression()), !dbg !215
+  %14 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %13, double* nonnull %5) #6, !dbg !216
+  %15 = icmp eq i32 %14, 0, !dbg !217
+  br i1 %15, label %22, label %16, !dbg !218, !prof !171
 
 ; <label>:16:                                     ; preds = %11
-  %17 = load i64, i64* %4, align 8, !dbg !218, !tbaa !107
-  call void @llvm.dbg.value(metadata i64 %17, metadata !198, metadata !DIExpression()), !dbg !208
-  %18 = sitofp i64 %17 to double, !dbg !219
-  %19 = load double, double* %5, align 8, !dbg !220, !tbaa !221
-  call void @llvm.dbg.value(metadata double %19, metadata !199, metadata !DIExpression()), !dbg !214
-  %20 = fadd double %19, %18, !dbg !223
-  call void @llvm.dbg.value(metadata double %20, metadata !200, metadata !DIExpression()), !dbg !224
-  %21 = call i64 @enif_make_double(%struct.enif_environment_t* %0, double %20) #6, !dbg !225
-  br label %24, !dbg !226
+  %17 = load i64, i64* %4, align 8, !dbg !219, !tbaa !107
+  call void @llvm.dbg.value(metadata i64 %17, metadata !199, metadata !DIExpression()), !dbg !209
+  %18 = sitofp i64 %17 to double, !dbg !220
+  %19 = load double, double* %5, align 8, !dbg !221, !tbaa !222
+  call void @llvm.dbg.value(metadata double %19, metadata !200, metadata !DIExpression()), !dbg !215
+  %20 = fadd double %19, %18, !dbg !224
+  call void @llvm.dbg.value(metadata double %20, metadata !201, metadata !DIExpression()), !dbg !225
+  %21 = call i64 @enif_make_double(%struct.enif_environment_t* %0, double %20) #6, !dbg !226
+  br label %24, !dbg !227
 
 ; <label>:22:                                     ; preds = %11, %3
-  %23 = load i64, i64* @arithmetic_error, align 8, !dbg !227, !tbaa !107
-  br label %24, !dbg !228
+  %23 = load i64, i64* @arithmetic_error, align 8, !dbg !228, !tbaa !107
+  br label %24, !dbg !229
 
 ; <label>:24:                                     ; preds = %22, %16
   %25 = phi i64 [ %23, %22 ], [ %21, %16 ]
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !229
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !229
-  ret i64 %25, !dbg !229
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !230
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !230
+  ret i64 %25, !dbg !230
 }
 
 declare i32 @enif_get_double(%struct.enif_environment_t*, i64, double*) local_unnamed_addr #2
@@ -189,101 +189,101 @@ declare i32 @enif_get_double(%struct.enif_environment_t*, i64, double*) local_un
 declare i64 @enif_make_double(%struct.enif_environment_t*, double) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i64 @asm_1_nif_fi(%struct.enif_environment_t*, i32, i64* nocapture readonly) #0 !dbg !230 {
+define internal i64 @asm_1_nif_fi(%struct.enif_environment_t*, i32, i64* nocapture readonly) #0 !dbg !231 {
   %4 = alloca double, align 8
   %5 = alloca i64, align 8
-  call void @llvm.dbg.value(metadata %struct.enif_environment_t* %0, metadata !232, metadata !DIExpression()), !dbg !238
-  call void @llvm.dbg.value(metadata i32 %1, metadata !233, metadata !DIExpression()), !dbg !239
-  call void @llvm.dbg.value(metadata i64* %2, metadata !234, metadata !DIExpression()), !dbg !240
-  %6 = bitcast double* %4 to i8*, !dbg !241
-  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #6, !dbg !241
-  %7 = bitcast i64* %5 to i8*, !dbg !242
-  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7) #6, !dbg !242
-  %8 = load i64, i64* %2, align 8, !dbg !243, !tbaa !107
-  call void @llvm.dbg.value(metadata double* %4, metadata !235, metadata !DIExpression()), !dbg !245
-  %9 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %8, double* nonnull %4) #6, !dbg !246
-  %10 = icmp eq i32 %9, 0, !dbg !247
-  br i1 %10, label %22, label %11, !dbg !248
+  call void @llvm.dbg.value(metadata %struct.enif_environment_t* %0, metadata !233, metadata !DIExpression()), !dbg !239
+  call void @llvm.dbg.value(metadata i32 %1, metadata !234, metadata !DIExpression()), !dbg !240
+  call void @llvm.dbg.value(metadata i64* %2, metadata !235, metadata !DIExpression()), !dbg !241
+  %6 = bitcast double* %4 to i8*, !dbg !242
+  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #6, !dbg !242
+  %7 = bitcast i64* %5 to i8*, !dbg !243
+  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7) #6, !dbg !243
+  %8 = load i64, i64* %2, align 8, !dbg !244, !tbaa !107
+  call void @llvm.dbg.value(metadata double* %4, metadata !236, metadata !DIExpression()), !dbg !246
+  %9 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %8, double* nonnull %4) #6, !dbg !247
+  %10 = icmp eq i32 %9, 0, !dbg !248
+  br i1 %10, label %22, label %11, !dbg !249, !prof !171
 
 ; <label>:11:                                     ; preds = %3
-  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !249
-  %13 = load i64, i64* %12, align 8, !dbg !249, !tbaa !107
-  call void @llvm.dbg.value(metadata i64* %5, metadata !236, metadata !DIExpression()), !dbg !251
-  %14 = call i32 @enif_get_long(%struct.enif_environment_t* %0, i64 %13, i64* nonnull %5) #6, !dbg !252
-  %15 = icmp eq i32 %14, 0, !dbg !253
-  br i1 %15, label %22, label %16, !dbg !254
+  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !250
+  %13 = load i64, i64* %12, align 8, !dbg !250, !tbaa !107
+  call void @llvm.dbg.value(metadata i64* %5, metadata !237, metadata !DIExpression()), !dbg !252
+  %14 = call i32 @enif_get_long(%struct.enif_environment_t* %0, i64 %13, i64* nonnull %5) #6, !dbg !253
+  %15 = icmp eq i32 %14, 0, !dbg !254
+  br i1 %15, label %22, label %16, !dbg !255, !prof !171
 
 ; <label>:16:                                     ; preds = %11
-  %17 = load double, double* %4, align 8, !dbg !255, !tbaa !221
-  call void @llvm.dbg.value(metadata double %17, metadata !235, metadata !DIExpression()), !dbg !245
-  %18 = load i64, i64* %5, align 8, !dbg !256, !tbaa !107
-  call void @llvm.dbg.value(metadata i64 %18, metadata !236, metadata !DIExpression()), !dbg !251
-  %19 = sitofp i64 %18 to double, !dbg !257
-  %20 = fadd double %17, %19, !dbg !258
-  call void @llvm.dbg.value(metadata double %20, metadata !237, metadata !DIExpression()), !dbg !259
-  %21 = call i64 @enif_make_double(%struct.enif_environment_t* %0, double %20) #6, !dbg !260
-  br label %24, !dbg !261
+  %17 = load double, double* %4, align 8, !dbg !256, !tbaa !222
+  call void @llvm.dbg.value(metadata double %17, metadata !236, metadata !DIExpression()), !dbg !246
+  %18 = load i64, i64* %5, align 8, !dbg !257, !tbaa !107
+  call void @llvm.dbg.value(metadata i64 %18, metadata !237, metadata !DIExpression()), !dbg !252
+  %19 = sitofp i64 %18 to double, !dbg !258
+  %20 = fadd double %17, %19, !dbg !259
+  call void @llvm.dbg.value(metadata double %20, metadata !238, metadata !DIExpression()), !dbg !260
+  %21 = call i64 @enif_make_double(%struct.enif_environment_t* %0, double %20) #6, !dbg !261
+  br label %24, !dbg !262
 
 ; <label>:22:                                     ; preds = %11, %3
-  %23 = load i64, i64* @arithmetic_error, align 8, !dbg !262, !tbaa !107
-  br label %24, !dbg !263
+  %23 = load i64, i64* @arithmetic_error, align 8, !dbg !263, !tbaa !107
+  br label %24, !dbg !264
 
 ; <label>:24:                                     ; preds = %22, %16
   %25 = phi i64 [ %23, %22 ], [ %21, %16 ]
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !264
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !264
-  ret i64 %25, !dbg !264
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !265
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !265
+  ret i64 %25, !dbg !265
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i64 @asm_1_nif_ff(%struct.enif_environment_t*, i32, i64* nocapture readonly) #0 !dbg !265 {
+define internal i64 @asm_1_nif_ff(%struct.enif_environment_t*, i32, i64* nocapture readonly) #0 !dbg !266 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
-  call void @llvm.dbg.value(metadata %struct.enif_environment_t* %0, metadata !267, metadata !DIExpression()), !dbg !273
-  call void @llvm.dbg.value(metadata i32 %1, metadata !268, metadata !DIExpression()), !dbg !274
-  call void @llvm.dbg.value(metadata i64* %2, metadata !269, metadata !DIExpression()), !dbg !275
-  %6 = bitcast double* %4 to i8*, !dbg !276
-  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #6, !dbg !276
-  %7 = bitcast double* %5 to i8*, !dbg !276
-  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7) #6, !dbg !276
-  %8 = load i64, i64* %2, align 8, !dbg !277, !tbaa !107
-  call void @llvm.dbg.value(metadata double* %4, metadata !270, metadata !DIExpression()), !dbg !279
-  %9 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %8, double* nonnull %4) #6, !dbg !280
-  %10 = icmp eq i32 %9, 0, !dbg !281
-  br i1 %10, label %21, label %11, !dbg !282
+  call void @llvm.dbg.value(metadata %struct.enif_environment_t* %0, metadata !268, metadata !DIExpression()), !dbg !274
+  call void @llvm.dbg.value(metadata i32 %1, metadata !269, metadata !DIExpression()), !dbg !275
+  call void @llvm.dbg.value(metadata i64* %2, metadata !270, metadata !DIExpression()), !dbg !276
+  %6 = bitcast double* %4 to i8*, !dbg !277
+  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %6) #6, !dbg !277
+  %7 = bitcast double* %5 to i8*, !dbg !277
+  call void @llvm.lifetime.start.p0i8(i64 8, i8* nonnull %7) #6, !dbg !277
+  %8 = load i64, i64* %2, align 8, !dbg !278, !tbaa !107
+  call void @llvm.dbg.value(metadata double* %4, metadata !271, metadata !DIExpression()), !dbg !280
+  %9 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %8, double* nonnull %4) #6, !dbg !281
+  %10 = icmp eq i32 %9, 0, !dbg !282
+  br i1 %10, label %21, label %11, !dbg !283, !prof !171
 
 ; <label>:11:                                     ; preds = %3
-  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !283
-  %13 = load i64, i64* %12, align 8, !dbg !283, !tbaa !107
-  call void @llvm.dbg.value(metadata double* %5, metadata !271, metadata !DIExpression()), !dbg !285
-  %14 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %13, double* nonnull %5) #6, !dbg !286
-  %15 = icmp eq i32 %14, 0, !dbg !287
-  br i1 %15, label %21, label %16, !dbg !288
+  %12 = getelementptr inbounds i64, i64* %2, i64 1, !dbg !284
+  %13 = load i64, i64* %12, align 8, !dbg !284, !tbaa !107
+  call void @llvm.dbg.value(metadata double* %5, metadata !272, metadata !DIExpression()), !dbg !286
+  %14 = call i32 @enif_get_double(%struct.enif_environment_t* %0, i64 %13, double* nonnull %5) #6, !dbg !287
+  %15 = icmp eq i32 %14, 0, !dbg !288
+  br i1 %15, label %21, label %16, !dbg !289, !prof !171
 
 ; <label>:16:                                     ; preds = %11
-  %17 = load double, double* %4, align 8, !dbg !289, !tbaa !221
-  call void @llvm.dbg.value(metadata double %17, metadata !270, metadata !DIExpression()), !dbg !279
-  %18 = load double, double* %5, align 8, !dbg !290, !tbaa !221
-  call void @llvm.dbg.value(metadata double %18, metadata !271, metadata !DIExpression()), !dbg !285
-  %19 = fadd double %17, %18, !dbg !291
-  call void @llvm.dbg.value(metadata double %19, metadata !272, metadata !DIExpression()), !dbg !292
-  %20 = call i64 @enif_make_double(%struct.enif_environment_t* %0, double %19) #6, !dbg !293
-  br label %23, !dbg !294
+  %17 = load double, double* %4, align 8, !dbg !290, !tbaa !222
+  call void @llvm.dbg.value(metadata double %17, metadata !271, metadata !DIExpression()), !dbg !280
+  %18 = load double, double* %5, align 8, !dbg !291, !tbaa !222
+  call void @llvm.dbg.value(metadata double %18, metadata !272, metadata !DIExpression()), !dbg !286
+  %19 = fadd double %17, %18, !dbg !292
+  call void @llvm.dbg.value(metadata double %19, metadata !273, metadata !DIExpression()), !dbg !293
+  %20 = call i64 @enif_make_double(%struct.enif_environment_t* %0, double %19) #6, !dbg !294
+  br label %23, !dbg !295
 
 ; <label>:21:                                     ; preds = %11, %3
-  %22 = load i64, i64* @arithmetic_error, align 8, !dbg !295, !tbaa !107
-  br label %23, !dbg !296
+  %22 = load i64, i64* @arithmetic_error, align 8, !dbg !296, !tbaa !107
+  br label %23, !dbg !297
 
 ; <label>:23:                                     ; preds = %21, %16
   %24 = phi i64 [ %22, %21 ], [ %20, %16 ]
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !297
-  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !297
-  ret i64 %24, !dbg !297
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %7) #6, !dbg !298
+  call void @llvm.lifetime.end.p0i8(i64 8, i8* nonnull %6) #6, !dbg !298
+  ret i64 %24, !dbg !298
 }
 
 ; Function Attrs: norecurse nounwind readnone ssp uwtable
 define nonnull %struct.enif_entry_t* @nif_init() local_unnamed_addr #4 !dbg !46 {
-  ret %struct.enif_entry_t* @nif_init.entry, !dbg !298
+  ret %struct.enif_entry_t* @nif_init.entry, !dbg !299
 }
 
 ; Function Attrs: nounwind readnone speculatable
@@ -466,137 +466,138 @@ attributes #6 = { nounwind }
 !162 = !DILocation(line: 15, column: 47, scope: !152)
 !163 = !DILocation(line: 15, column: 72, scope: !152)
 !164 = !DILocation(line: 17, column: 2, scope: !152)
-!165 = !DILocation(line: 18, column: 25, scope: !166)
+!165 = !DILocation(line: 18, column: 43, scope: !166)
 !166 = distinct !DILexicalBlock(scope: !152, file: !3, line: 18, column: 5)
 !167 = !DILocation(line: 17, column: 7, scope: !152)
-!168 = !DILocation(line: 18, column: 5, scope: !166)
-!169 = !DILocation(line: 18, column: 38, scope: !166)
+!168 = !DILocation(line: 18, column: 23, scope: !166)
+!169 = !DILocation(line: 18, column: 56, scope: !166)
 !170 = !DILocation(line: 18, column: 5, scope: !152)
-!171 = !DILocation(line: 21, column: 25, scope: !172)
-!172 = distinct !DILexicalBlock(scope: !152, file: !3, line: 21, column: 5)
-!173 = !DILocation(line: 17, column: 10, scope: !152)
-!174 = !DILocation(line: 21, column: 5, scope: !172)
-!175 = !DILocation(line: 21, column: 38, scope: !172)
-!176 = !DILocation(line: 21, column: 5, scope: !152)
-!177 = !DILocation(line: 24, column: 5, scope: !178)
-!178 = distinct !DILexicalBlock(scope: !152, file: !3, line: 24, column: 5)
-!179 = !DILocation(line: 24, column: 20, scope: !178)
-!180 = !DILocation(line: 24, column: 18, scope: !178)
-!181 = !DILocation(line: 24, column: 7, scope: !178)
-!182 = !DILocation(line: 24, column: 5, scope: !152)
-!183 = !DILocation(line: 25, column: 10, scope: !184)
-!184 = distinct !DILexicalBlock(scope: !178, file: !3, line: 24, column: 23)
-!185 = !DILocation(line: 25, column: 3, scope: !184)
-!186 = !DILocation(line: 27, column: 19, scope: !152)
-!187 = !DILocation(line: 27, column: 7, scope: !152)
-!188 = !DILocation(line: 28, column: 9, scope: !152)
-!189 = !DILocation(line: 28, column: 2, scope: !152)
-!190 = !DILocation(line: 30, column: 9, scope: !152)
-!191 = !DILocation(line: 30, column: 2, scope: !152)
-!192 = !DILocation(line: 31, column: 1, scope: !152)
-!193 = distinct !DISubprogram(name: "asm_1_nif_if", scope: !3, file: !3, line: 34, type: !29, isLocal: true, isDefinition: true, scopeLine: 35, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !194)
-!194 = !{!195, !196, !197, !198, !199, !200}
-!195 = !DILocalVariable(name: "env", arg: 1, scope: !193, file: !3, line: 34, type: !36)
-!196 = !DILocalVariable(name: "argc", arg: 2, scope: !193, file: !3, line: 34, type: !11)
-!197 = !DILocalVariable(name: "argv", arg: 3, scope: !193, file: !3, line: 34, type: !39)
-!198 = !DILocalVariable(name: "a", scope: !193, file: !3, line: 36, type: !158)
-!199 = !DILocalVariable(name: "b", scope: !193, file: !3, line: 37, type: !13)
-!200 = !DILocalVariable(name: "result", scope: !193, file: !3, line: 44, type: !13)
-!201 = !DILocation(line: 34, column: 38, scope: !193)
-!202 = !DILocation(line: 34, column: 47, scope: !193)
-!203 = !DILocation(line: 34, column: 72, scope: !193)
-!204 = !DILocation(line: 36, column: 2, scope: !193)
-!205 = !DILocation(line: 37, column: 2, scope: !193)
-!206 = !DILocation(line: 38, column: 25, scope: !207)
-!207 = distinct !DILexicalBlock(scope: !193, file: !3, line: 38, column: 5)
-!208 = !DILocation(line: 36, column: 7, scope: !193)
-!209 = !DILocation(line: 38, column: 5, scope: !207)
-!210 = !DILocation(line: 38, column: 38, scope: !207)
-!211 = !DILocation(line: 38, column: 5, scope: !193)
-!212 = !DILocation(line: 41, column: 26, scope: !213)
-!213 = distinct !DILexicalBlock(scope: !193, file: !3, line: 41, column: 5)
-!214 = !DILocation(line: 37, column: 9, scope: !193)
-!215 = !DILocation(line: 41, column: 5, scope: !213)
-!216 = !DILocation(line: 41, column: 39, scope: !213)
-!217 = !DILocation(line: 41, column: 5, scope: !193)
-!218 = !DILocation(line: 44, column: 27, scope: !193)
-!219 = !DILocation(line: 44, column: 19, scope: !193)
-!220 = !DILocation(line: 44, column: 32, scope: !193)
-!221 = !{!222, !222, i64 0}
-!222 = !{!"double", !109, i64 0}
-!223 = !DILocation(line: 44, column: 30, scope: !193)
-!224 = !DILocation(line: 44, column: 9, scope: !193)
-!225 = !DILocation(line: 45, column: 9, scope: !193)
-!226 = !DILocation(line: 45, column: 2, scope: !193)
-!227 = !DILocation(line: 47, column: 9, scope: !193)
-!228 = !DILocation(line: 47, column: 2, scope: !193)
-!229 = !DILocation(line: 48, column: 1, scope: !193)
-!230 = distinct !DISubprogram(name: "asm_1_nif_fi", scope: !3, file: !3, line: 51, type: !29, isLocal: true, isDefinition: true, scopeLine: 52, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !231)
-!231 = !{!232, !233, !234, !235, !236, !237}
-!232 = !DILocalVariable(name: "env", arg: 1, scope: !230, file: !3, line: 51, type: !36)
-!233 = !DILocalVariable(name: "argc", arg: 2, scope: !230, file: !3, line: 51, type: !11)
-!234 = !DILocalVariable(name: "argv", arg: 3, scope: !230, file: !3, line: 51, type: !39)
-!235 = !DILocalVariable(name: "a", scope: !230, file: !3, line: 53, type: !13)
-!236 = !DILocalVariable(name: "b", scope: !230, file: !3, line: 54, type: !158)
-!237 = !DILocalVariable(name: "result", scope: !230, file: !3, line: 61, type: !13)
-!238 = !DILocation(line: 51, column: 38, scope: !230)
-!239 = !DILocation(line: 51, column: 47, scope: !230)
-!240 = !DILocation(line: 51, column: 72, scope: !230)
-!241 = !DILocation(line: 53, column: 2, scope: !230)
-!242 = !DILocation(line: 54, column: 2, scope: !230)
-!243 = !DILocation(line: 55, column: 26, scope: !244)
-!244 = distinct !DILexicalBlock(scope: !230, file: !3, line: 55, column: 5)
-!245 = !DILocation(line: 53, column: 9, scope: !230)
-!246 = !DILocation(line: 55, column: 5, scope: !244)
-!247 = !DILocation(line: 55, column: 39, scope: !244)
-!248 = !DILocation(line: 55, column: 5, scope: !230)
-!249 = !DILocation(line: 58, column: 25, scope: !250)
-!250 = distinct !DILexicalBlock(scope: !230, file: !3, line: 58, column: 5)
-!251 = !DILocation(line: 54, column: 7, scope: !230)
-!252 = !DILocation(line: 58, column: 5, scope: !250)
-!253 = !DILocation(line: 58, column: 38, scope: !250)
-!254 = !DILocation(line: 58, column: 5, scope: !230)
-!255 = !DILocation(line: 61, column: 18, scope: !230)
-!256 = !DILocation(line: 61, column: 32, scope: !230)
-!257 = !DILocation(line: 61, column: 23, scope: !230)
-!258 = !DILocation(line: 61, column: 20, scope: !230)
-!259 = !DILocation(line: 61, column: 9, scope: !230)
-!260 = !DILocation(line: 62, column: 9, scope: !230)
-!261 = !DILocation(line: 62, column: 2, scope: !230)
-!262 = !DILocation(line: 64, column: 9, scope: !230)
-!263 = !DILocation(line: 64, column: 2, scope: !230)
-!264 = !DILocation(line: 65, column: 1, scope: !230)
-!265 = distinct !DISubprogram(name: "asm_1_nif_ff", scope: !3, file: !3, line: 68, type: !29, isLocal: true, isDefinition: true, scopeLine: 69, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !266)
-!266 = !{!267, !268, !269, !270, !271, !272}
-!267 = !DILocalVariable(name: "env", arg: 1, scope: !265, file: !3, line: 68, type: !36)
-!268 = !DILocalVariable(name: "argc", arg: 2, scope: !265, file: !3, line: 68, type: !11)
-!269 = !DILocalVariable(name: "argv", arg: 3, scope: !265, file: !3, line: 68, type: !39)
-!270 = !DILocalVariable(name: "a", scope: !265, file: !3, line: 70, type: !13)
-!271 = !DILocalVariable(name: "b", scope: !265, file: !3, line: 70, type: !13)
-!272 = !DILocalVariable(name: "result", scope: !265, file: !3, line: 77, type: !13)
-!273 = !DILocation(line: 68, column: 38, scope: !265)
-!274 = !DILocation(line: 68, column: 47, scope: !265)
-!275 = !DILocation(line: 68, column: 72, scope: !265)
-!276 = !DILocation(line: 70, column: 2, scope: !265)
-!277 = !DILocation(line: 71, column: 26, scope: !278)
-!278 = distinct !DILexicalBlock(scope: !265, file: !3, line: 71, column: 5)
-!279 = !DILocation(line: 70, column: 9, scope: !265)
-!280 = !DILocation(line: 71, column: 5, scope: !278)
-!281 = !DILocation(line: 71, column: 39, scope: !278)
-!282 = !DILocation(line: 71, column: 5, scope: !265)
-!283 = !DILocation(line: 74, column: 26, scope: !284)
-!284 = distinct !DILexicalBlock(scope: !265, file: !3, line: 74, column: 5)
-!285 = !DILocation(line: 70, column: 12, scope: !265)
-!286 = !DILocation(line: 74, column: 5, scope: !284)
-!287 = !DILocation(line: 74, column: 39, scope: !284)
-!288 = !DILocation(line: 74, column: 5, scope: !265)
-!289 = !DILocation(line: 77, column: 18, scope: !265)
-!290 = !DILocation(line: 77, column: 22, scope: !265)
-!291 = !DILocation(line: 77, column: 20, scope: !265)
-!292 = !DILocation(line: 77, column: 9, scope: !265)
-!293 = !DILocation(line: 78, column: 9, scope: !265)
-!294 = !DILocation(line: 78, column: 2, scope: !265)
-!295 = !DILocation(line: 80, column: 9, scope: !265)
-!296 = !DILocation(line: 80, column: 2, scope: !265)
-!297 = !DILocation(line: 81, column: 1, scope: !265)
-!298 = !DILocation(line: 93, column: 1, scope: !46)
+!171 = !{!"branch_weights", i32 1, i32 2000}
+!172 = !DILocation(line: 21, column: 43, scope: !173)
+!173 = distinct !DILexicalBlock(scope: !152, file: !3, line: 21, column: 5)
+!174 = !DILocation(line: 17, column: 10, scope: !152)
+!175 = !DILocation(line: 21, column: 23, scope: !173)
+!176 = !DILocation(line: 21, column: 56, scope: !173)
+!177 = !DILocation(line: 21, column: 5, scope: !152)
+!178 = !DILocation(line: 24, column: 23, scope: !179)
+!179 = distinct !DILexicalBlock(scope: !152, file: !3, line: 24, column: 5)
+!180 = !DILocation(line: 24, column: 38, scope: !179)
+!181 = !DILocation(line: 24, column: 36, scope: !179)
+!182 = !DILocation(line: 24, column: 25, scope: !179)
+!183 = !DILocation(line: 24, column: 5, scope: !152)
+!184 = !DILocation(line: 25, column: 10, scope: !185)
+!185 = distinct !DILexicalBlock(scope: !179, file: !3, line: 24, column: 46)
+!186 = !DILocation(line: 25, column: 3, scope: !185)
+!187 = !DILocation(line: 27, column: 19, scope: !152)
+!188 = !DILocation(line: 27, column: 7, scope: !152)
+!189 = !DILocation(line: 28, column: 9, scope: !152)
+!190 = !DILocation(line: 28, column: 2, scope: !152)
+!191 = !DILocation(line: 30, column: 9, scope: !152)
+!192 = !DILocation(line: 30, column: 2, scope: !152)
+!193 = !DILocation(line: 31, column: 1, scope: !152)
+!194 = distinct !DISubprogram(name: "asm_1_nif_if", scope: !3, file: !3, line: 34, type: !29, isLocal: true, isDefinition: true, scopeLine: 35, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !195)
+!195 = !{!196, !197, !198, !199, !200, !201}
+!196 = !DILocalVariable(name: "env", arg: 1, scope: !194, file: !3, line: 34, type: !36)
+!197 = !DILocalVariable(name: "argc", arg: 2, scope: !194, file: !3, line: 34, type: !11)
+!198 = !DILocalVariable(name: "argv", arg: 3, scope: !194, file: !3, line: 34, type: !39)
+!199 = !DILocalVariable(name: "a", scope: !194, file: !3, line: 36, type: !158)
+!200 = !DILocalVariable(name: "b", scope: !194, file: !3, line: 37, type: !13)
+!201 = !DILocalVariable(name: "result", scope: !194, file: !3, line: 44, type: !13)
+!202 = !DILocation(line: 34, column: 38, scope: !194)
+!203 = !DILocation(line: 34, column: 47, scope: !194)
+!204 = !DILocation(line: 34, column: 72, scope: !194)
+!205 = !DILocation(line: 36, column: 2, scope: !194)
+!206 = !DILocation(line: 37, column: 2, scope: !194)
+!207 = !DILocation(line: 38, column: 43, scope: !208)
+!208 = distinct !DILexicalBlock(scope: !194, file: !3, line: 38, column: 5)
+!209 = !DILocation(line: 36, column: 7, scope: !194)
+!210 = !DILocation(line: 38, column: 23, scope: !208)
+!211 = !DILocation(line: 38, column: 56, scope: !208)
+!212 = !DILocation(line: 38, column: 5, scope: !194)
+!213 = !DILocation(line: 41, column: 44, scope: !214)
+!214 = distinct !DILexicalBlock(scope: !194, file: !3, line: 41, column: 5)
+!215 = !DILocation(line: 37, column: 9, scope: !194)
+!216 = !DILocation(line: 41, column: 23, scope: !214)
+!217 = !DILocation(line: 41, column: 57, scope: !214)
+!218 = !DILocation(line: 41, column: 5, scope: !194)
+!219 = !DILocation(line: 44, column: 27, scope: !194)
+!220 = !DILocation(line: 44, column: 19, scope: !194)
+!221 = !DILocation(line: 44, column: 32, scope: !194)
+!222 = !{!223, !223, i64 0}
+!223 = !{!"double", !109, i64 0}
+!224 = !DILocation(line: 44, column: 30, scope: !194)
+!225 = !DILocation(line: 44, column: 9, scope: !194)
+!226 = !DILocation(line: 45, column: 9, scope: !194)
+!227 = !DILocation(line: 45, column: 2, scope: !194)
+!228 = !DILocation(line: 47, column: 9, scope: !194)
+!229 = !DILocation(line: 47, column: 2, scope: !194)
+!230 = !DILocation(line: 48, column: 1, scope: !194)
+!231 = distinct !DISubprogram(name: "asm_1_nif_fi", scope: !3, file: !3, line: 51, type: !29, isLocal: true, isDefinition: true, scopeLine: 52, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !232)
+!232 = !{!233, !234, !235, !236, !237, !238}
+!233 = !DILocalVariable(name: "env", arg: 1, scope: !231, file: !3, line: 51, type: !36)
+!234 = !DILocalVariable(name: "argc", arg: 2, scope: !231, file: !3, line: 51, type: !11)
+!235 = !DILocalVariable(name: "argv", arg: 3, scope: !231, file: !3, line: 51, type: !39)
+!236 = !DILocalVariable(name: "a", scope: !231, file: !3, line: 53, type: !13)
+!237 = !DILocalVariable(name: "b", scope: !231, file: !3, line: 54, type: !158)
+!238 = !DILocalVariable(name: "result", scope: !231, file: !3, line: 61, type: !13)
+!239 = !DILocation(line: 51, column: 38, scope: !231)
+!240 = !DILocation(line: 51, column: 47, scope: !231)
+!241 = !DILocation(line: 51, column: 72, scope: !231)
+!242 = !DILocation(line: 53, column: 2, scope: !231)
+!243 = !DILocation(line: 54, column: 2, scope: !231)
+!244 = !DILocation(line: 55, column: 44, scope: !245)
+!245 = distinct !DILexicalBlock(scope: !231, file: !3, line: 55, column: 5)
+!246 = !DILocation(line: 53, column: 9, scope: !231)
+!247 = !DILocation(line: 55, column: 23, scope: !245)
+!248 = !DILocation(line: 55, column: 57, scope: !245)
+!249 = !DILocation(line: 55, column: 5, scope: !231)
+!250 = !DILocation(line: 58, column: 43, scope: !251)
+!251 = distinct !DILexicalBlock(scope: !231, file: !3, line: 58, column: 5)
+!252 = !DILocation(line: 54, column: 7, scope: !231)
+!253 = !DILocation(line: 58, column: 23, scope: !251)
+!254 = !DILocation(line: 58, column: 56, scope: !251)
+!255 = !DILocation(line: 58, column: 5, scope: !231)
+!256 = !DILocation(line: 61, column: 18, scope: !231)
+!257 = !DILocation(line: 61, column: 32, scope: !231)
+!258 = !DILocation(line: 61, column: 23, scope: !231)
+!259 = !DILocation(line: 61, column: 20, scope: !231)
+!260 = !DILocation(line: 61, column: 9, scope: !231)
+!261 = !DILocation(line: 62, column: 9, scope: !231)
+!262 = !DILocation(line: 62, column: 2, scope: !231)
+!263 = !DILocation(line: 64, column: 9, scope: !231)
+!264 = !DILocation(line: 64, column: 2, scope: !231)
+!265 = !DILocation(line: 65, column: 1, scope: !231)
+!266 = distinct !DISubprogram(name: "asm_1_nif_ff", scope: !3, file: !3, line: 68, type: !29, isLocal: true, isDefinition: true, scopeLine: 69, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !267)
+!267 = !{!268, !269, !270, !271, !272, !273}
+!268 = !DILocalVariable(name: "env", arg: 1, scope: !266, file: !3, line: 68, type: !36)
+!269 = !DILocalVariable(name: "argc", arg: 2, scope: !266, file: !3, line: 68, type: !11)
+!270 = !DILocalVariable(name: "argv", arg: 3, scope: !266, file: !3, line: 68, type: !39)
+!271 = !DILocalVariable(name: "a", scope: !266, file: !3, line: 70, type: !13)
+!272 = !DILocalVariable(name: "b", scope: !266, file: !3, line: 70, type: !13)
+!273 = !DILocalVariable(name: "result", scope: !266, file: !3, line: 77, type: !13)
+!274 = !DILocation(line: 68, column: 38, scope: !266)
+!275 = !DILocation(line: 68, column: 47, scope: !266)
+!276 = !DILocation(line: 68, column: 72, scope: !266)
+!277 = !DILocation(line: 70, column: 2, scope: !266)
+!278 = !DILocation(line: 71, column: 44, scope: !279)
+!279 = distinct !DILexicalBlock(scope: !266, file: !3, line: 71, column: 5)
+!280 = !DILocation(line: 70, column: 9, scope: !266)
+!281 = !DILocation(line: 71, column: 23, scope: !279)
+!282 = !DILocation(line: 71, column: 57, scope: !279)
+!283 = !DILocation(line: 71, column: 5, scope: !266)
+!284 = !DILocation(line: 74, column: 44, scope: !285)
+!285 = distinct !DILexicalBlock(scope: !266, file: !3, line: 74, column: 5)
+!286 = !DILocation(line: 70, column: 12, scope: !266)
+!287 = !DILocation(line: 74, column: 23, scope: !285)
+!288 = !DILocation(line: 74, column: 57, scope: !285)
+!289 = !DILocation(line: 74, column: 5, scope: !266)
+!290 = !DILocation(line: 77, column: 18, scope: !266)
+!291 = !DILocation(line: 77, column: 22, scope: !266)
+!292 = !DILocation(line: 77, column: 20, scope: !266)
+!293 = !DILocation(line: 77, column: 9, scope: !266)
+!294 = !DILocation(line: 78, column: 9, scope: !266)
+!295 = !DILocation(line: 78, column: 2, scope: !266)
+!296 = !DILocation(line: 80, column: 9, scope: !266)
+!297 = !DILocation(line: 80, column: 2, scope: !266)
+!298 = !DILocation(line: 81, column: 1, scope: !266)
+!299 = !DILocation(line: 93, column: 1, scope: !46)
