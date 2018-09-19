@@ -196,7 +196,7 @@ Ltmp20:
 	testl	%eax, %eax
 Ltmp21:
 	.loc	3 18 5                  ## native/lib.c:18:5
-	je	LBB4_5
+	je	LBB4_4
 Ltmp22:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_ii:a <- [DW_OP_constu 32, DW_OP_minus] [%rbp+0]
@@ -214,7 +214,7 @@ Ltmp23:
 	testl	%eax, %eax
 Ltmp24:
 	.loc	3 21 5                  ## native/lib.c:21:5
-	je	LBB4_5
+	je	LBB4_4
 Ltmp25:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus] [%rbp+0]
@@ -229,9 +229,9 @@ Ltmp26:
 	addq	-24(%rbp), %rsi
 Ltmp27:
 	.loc	3 26 5                  ## native/lib.c:26:5
-	jo	LBB4_3
+	jo	LBB4_5
 Ltmp28:
-## %bb.4:
+## %bb.3:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus] [%rbp+0]
 	##DEBUG_VALUE: asm_1_nif_ii:env <- %r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- %rbx
@@ -251,7 +251,7 @@ Ltmp30:
 Ltmp31:
 	popq	%rbp
 	retq
-LBB4_5:
+LBB4_4:
 Ltmp32:
 	##DEBUG_VALUE: asm_1_nif_ii:a <- [DW_OP_constu 32, DW_OP_minus] [%rbp+0]
 	##DEBUG_VALUE: asm_1_nif_ii:env <- %r14
@@ -260,11 +260,11 @@ Ltmp32:
 	movq	_arithmetic_error(%rip), %rax
 	jmp	LBB4_6
 Ltmp33:
-LBB4_3:
+LBB4_5:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus] [%rbp+0]
 	##DEBUG_VALUE: asm_1_nif_ii:env <- %r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- %rbx
-	.loc	3 27 10                 ## native/lib.c:27:10
+	.loc	3 34 9                  ## native/lib.c:34:9
 	movq	_error_atom(%rip), %rax
 	jmp	LBB4_6
 Ltmp34:

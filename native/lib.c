@@ -24,7 +24,7 @@ ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 	long result;
 
 	if(__builtin_expect(__builtin_saddl_overflow(a, b, &result), 0)) {
-		return error_atom;
+		goto error2;
 	}
 
 	return enif_make_int64(env, result);
