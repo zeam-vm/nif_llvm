@@ -21,13 +21,17 @@ ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 	if(__builtin_expect((enif_get_int64(env, argv[1], &b) == 0), 0)) {
 		goto error;
 	}
-	if(__builtin_expect((a > LONG_MAX - b), 0)) {
+	long result;
+
+	if(__builtin_expect(__builtin_saddl_overflow(a, b, &result), 0)) {
 		return error_atom;
 	}
-	long result =  a + b;
+
 	return enif_make_int64(env, result);
 error:
 	return arithmetic_error;
+error2:
+	return error_atom;
 }
 
 static
