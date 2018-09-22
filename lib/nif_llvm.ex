@@ -32,16 +32,16 @@ defmodule NifLlvm do
   end
 
   def asm_1(a, b) do
-    case {a, b} do
-        {a, b} when is_int64(a) and is_int64(b)
-          -> case asm_1_nif_ii(a, b) do
-            x when is_integer(x) -> x
-            :error -> raise ArithmeticError, message: "bad argument in arithmetic expression"
-          end
+    result = case {a, b} do
+        {a, b} when is_int64(a) and is_int64(b) -> asm_1_nif_ii(a, b)
         {a, b} when is_int64(a) and is_float(b) -> asm_1_nif_if(a, b)
         {a, b} when is_float(a) and is_int64(b) -> asm_1_nif_fi(a, b)
         {a, b} when is_float(a) and is_float(b) -> asm_1_nif_ff(a, b)
-        _ -> raise ArithmeticError, message: "bad argument in arithmetic expression"
+        _ -> {:error, nil}
+    end
+    case result do
+    	{:ok, x} -> x
+      {:error, _} -> raise ArithmeticError, message: "bad argument in arithmetic expression"
     end
   end
 

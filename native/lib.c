@@ -3,12 +3,16 @@
 #include "loader.c"
 
 static ERL_NIF_TERM arithmetic_error;
+static ERL_NIF_TERM ok_atom;
 static ERL_NIF_TERM error_atom;
+static ERL_NIF_TERM nil_atom;
 
 static void init_nif_llvm(ErlNifEnv *env)
 {
 	arithmetic_error = enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+	ok_atom = enif_make_atom(env, "ok");
 	error_atom = enif_make_atom(env, "error");
+	nil_atom = enif_make_atom(env, "nil");
 }
 
 static
@@ -27,11 +31,11 @@ ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 		goto error2;
 	}
 
-	return enif_make_int64(env, result);
+	return enif_make_tuple2(env, ok_atom, enif_make_int64(env, result));
 error:
 	return arithmetic_error;
 error2:
-	return error_atom;
+	return enif_make_tuple2(env, error_atom, nil_atom);
 }
 
 static
@@ -46,7 +50,7 @@ ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 		goto error;
 	}
 	double result = ((double)a) + b;
-	return enif_make_double(env, result);
+	return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
 error:
 	return arithmetic_error;
 }
@@ -63,7 +67,7 @@ ERL_NIF_TERM asm_1_nif_fi(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 		goto error;
 	}
 	double result = a + ((double) b);
-	return enif_make_double(env, result);
+	return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
 error:
 	return arithmetic_error;
 }
@@ -79,7 +83,7 @@ ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 		goto error;
 	}
 	double result = a + b;
-	return enif_make_double(env, result);
+	return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
 error:
 	return arithmetic_error;
 }
