@@ -1,5 +1,5 @@
 defmodule NifLlvm do
-	require OK
+  require OK
   require Asm
   import Asm
 
