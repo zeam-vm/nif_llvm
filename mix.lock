@@ -1,3 +1,4 @@
 %{
-  "asm": {:hex, :asm, "0.0.3", "27b690e217bffa3df7420851e468a25c0014f3d23d82a0dd454a3604a4134d63", [:mix], [], "hexpm"},
+  "asm": {:hex, :asm, "0.0.4", "a03ea28fc5846ba4f10088137a85c13867250119c7f0c5c58ef9328af85aab1a", [:mix], [{:constants, "~> 0.1.0", [hex: :constants, repo: "hexpm", optional: false]}], "hexpm"},
+  "constants": {:hex, :constants, "0.1.0", "750b27c3389400158cfaf4ed91dfcc7fcb4cd640c9a5e7e923897519eba6e812", [:mix], [], "hexpm"},
 }

@@ -2,9 +2,6 @@ defmodule NifLlvm do
   require Asm
   import Asm
 
-  @max_int 9_223_372_036_854_775_807
-  @min_int -9_223_372_036_854_775_808
-
   @on_load :load_nifs
 
   def load_nifs do
@@ -20,15 +17,15 @@ defmodule NifLlvm do
     IO.puts asm_1(1.0, 2)
     IO.puts asm_1(1, 2.0)
     IO.puts asm_1(1.0, 2.0)
-    IO.puts asm_1(@max_int, 0)
-    IO.puts asm_1(@min_int, 0)
+    IO.puts asm_1(Asm.max_int, 0)
+    IO.puts asm_1(Asm.min_int, 0)
     try do
-      IO.puts asm_1(@max_int, 1)
+      IO.puts asm_1(Asm.max_int, 1)
     rescue
       error in [ArithmeticError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
     end
     try do
-      IO.puts asm_1(@max_int + 1, 1)
+      IO.puts asm_1(Asm.max_int + 1, 1)
     rescue
       error in [ArithmeticError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
     end
