@@ -13,8 +13,8 @@ target triple = "x86_64-apple-macosx10.12.0"
 @ok_atom = internal unnamed_addr global i64 0, align 8, !dbg !81
 @.str.2 = private unnamed_addr constant [6 x i8] c"error\00", align 1
 @error_atom = internal unnamed_addr global i64 0, align 8, !dbg !83
-@.str.3 = private unnamed_addr constant [4 x i8] c"nil\00", align 1
-@nil_atom = internal unnamed_addr global i64 0, align 8, !dbg !85
+@.str.3 = private unnamed_addr constant [17 x i8] c"arithmetic_error\00", align 1
+@arithmetic_error_atom = internal unnamed_addr global i64 0, align 8, !dbg !85
 @.str.4 = private unnamed_addr constant [13 x i8] c"asm_1_nif_ii\00", align 1
 @.str.5 = private unnamed_addr constant [13 x i8] c"asm_1_nif_if\00", align 1
 @.str.6 = private unnamed_addr constant [13 x i8] c"asm_1_nif_fi\00", align 1
@@ -40,8 +40,8 @@ define internal i32 @load(%struct.enif_environment_t*, i8** nocapture readnone, 
   store i64 %6, i64* @ok_atom, align 8, !dbg !116, !tbaa !111
   %7 = tail call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str.2, i64 0, i64 0)) #6, !dbg !117
   store i64 %7, i64* @error_atom, align 8, !dbg !118, !tbaa !111
-  %8 = tail call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.3, i64 0, i64 0)) #6, !dbg !119
-  store i64 %8, i64* @nil_atom, align 8, !dbg !120, !tbaa !111
+  %8 = tail call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([17 x i8], [17 x i8]* @.str.3, i64 0, i64 0)) #6, !dbg !119
+  store i64 %8, i64* @arithmetic_error_atom, align 8, !dbg !120, !tbaa !111
   ret i32 0, !dbg !121
 }
 
@@ -77,8 +77,8 @@ define internal i32 @upgrade(%struct.enif_environment_t*, i8** nocapture readnon
   store i64 %7, i64* @ok_atom, align 8, !dbg !158, !tbaa !111
   %8 = tail call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str.2, i64 0, i64 0)) #6, !dbg !159
   store i64 %8, i64* @error_atom, align 8, !dbg !160, !tbaa !111
-  %9 = tail call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([4 x i8], [4 x i8]* @.str.3, i64 0, i64 0)) #6, !dbg !161
-  store i64 %9, i64* @nil_atom, align 8, !dbg !162, !tbaa !111
+  %9 = tail call i64 @enif_make_atom(%struct.enif_environment_t* %0, i8* getelementptr inbounds ([17 x i8], [17 x i8]* @.str.3, i64 0, i64 0)) #6, !dbg !161
+  store i64 %9, i64* @arithmetic_error_atom, align 8, !dbg !162, !tbaa !111
   ret i32 0, !dbg !163
 }
 
@@ -137,7 +137,7 @@ define internal i64 @asm_1_nif_ii(%struct.enif_environment_t*, i32, i64* nocaptu
 
 ; <label>:28:                                     ; preds = %16
   %29 = load i64, i64* @error_atom, align 8, !dbg !214, !tbaa !111
-  %30 = load i64, i64* @nil_atom, align 8, !dbg !215, !tbaa !111
+  %30 = load i64, i64* @arithmetic_error_atom, align 8, !dbg !215, !tbaa !111
   call void @llvm.dbg.value(metadata %struct.enif_environment_t* %0, metadata !198, metadata !DIExpression()) #6, !dbg !216
   call void @llvm.dbg.value(metadata i64 %29, metadata !204, metadata !DIExpression()) #6, !dbg !218
   call void @llvm.dbg.value(metadata i64 %30, metadata !205, metadata !DIExpression()) #6, !dbg !219
@@ -429,7 +429,7 @@ attributes #6 = { nounwind }
 !83 = !DIGlobalVariableExpression(var: !84, expr: !DIExpression())
 !84 = distinct !DIGlobalVariable(name: "error_atom", scope: !2, file: !3, line: 7, type: !31, isLocal: true, isDefinition: true)
 !85 = !DIGlobalVariableExpression(var: !86, expr: !DIExpression())
-!86 = distinct !DIGlobalVariable(name: "nil_atom", scope: !2, file: !3, line: 8, type: !31, isLocal: true, isDefinition: true)
+!86 = distinct !DIGlobalVariable(name: "arithmetic_error_atom", scope: !2, file: !3, line: 8, type: !31, isLocal: true, isDefinition: true)
 !87 = !{i32 2, !"Dwarf Version", i32 4}
 !88 = !{i32 2, !"Debug Info Version", i32 3}
 !89 = !{i32 1, !"wchar_size", i32 4}
@@ -462,8 +462,8 @@ attributes #6 = { nounwind }
 !116 = !DILocation(line: 13, column: 10, scope: !102, inlinedAt: !107)
 !117 = !DILocation(line: 14, column: 15, scope: !102, inlinedAt: !107)
 !118 = !DILocation(line: 14, column: 13, scope: !102, inlinedAt: !107)
-!119 = !DILocation(line: 15, column: 13, scope: !102, inlinedAt: !107)
-!120 = !DILocation(line: 15, column: 11, scope: !102, inlinedAt: !107)
+!119 = !DILocation(line: 15, column: 26, scope: !102, inlinedAt: !107)
+!120 = !DILocation(line: 15, column: 24, scope: !102, inlinedAt: !107)
 !121 = !DILocation(line: 9, column: 3, scope: !92)
 !122 = distinct !DISubprogram(name: "unload", scope: !93, file: !93, line: 13, type: !72, isLocal: true, isDefinition: true, scopeLine: 14, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !123)
 !123 = !{!124, !125}
@@ -504,8 +504,8 @@ attributes #6 = { nounwind }
 !158 = !DILocation(line: 13, column: 10, scope: !102, inlinedAt: !153)
 !159 = !DILocation(line: 14, column: 15, scope: !102, inlinedAt: !153)
 !160 = !DILocation(line: 14, column: 13, scope: !102, inlinedAt: !153)
-!161 = !DILocation(line: 15, column: 13, scope: !102, inlinedAt: !153)
-!162 = !DILocation(line: 15, column: 11, scope: !102, inlinedAt: !153)
+!161 = !DILocation(line: 15, column: 26, scope: !102, inlinedAt: !153)
+!162 = !DILocation(line: 15, column: 24, scope: !102, inlinedAt: !153)
 !163 = !DILocation(line: 26, column: 3, scope: !138)
 !164 = distinct !DISubprogram(name: "asm_1_nif_ii", scope: !3, file: !3, line: 19, type: !29, isLocal: true, isDefinition: true, scopeLine: 20, flags: DIFlagPrototyped, isOptimized: true, unit: !2, variables: !165)
 !165 = !{!166, !167, !168, !169, !171, !172}

@@ -5,14 +5,14 @@
 static ERL_NIF_TERM arithmetic_error;
 static ERL_NIF_TERM ok_atom;
 static ERL_NIF_TERM error_atom;
-static ERL_NIF_TERM nil_atom;
+static ERL_NIF_TERM arithmetic_error_atom;
 
 static void init_nif_llvm(ErlNifEnv *env)
 {
 	arithmetic_error = enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
 	ok_atom = enif_make_atom(env, "ok");
 	error_atom = enif_make_atom(env, "error");
-	nil_atom = enif_make_atom(env, "nil");
+	arithmetic_error_atom = enif_make_atom(env, "arithmetic_error");
 }
 
 static
@@ -35,7 +35,7 @@ ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 error:
 	return arithmetic_error;
 error2:
-	return enif_make_tuple2(env, error_atom, nil_atom);
+	return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
 }
 
 static
