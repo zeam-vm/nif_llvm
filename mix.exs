@@ -22,7 +22,8 @@ defmodule NifLlvm.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:asm, "~> 0.0.4"}
+      {:asm, "~> 0.0.4"},
+      {:ok, "~> 2.0"}
     ]
   end
 end
