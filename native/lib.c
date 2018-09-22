@@ -9,83 +9,84 @@ static ERL_NIF_TERM arithmetic_error_atom;
 
 static void init_nif_llvm(ErlNifEnv *env)
 {
-	arithmetic_error = enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
-	ok_atom = enif_make_atom(env, "ok");
-	error_atom = enif_make_atom(env, "error");
-	arithmetic_error_atom = enif_make_atom(env, "arithmetic_error");
+  arithmetic_error = enif_raise_exception(env, enif_make_atom(env, "ArithmeticError"));
+  ok_atom = enif_make_atom(env, "ok");
+  error_atom = enif_make_atom(env, "error");
+  arithmetic_error_atom = enif_make_atom(env, "arithmetic_error");
 }
 
 static
 ERL_NIF_TERM asm_1_nif_ii(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
-	long a, b;
-	if(__builtin_expect((enif_get_int64(env, argv[0], &a) == 0), 0)) {
-		goto error;
-	}
-	if(__builtin_expect((enif_get_int64(env, argv[1], &b) == 0), 0)) {
-		goto error;
-	}
-	long result;
+  long a, b;
+  if(__builtin_expect((enif_get_int64(env, argv[0], &a) == 0), 0)) {
+    goto error;
+  }
+  if(__builtin_expect((enif_get_int64(env, argv[1], &b) == 0), 0)) {
+    goto error;
+  }
 
-	if(__builtin_expect(__builtin_saddl_overflow(a, b, &result), 0)) {
-		goto error2;
-	}
+  long result;
 
-	return enif_make_tuple2(env, ok_atom, enif_make_int64(env, result));
+  if(__builtin_expect(__builtin_saddl_overflow(a, b, &result), 0)) {
+    goto error2;
+  }
+
+  return enif_make_tuple2(env, ok_atom, enif_make_int64(env, result));
 error:
-	return arithmetic_error;
+  return arithmetic_error;
 error2:
-	return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
+  return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
 }
 
 static
 ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
-	long a;
-	double b;
-	if(__builtin_expect((enif_get_int64(env, argv[0], &a) == 0), 0)) {
-		goto error;
-	}
-	if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
-		goto error;
-	}
-	double result = ((double)a) + b;
-	return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
+  long a;
+  double b;
+  if(__builtin_expect((enif_get_int64(env, argv[0], &a) == 0), 0)) {
+    goto error;
+  }
+  if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
+    goto error;
+  }
+  double result = ((double)a) + b;
+  return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
 error:
-	return arithmetic_error;
+  return arithmetic_error;
 }
 
 static
 ERL_NIF_TERM asm_1_nif_fi(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
-	double a;
-	long b;
-	if(__builtin_expect((enif_get_double(env, argv[0], &a) == 0), 0)) {
-		goto error;
-	}
-	if(__builtin_expect((enif_get_int64(env, argv[1], &b) == 0), 0)) {
-		goto error;
-	}
-	double result = a + ((double) b);
-	return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
+  double a;
+  long b;
+  if(__builtin_expect((enif_get_double(env, argv[0], &a) == 0), 0)) {
+    goto error;
+  }
+  if(__builtin_expect((enif_get_int64(env, argv[1], &b) == 0), 0)) {
+    goto error;
+  }
+  double result = a + ((double) b);
+  return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
 error:
-	return arithmetic_error;
+  return arithmetic_error;
 }
 
 static
 ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
-	double a, b;
-	if(__builtin_expect((enif_get_double(env, argv[0], &a) == 0), 0)) {
-		goto error;
-	}
-	if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
-		goto error;
-	}
-	double result = a + b;
-	return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
+  double a, b;
+  if(__builtin_expect((enif_get_double(env, argv[0], &a) == 0), 0)) {
+    goto error;
+  }
+  if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
+    goto error;
+  }
+  double result = a + b;
+  return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
 error:
-	return arithmetic_error;
+  return arithmetic_error;
 }
 
 static
