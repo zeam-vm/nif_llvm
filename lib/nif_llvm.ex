@@ -35,10 +35,11 @@ defmodule NifLlvm do
   def asm_1(a, b) do
     OK.try do
       result <- case {a, b} do
-        {a, b} when is_int64(a) and is_int64(b) -> asm_1_nif_ii(a, b)
-        {a, b} when is_int64(a) and is_float(b) -> asm_1_nif_if(a, b)
-        {a, b} when is_float(a) and is_int64(b) -> asm_1_nif_fi(a, b)
-        {a, b} when is_float(a) and is_float(b) -> asm_1_nif_ff(a, b)
+        {a, b} when is_int64(a)  and is_int64(b)  -> asm_1_nif_ii(a, b)
+        {a, b} when is_uint64(a) and is_uint64(b) -> asm_1_nif_uu(a, b)
+        {a, b} when is_int64(a)  and is_float(b)  -> asm_1_nif_if(a, b)
+        {a, b} when is_float(a)  and is_int64(b)  -> asm_1_nif_fi(a, b)
+        {a, b} when is_float(a)  and is_float(b)  -> asm_1_nif_ff(a, b)
         _ -> {:error, :arithmetic_error}
       end
     after
@@ -48,9 +49,10 @@ defmodule NifLlvm do
     end
   end
 
-  def asm_1_nif_ii(a, b) when is_int64(a) and is_int64(b), do: raise "NIF asm_1_nif_ii/2 not implemented"
-  def asm_1_nif_if(a, b) when is_int64(a) and is_float(b), do: raise "NIF asm_1_nif_if/2 not implemented"
-  def asm_1_nif_fi(a, b) when is_float(a) and is_int64(b), do: raise "NIF asm_1_nif_fi/2 not implemented"
-  def asm_1_nif_ff(a, b) when is_float(a) and is_float(b), do: raise "NIF asm_1_nif_ff/2 not implemented"
+  def asm_1_nif_ii(a, b) when is_int64(a)  and is_int64(b),  do: raise "NIF asm_1_nif_ii/2 not implemented"
+  def asm_1_nif_uu(a, b) when is_uint64(a) and is_uint64(b), do: raise "NIF asm_1_nif_uu/2 not implemented"
+  def asm_1_nif_if(a, b) when is_int64(a)  and is_float(b),  do: raise "NIF asm_1_nif_if/2 not implemented"
+  def asm_1_nif_fi(a, b) when is_float(a)  and is_int64(b),  do: raise "NIF asm_1_nif_fi/2 not implemented"
+  def asm_1_nif_ff(a, b) when is_float(a)  and is_float(b),  do: raise "NIF asm_1_nif_ff/2 not implemented"
 
 end

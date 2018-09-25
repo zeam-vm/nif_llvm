@@ -39,6 +39,31 @@ error2:
   return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
 }
 
+
+static
+ERL_NIF_TERM asm_1_nif_uu(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
+  unsigned long a, b;
+  if(__builtin_expect((enif_get_uint64(env, argv[0], &a) == 0), 0)) {
+    goto error;
+  }
+  if(__builtin_expect((enif_get_uint64(env, argv[1], &b) == 0), 0)) {
+    goto error;
+  }
+
+  unsigned long result;
+
+  if(__builtin_expect(__builtin_saddl_overflow(a, b, &result), 0)) {
+    goto error2;
+  }
+
+  return enif_make_tuple2(env, ok_atom, enif_make_uint64(env, result));
+error:
+  return arithmetic_error;
+error2:
+  return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
+}
+
 static
 ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
@@ -94,6 +119,7 @@ ErlNifFunc nif_funcs[] =
 {
   // {erl_function_name, erl_function_arity, c_function}
   {"asm_1_nif_ii", 2, asm_1_nif_ii},
+  {"asm_1_nif_uu", 2, asm_1_nif_uu},
   {"asm_1_nif_if", 2, asm_1_nif_if},
   {"asm_1_nif_fi", 2, asm_1_nif_fi},
   {"asm_1_nif_ff", 2, asm_1_nif_ff}
