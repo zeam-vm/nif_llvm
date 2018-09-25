@@ -53,7 +53,7 @@ ERL_NIF_TERM asm_1_nif_uu(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 
   unsigned long result;
 
-  if(__builtin_expect(__builtin_saddl_overflow(a, b, &result), 0)) {
+  if(__builtin_expect(__builtin_uaddl_overflow(a, b, &result), 0)) {
     goto error2;
   }
 
@@ -70,6 +70,24 @@ ERL_NIF_TERM asm_1_nif_if(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
   long a;
   double b;
   if(__builtin_expect((enif_get_int64(env, argv[0], &a) == 0), 0)) {
+    goto error;
+  }
+  if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
+    goto error;
+  }
+  double result = ((double)a) + b;
+  return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
+error:
+  return arithmetic_error;
+}
+
+
+static
+ERL_NIF_TERM asm_1_nif_uf(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
+  unsigned long a;
+  double b;
+  if(__builtin_expect((enif_get_uint64(env, argv[0], &a) == 0), 0)) {
     goto error;
   }
   if(__builtin_expect((enif_get_double(env, argv[1], &b) == 0), 0)) {
@@ -99,6 +117,22 @@ error:
 }
 
 static
+ERL_NIF_TERM asm_1_nif_fu(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
+  double a;
+  unsigned long b;
+  if(__builtin_expect((enif_get_double(env, argv[0], &a) == 0), 0)) {
+    goto error;
+  }
+  if(__builtin_expect((enif_get_uint64(env, argv[1], &b) == 0), 0)) {
+    goto error;
+  }
+  double result = a + ((double) b);
+  return enif_make_tuple2(env, ok_atom, enif_make_double(env, result));
+error:
+  return arithmetic_error;
+}
+static
 ERL_NIF_TERM asm_1_nif_ff(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
   double a, b;
@@ -121,7 +155,9 @@ ErlNifFunc nif_funcs[] =
   {"asm_1_nif_ii", 2, asm_1_nif_ii},
   {"asm_1_nif_uu", 2, asm_1_nif_uu},
   {"asm_1_nif_if", 2, asm_1_nif_if},
+  {"asm_1_nif_uf", 2, asm_1_nif_uf},
   {"asm_1_nif_fi", 2, asm_1_nif_fi},
+  {"asm_1_nif_fu", 2, asm_1_nif_fu},
   {"asm_1_nif_ff", 2, asm_1_nif_ff}
 };
 
