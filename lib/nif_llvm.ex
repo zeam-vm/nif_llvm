@@ -30,16 +30,24 @@ defmodule NifLlvm do
     rescue
       error in [ArithmeticError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
     end
+    try do
+      IO.puts asm_1(Asm.max_uint + 1, 1)
+    rescue
+      error in [ArithmeticError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+    end
   end
 
   def asm_1(a, b) do
     OK.try do
       result <- case {a, b} do
-        {a, b} when is_int64(a)  and is_int64(b)  -> asm_1_nif_ii(a, b)
-        {a, b} when is_uint64(a) and is_uint64(b) -> asm_1_nif_uu(a, b)
-        {a, b} when is_int64(a)  and is_float(b)  -> asm_1_nif_if(a, b)
-        {a, b} when is_float(a)  and is_int64(b)  -> asm_1_nif_fi(a, b)
-        {a, b} when is_float(a)  and is_float(b)  -> asm_1_nif_ff(a, b)
+        {a, b} when is_int64(a)   and is_int64(b)   -> asm_1_nif_ii(a, b)
+        {a, b} when is_uint64(a)  and is_uint64(b)  -> asm_1_nif_uu(a, b)
+        {a, b} when is_integer(a) and is_integer(b) -> 
+          IO.puts "need BigNum"
+          {:error, :arithmetic_error}
+        {a, b} when is_int64(a)   and is_float(b)   -> asm_1_nif_if(a, b)
+        {a, b} when is_float(a)   and is_int64(b)   -> asm_1_nif_fi(a, b)
+        {a, b} when is_float(a)   and is_float(b)   -> asm_1_nif_ff(a, b)
         _ -> {:error, :arithmetic_error}
       end
     after
