@@ -2,6 +2,62 @@
 #include "erl_nif.h"
 #include "loader.c"
 
+typedef struct vector {
+  int size;
+  int *value;
+} VECTOR;
+
+int enif_get_big_num(ErlNifEnv *env, ERL_NIF_TERM term, VECTOR **value)
+{
+  int tuple_arity;
+  const ERL_NIF_TERM *tuple;
+  if(__builtin_expect((enif_get_tuple(env, term, &tuple_arity, &tuple) == 0), 0)) {
+    return 0;
+  }
+  if(__builtin_expect(tuple_arity != 2, 0)) {
+    return 0;
+  }
+  unsigned is_negative;
+  if(__builtin_expect((enif_get_int(env, tuple[0], &is_negative) == 0), 0)) {
+    return 0;
+  }
+  int length;
+  if(__builtin_expect((enif_get_list_length(env, tuple[1], &length) == 0), 0)) {
+    return 0;
+  }
+  if(__builtin_expect((length == 0), 0)) {
+    return 0;
+  }
+  ERL_NIF_TERM head, tail;
+  if(__builtin_expect((enif_get_list_cell(env, tuple[1], &head, &tail) == 0), 0)) {
+    return 0;
+  }
+  unsigned long *v = (unsigned long *)enif_alloc(sizeof(unsigned long) * length);
+  if(__builtin_expect((v == NULL), 0)) {
+    return 0;
+  }
+  *value = (VECTOR *)enif_alloc(sizeof(VECTOR));
+  if(__builtin_expect((*value == NULL), 0)) {
+    enif_free(v);
+    return 0;
+  }
+  for(int i = 0; i < length; i++) {
+    if(__builtin_expect((enif_get_uint64(env, head, &v[i]) == 0), 0)) {
+      enif_free(v);
+      return 0;
+    }
+    if(__builtin_expect((enif_get_list_cell(env, tail, &head, &tail) == 0), 0)) {
+      if(i + 1 < length) {
+        enif_free(v);
+        return 0;
+      }
+    }
+  }
+  (*value)->size = length;
+  (*value)->value = v;
+  return 1;
+}
+
 static ERL_NIF_TERM arithmetic_error;
 static ERL_NIF_TERM ok_atom;
 static ERL_NIF_TERM error_atom;
@@ -61,6 +117,19 @@ ERL_NIF_TERM asm_1_nif_uu(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 error:
   return arithmetic_error;
 error2:
+  return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
+}
+
+static
+ERL_NIF_TERM asm_1_nif_bb(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
+{
+  VECTOR *a;
+  if(__builtin_expect((enif_get_big_num(env, argv[0], &a) == 0), 0)) {
+    return arithmetic_error;
+  }
+  //ERL_NIF_TERM result = enif_make_bignum(env, a);
+  enif_free(a->value);
+  enif_free(a);
   return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
 }
 
@@ -154,6 +223,7 @@ ErlNifFunc nif_funcs[] =
   // {erl_function_name, erl_function_arity, c_function}
   {"asm_1_nif_ii", 2, asm_1_nif_ii},
   {"asm_1_nif_uu", 2, asm_1_nif_uu},
+  {"asm_1_nif_bb", 2, asm_1_nif_bb},
   {"asm_1_nif_if", 2, asm_1_nif_if},
   {"asm_1_nif_uf", 2, asm_1_nif_uf},
   {"asm_1_nif_fi", 2, asm_1_nif_fi},

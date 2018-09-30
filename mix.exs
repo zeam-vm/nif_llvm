@@ -5,7 +5,7 @@ defmodule NifLlvm.MixProject do
     [
       app: :nif_llvm,
       version: "0.1.0",
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       compilers: [:nif_llvm] ++ Mix.compilers,
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -22,7 +22,7 @@ defmodule NifLlvm.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:asm, "~> 0.0.7"},
+      {:asm, "~> 0.0.9"},
       {:ok, "~> 2.0"}
     ]
   end

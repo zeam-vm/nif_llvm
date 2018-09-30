@@ -1,5 +1,5 @@
 %{
-  "asm": {:hex, :asm, "0.0.7", "09b9bd6a4b7de82c9e8b9ed81c16d5bd0c5b8fa4dec848128cc9c92ddae464a5", [:mix], [{:constants, "~> 0.1.0", [hex: :constants, repo: "hexpm", optional: false]}], "hexpm"},
+  "asm": {:hex, :asm, "0.0.9", "1563f3f6bc69d6f3f6c696bbbebcf15f6ae3355c93a73bb56bf5d4336617ebe3", [:mix], [{:constants, "~> 0.1.0", [hex: :constants, repo: "hexpm", optional: false]}], "hexpm"},
   "constants": {:hex, :constants, "0.1.0", "750b27c3389400158cfaf4ed91dfcc7fcb4cd640c9a5e7e923897519eba6e812", [:mix], [], "hexpm"},
   "ok": {:hex, :ok, "2.0.0", "bbfa96d5c35956b8a687aa1513a08f1287f77993a7b5554cd3db33c19c9e76fa", [:mix], [], "hexpm"},
 }

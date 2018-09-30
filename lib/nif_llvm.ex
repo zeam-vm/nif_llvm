@@ -2,6 +2,7 @@ defmodule NifLlvm do
   require OK
   require Asm
   import Asm
+  use Bitwise
 
   @on_load :load_nifs
 
@@ -44,9 +45,7 @@ defmodule NifLlvm do
       result <- case {a, b} do
         {a, b} when is_int64(a)   and is_int64(b)   -> asm_1_nif_ii(a, b)
         {a, b} when is_uint64(a)  and is_uint64(b)  -> asm_1_nif_uu(a, b)
-        {a, b} when is_integer(a) and is_integer(b) -> 
-          IO.puts "need BigNum"
-          {:error, :arithmetic_error}
+        {a, b} when is_integer(a) and is_integer(b) -> asm_1_nif_bb(Asm.BigNum.from_int(a), Asm.BigNum.from_int(b))
 
         {a, b} when is_int64(a)   and is_float(b)   -> asm_1_nif_if(a, b)
         {a, b} when is_uint64(a)  and is_float(b)   -> asm_1_nif_uf(a, b)
@@ -72,6 +71,7 @@ defmodule NifLlvm do
 
   def asm_1_nif_ii(a, b) when is_int64(a)  and is_int64(b),  do: raise "NIF asm_1_nif_ii/2 not implemented"
   def asm_1_nif_uu(a, b) when is_uint64(a) and is_uint64(b), do: raise "NIF asm_1_nif_uu/2 not implemented"
+  def asm_1_nif_bb(_a, _b), do: raise "NIF asm_1_nif_bb/2 not implemented"
   def asm_1_nif_if(a, b) when is_int64(a)  and is_float(b),  do: raise "NIF asm_1_nif_if/2 not implemented"
   def asm_1_nif_uf(a, b) when is_uint64(a) and is_float(b),  do: raise "NIF asm_1_nif_uf/2 not implemented"
   def asm_1_nif_fi(a, b) when is_float(a)  and is_int64(b),  do: raise "NIF asm_1_nif_fi/2 not implemented"
