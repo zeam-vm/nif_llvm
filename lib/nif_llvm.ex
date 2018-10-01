@@ -15,29 +15,25 @@ defmodule NifLlvm do
   """
 
   def main do
-    IO.puts asm_1(1, 2)
-    IO.puts asm_1(1.0, 2)
-    IO.puts asm_1(1, 2.0)
-    IO.puts asm_1(1.0, 2.0)
-    IO.puts asm_1(Asm.max_int, 0)
-    IO.puts asm_1(Asm.min_int, 0)
+    IO.puts "1 + 2 = #{asm_1(1, 2)}"
+    IO.puts "1.0 + 2 = #{asm_1(1.0, 2)}"
+    IO.puts "1 + 2.0 = #{asm_1(1, 2.0)}"
+    IO.puts "1.0 + 2.0 = #{asm_1(1.0, 2.0)}"
+    IO.puts "#{Asm.max_int} + 0 = #{asm_1(Asm.max_int, 0)}"
+    IO.puts "#{Asm.min_int} + 0 = #{asm_1(Asm.min_int, 0)}"
 
     try do
-      IO.puts asm_1(Asm.max_int, 1)
+      IO.puts "#{Asm.max_int} + 1 = #{asm_1(Asm.max_int, 1)}"
     rescue
-      error in [ArithmeticError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
+      error in [ArithmeticError] -> IO.puts "#{Asm.max_int} + 1 needs BigNum!: #{Exception.message(error)}"
     end
 
-    IO.puts asm_1(Asm.max_int + 1, 1)
+    IO.puts "#{Asm.max_int + 1} + 1 = #{asm_1(Asm.max_int + 1, 1)}"
 
-    try do
-      IO.puts asm_1(Asm.max_uint + 1, 1)
-    rescue
-      error in [ArithmeticError] -> IO.puts "it needs BigNum!: #{Exception.message(error)}"
-    end
+    IO.puts "#{Asm.max_uint + 1} + 1 = #{asm_1(Asm.max_uint + 1, 1)}"
 
-    IO.puts asm_1(Asm.max_int + 1, 1.0)
-    IO.puts asm_1(1.0, Asm.max_int + 1)
+    IO.puts "#{Asm.max_int + 1} + 1.0 = #{asm_1(Asm.max_int + 1, 1.0)}"
+    IO.puts "1.0 + #{Asm.max_int + 1} = #{asm_1(1.0, Asm.max_int + 1)}"
   end
 
   def asm_1(a, b) do
@@ -63,7 +59,10 @@ defmodule NifLlvm do
         _ -> {:error, :arithmetic_error}
       end
     after
-      result
+      case result do
+      	x when is_number(x) -> x
+      	x when is_tuple(x)  -> Asm.BigNum.to_int(x)
+      end
     rescue
       :arithmetic_error -> raise ArithmeticError, message: "bad argument in arithmetic expression"
     end

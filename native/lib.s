@@ -29,34 +29,34 @@ Ltmp0:
 Ltmp1:
 	##DEBUG_VALUE: init_nif_llvm:env <- $rbx
 	##DEBUG_VALUE: load:env <- $rbx
-	.loc	3 68 48 prologue_end    ## native/lib.c:68:48
+	.loc	3 79 48 prologue_end    ## native/lib.c:79:48
 	leaq	L_.str(%rip), %rsi
 Ltmp2:
 	callq	_enif_make_atom
 Ltmp3:
-	.loc	3 68 22 is_stmt 0       ## native/lib.c:68:22
+	.loc	3 79 22 is_stmt 0       ## native/lib.c:79:22
 	movq	%rbx, %rdi
 	movq	%rax, %rsi
 	callq	_enif_raise_exception
-	.loc	3 68 20                 ## native/lib.c:68:20
+	.loc	3 79 20                 ## native/lib.c:79:20
 	movq	%rax, _arithmetic_error(%rip)
-	.loc	3 69 13 is_stmt 1       ## native/lib.c:69:13
+	.loc	3 80 13 is_stmt 1       ## native/lib.c:80:13
 	leaq	L_.str.1(%rip), %rsi
 	movq	%rbx, %rdi
 	callq	_enif_make_atom
-	.loc	3 69 11 is_stmt 0       ## native/lib.c:69:11
+	.loc	3 80 11 is_stmt 0       ## native/lib.c:80:11
 	movq	%rax, _ok_atom(%rip)
-	.loc	3 70 16 is_stmt 1       ## native/lib.c:70:16
+	.loc	3 81 16 is_stmt 1       ## native/lib.c:81:16
 	leaq	L_.str.2(%rip), %rsi
 	movq	%rbx, %rdi
 	callq	_enif_make_atom
-	.loc	3 70 14 is_stmt 0       ## native/lib.c:70:14
+	.loc	3 81 14 is_stmt 0       ## native/lib.c:81:14
 	movq	%rax, _error_atom(%rip)
-	.loc	3 71 27 is_stmt 1       ## native/lib.c:71:27
+	.loc	3 82 27 is_stmt 1       ## native/lib.c:82:27
 	leaq	L_.str.3(%rip), %rsi
 	movq	%rbx, %rdi
 	callq	_enif_make_atom
-	.loc	3 71 25 is_stmt 0       ## native/lib.c:71:25
+	.loc	3 82 25 is_stmt 0       ## native/lib.c:82:25
 	movq	%rax, _arithmetic_error_atom(%rip)
 Ltmp4:
 	.loc	6 9 3 is_stmt 1         ## native/loader.c:9:3
@@ -142,34 +142,34 @@ Ltmp12:
 	##DEBUG_VALUE: init_nif_llvm:env <- $rbx
 	##DEBUG_VALUE: load:env <- $rbx
 	##DEBUG_VALUE: upgrade:env <- $rbx
-	.loc	3 68 48 prologue_end    ## native/lib.c:68:48
+	.loc	3 79 48 prologue_end    ## native/lib.c:79:48
 	leaq	L_.str(%rip), %rsi
 Ltmp13:
 	callq	_enif_make_atom
 Ltmp14:
-	.loc	3 68 22 is_stmt 0       ## native/lib.c:68:22
+	.loc	3 79 22 is_stmt 0       ## native/lib.c:79:22
 	movq	%rbx, %rdi
 	movq	%rax, %rsi
 	callq	_enif_raise_exception
-	.loc	3 68 20                 ## native/lib.c:68:20
+	.loc	3 79 20                 ## native/lib.c:79:20
 	movq	%rax, _arithmetic_error(%rip)
-	.loc	3 69 13 is_stmt 1       ## native/lib.c:69:13
+	.loc	3 80 13 is_stmt 1       ## native/lib.c:80:13
 	leaq	L_.str.1(%rip), %rsi
 	movq	%rbx, %rdi
 	callq	_enif_make_atom
-	.loc	3 69 11 is_stmt 0       ## native/lib.c:69:11
+	.loc	3 80 11 is_stmt 0       ## native/lib.c:80:11
 	movq	%rax, _ok_atom(%rip)
-	.loc	3 70 16 is_stmt 1       ## native/lib.c:70:16
+	.loc	3 81 16 is_stmt 1       ## native/lib.c:81:16
 	leaq	L_.str.2(%rip), %rsi
 	movq	%rbx, %rdi
 	callq	_enif_make_atom
-	.loc	3 70 14 is_stmt 0       ## native/lib.c:70:14
+	.loc	3 81 14 is_stmt 0       ## native/lib.c:81:14
 	movq	%rax, _error_atom(%rip)
-	.loc	3 71 27 is_stmt 1       ## native/lib.c:71:27
+	.loc	3 82 27 is_stmt 1       ## native/lib.c:82:27
 	leaq	L_.str.3(%rip), %rsi
 	movq	%rbx, %rdi
 	callq	_enif_make_atom
-	.loc	3 71 25 is_stmt 0       ## native/lib.c:71:25
+	.loc	3 82 25 is_stmt 0       ## native/lib.c:82:25
 	movq	%rax, _arithmetic_error_atom(%rip)
 Ltmp15:
 	.loc	6 26 3 is_stmt 1        ## native/loader.c:26:3
@@ -208,11 +208,14 @@ Lfunc_begin4:
 	.cfi_offset %r15, -24
 	##DEBUG_VALUE: enif_get_big_num:env <- $rdi
 	##DEBUG_VALUE: enif_get_big_num:term <- $rsi
-	##DEBUG_VALUE: enif_get_big_num:value <- $rdx
-	movq	%rdx, %r14
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $rdx
+	##DEBUG_VALUE: enif_get_big_num:value <- $rcx
+	movq	%rcx, %r14
+	movq	%rdx, %r15
 	movq	%rdi, %rbx
 Ltmp18:
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
 	##DEBUG_VALUE: enif_get_big_num:term <- $rsi
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	leaq	-60(%rbp), %rdx
@@ -231,382 +234,509 @@ Ltmp21:
 	testl	%eax, %eax
 Ltmp22:
 	.loc	3 14 6                  ## native/lib.c:14:6
-	je	LBB4_19
+	je	LBB4_20
 Ltmp23:
 ## %bb.1:
 	##DEBUG_VALUE: enif_get_big_num:tuple <- [DW_OP_constu 56, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
 	cmpl	$2, -60(%rbp)
-	jne	LBB4_19
+	jne	LBB4_20
 Ltmp24:
 ## %bb.2:
 	##DEBUG_VALUE: enif_get_big_num:tuple <- [DW_OP_constu 56, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
-	.loc	3 21 42 is_stmt 1       ## native/lib.c:21:42
+	.loc	3 20 43 is_stmt 1       ## native/lib.c:20:43
 	movq	-56(%rbp), %rax
 Ltmp25:
 	##DEBUG_VALUE: enif_get_big_num:tuple <- $rax
 	movq	(%rax), %rsi
-	leaq	-92(%rbp), %rdx
-Ltmp26:
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 21 24 is_stmt 0       ## native/lib.c:21:24
+	.loc	3 20 24 is_stmt 0       ## native/lib.c:20:24
 	movq	%rbx, %rdi
-	callq	_enif_get_int
-Ltmp27:
-	.loc	3 21 66                 ## native/lib.c:21:66
+	movq	%r15, %rdx
+	callq	_enif_get_uint
+Ltmp26:
+	.loc	3 20 66                 ## native/lib.c:20:66
 	testl	%eax, %eax
+Ltmp27:
+	.loc	3 20 6                  ## native/lib.c:20:6
+	je	LBB4_20
 Ltmp28:
-	.loc	3 21 6                  ## native/lib.c:21:6
-	je	LBB4_3
-Ltmp29:
-## %bb.4:
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
+## %bb.3:
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
-	.loc	3 25 50 is_stmt 1       ## native/lib.c:25:50
+	.loc	3 24 50 is_stmt 1       ## native/lib.c:24:50
 	movq	-56(%rbp), %rax
-Ltmp30:
+Ltmp29:
 	##DEBUG_VALUE: enif_get_big_num:tuple <- $rax
 	movq	8(%rax), %rsi
 	leaq	-44(%rbp), %rdx
-Ltmp31:
+Ltmp30:
 	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 25 24 is_stmt 0       ## native/lib.c:25:24
+	.loc	3 24 24 is_stmt 0       ## native/lib.c:24:24
 	movq	%rbx, %rdi
 	callq	_enif_get_list_length
-Ltmp32:
+Ltmp31:
 	.loc	3 0 24                  ## native/lib.c:0:24
 	xorl	%r12d, %r12d
-	.loc	3 25 69                 ## native/lib.c:25:69
+	.loc	3 24 69                 ## native/lib.c:24:69
 	testl	%eax, %eax
+Ltmp32:
+	.loc	3 24 6                  ## native/lib.c:24:6
+	je	LBB4_20
 Ltmp33:
-	.loc	3 25 6                  ## native/lib.c:25:6
-	je	LBB4_19
-Ltmp34:
-## %bb.5:
+## %bb.4:
 	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
 	.loc	3 0 6                   ## native/lib.c:0:6
 	movl	-44(%rbp), %eax
-	.loc	3 25 6                  ## native/lib.c:25:6
+	.loc	3 24 6                  ## native/lib.c:24:6
 	testl	%eax, %eax
-	je	LBB4_19
-Ltmp35:
-## %bb.6:
+	je	LBB4_20
+Ltmp34:
+## %bb.5:
 	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
-	.loc	3 32 48 is_stmt 1       ## native/lib.c:32:48
+	.loc	3 31 48 is_stmt 1       ## native/lib.c:31:48
 	movq	-56(%rbp), %rax
-Ltmp36:
+Ltmp35:
 	##DEBUG_VALUE: enif_get_big_num:tuple <- $rax
 	movq	8(%rax), %rsi
 	leaq	-80(%rbp), %rdx
-Ltmp37:
+Ltmp36:
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
 	.loc	3 0 48 is_stmt 0        ## native/lib.c:0:48
 	leaq	-72(%rbp), %rcx
-Ltmp38:
+Ltmp37:
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 32 24                 ## native/lib.c:32:24
+	.loc	3 31 24                 ## native/lib.c:31:24
 	movq	%rbx, %rdi
 	callq	_enif_get_list_cell
-Ltmp39:
+Ltmp38:
 	.loc	3 0 24                  ## native/lib.c:0:24
 	xorl	%r12d, %r12d
-	.loc	3 32 72                 ## native/lib.c:32:72
+	.loc	3 31 72                 ## native/lib.c:31:72
 	testl	%eax, %eax
+Ltmp39:
+	.loc	3 31 6                  ## native/lib.c:31:6
+	je	LBB4_20
 Ltmp40:
-	.loc	3 32 6                  ## native/lib.c:32:6
-	je	LBB4_19
+## %bb.6:
+	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
+	##DEBUG_VALUE: enif_get_big_num:value <- $r14
+	.loc	3 34 74 is_stmt 1       ## native/lib.c:34:74
+	movl	-44(%rbp), %edi
+	.loc	3 34 72 is_stmt 0       ## native/lib.c:34:72
+	shlq	$3, %rdi
+	.loc	3 34 39                 ## native/lib.c:34:39
+	callq	_enif_alloc
 Ltmp41:
+	.loc	3 35 26 is_stmt 1       ## native/lib.c:35:26
+	testq	%rax, %rax
+Ltmp42:
+	.loc	3 35 6 is_stmt 0        ## native/lib.c:35:6
+	je	LBB4_20
+Ltmp43:
 ## %bb.7:
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
-	##DEBUG_VALUE: enif_get_big_num:value <- $r14
-	.loc	3 35 74 is_stmt 1       ## native/lib.c:35:74
-	movslq	-44(%rbp), %rdi
-	.loc	3 35 72 is_stmt 0       ## native/lib.c:35:72
-	shlq	$3, %rdi
-	.loc	3 35 39                 ## native/lib.c:35:39
-	callq	_enif_alloc
-Ltmp42:
-	.loc	3 36 26 is_stmt 1       ## native/lib.c:36:26
-	testq	%rax, %rax
-Ltmp43:
-	.loc	3 36 6 is_stmt 0        ## native/lib.c:36:6
-	je	LBB4_19
-Ltmp44:
-## %bb.8:
-	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:is_negative <- $r15
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
 	.loc	3 0 6                   ## native/lib.c:0:6
 	movq	%rax, %r15
-Ltmp45:
+Ltmp44:
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
-	.loc	3 39 22 is_stmt 1       ## native/lib.c:39:22
+	.loc	3 38 22 is_stmt 1       ## native/lib.c:38:22
 	movl	$16, %edi
 	callq	_enif_alloc
-	.loc	3 39 10 is_stmt 0       ## native/lib.c:39:10
+	.loc	3 38 10 is_stmt 0       ## native/lib.c:38:10
 	movq	%rax, (%r14)
-Ltmp46:
-	.loc	3 40 31 is_stmt 1       ## native/lib.c:40:31
+Ltmp45:
+	.loc	3 39 31 is_stmt 1       ## native/lib.c:39:31
 	testq	%rax, %rax
+Ltmp46:
+	.loc	3 39 6 is_stmt 0        ## native/lib.c:39:6
+	je	LBB4_10
 Ltmp47:
-	.loc	3 40 6 is_stmt 0        ## native/lib.c:40:6
-	je	LBB4_20
-Ltmp48:
-## %bb.9:
+## %bb.8:
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
 	##DEBUG_VALUE: i <- 0
-	.loc	3 44 22 is_stmt 1       ## native/lib.c:44:22
-	movl	-44(%rbp), %ecx
+	.loc	3 43 20 is_stmt 1       ## native/lib.c:43:20
+	cmpl	$0, -44(%rbp)
+Ltmp48:
+	.loc	3 43 3 is_stmt 0        ## native/lib.c:43:3
+	je	LBB4_9
 Ltmp49:
-	##DEBUG_VALUE: enif_get_big_num:length <- $ecx
-	.loc	3 44 20 is_stmt 0       ## native/lib.c:44:20
-	testl	%ecx, %ecx
-Ltmp50:
-	.loc	3 44 3                  ## native/lib.c:44:3
-	jle	LBB4_18
-Ltmp51:
-## %bb.10:                              ## %.preheader
-	##DEBUG_VALUE: enif_get_big_num:length <- $ecx
+## %bb.11:                              ## %.preheader
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
 	.loc	3 0 3                   ## native/lib.c:0:3
 	movq	%r14, -88(%rbp)         ## 8-byte Spill
-Ltmp52:
+Ltmp50:
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
 	xorl	%r14d, %r14d
 	leaq	-80(%rbp), %r12
 	leaq	-72(%rbp), %r13
-Ltmp53:
+Ltmp51:
 	.p2align	4, 0x90
-LBB4_11:                                ## =>This Inner Loop Header: Depth=1
+LBB4_12:                                ## =>This Inner Loop Header: Depth=1
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
-	##DEBUG_VALUE: enif_get_big_num:length <- $ecx
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	##DEBUG_VALUE: i <- $r14
-	.loc	3 45 47 is_stmt 1       ## native/lib.c:45:47
+	.loc	3 44 47 is_stmt 1       ## native/lib.c:44:47
 	movq	-80(%rbp), %rsi
-Ltmp54:
+Ltmp52:
 	##DEBUG_VALUE: enif_get_big_num:head <- $rsi
-	.loc	3 45 54 is_stmt 0       ## native/lib.c:45:54
+	.loc	3 44 54 is_stmt 0       ## native/lib.c:44:54
 	leaq	(%r15,%r14,8), %rdx
-	.loc	3 45 26                 ## native/lib.c:45:26
+	.loc	3 44 26                 ## native/lib.c:44:26
 	movq	%rbx, %rdi
 	callq	_enif_get_ulong
-Ltmp55:
-	.loc	3 45 60                 ## native/lib.c:45:60
+Ltmp53:
+	.loc	3 44 60                 ## native/lib.c:44:60
 	testl	%eax, %eax
-Ltmp56:
-	.loc	3 45 8                  ## native/lib.c:45:8
-	je	LBB4_12
-Ltmp57:
-## %bb.13:                              ##   in Loop: Header=BB4_11 Depth=1
+Ltmp54:
+	.loc	3 44 8                  ## native/lib.c:44:8
+	je	LBB4_13
+Ltmp55:
+## %bb.14:                              ##   in Loop: Header=BB4_12 Depth=1
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
 	##DEBUG_VALUE: i <- $r14
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
-	.loc	3 49 50 is_stmt 1       ## native/lib.c:49:50
+	.loc	3 48 50 is_stmt 1       ## native/lib.c:48:50
 	movq	-72(%rbp), %rsi
-Ltmp58:
+Ltmp56:
 	##DEBUG_VALUE: enif_get_big_num:tail <- $rsi
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 49 26 is_stmt 0       ## native/lib.c:49:26
+	.loc	3 48 26 is_stmt 0       ## native/lib.c:48:26
 	movq	%rbx, %rdi
 	movq	%r12, %rdx
 	movq	%r13, %rcx
 	callq	_enif_get_list_cell
-	.loc	3 49 70                 ## native/lib.c:49:70
+	.loc	3 48 70                 ## native/lib.c:48:70
 	testl	%eax, %eax
-Ltmp59:
-	.loc	3 49 8                  ## native/lib.c:49:8
-	je	LBB4_15
-Ltmp60:
-## %bb.14:                              ##   in Loop: Header=BB4_11 Depth=1
+Ltmp57:
+	.loc	3 48 8                  ## native/lib.c:48:8
+	je	LBB4_16
+Ltmp58:
+## %bb.15:                              ##   in Loop: Header=BB4_12 Depth=1
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
 	##DEBUG_VALUE: i <- $r14
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
-	.loc	3 44 22 is_stmt 1       ## native/lib.c:44:22
+	.loc	3 43 22 is_stmt 1       ## native/lib.c:43:22
 	movl	-44(%rbp), %ecx
-	.loc	3 44 31 is_stmt 0       ## native/lib.c:44:31
+	.loc	3 43 31 is_stmt 0       ## native/lib.c:43:31
 	incq	%r14
-Ltmp61:
-	.loc	3 44 20                 ## native/lib.c:44:20
-	movslq	%ecx, %rax
-Ltmp62:
-LBB4_16:                                ##   in Loop: Header=BB4_11 Depth=1
+Ltmp59:
+LBB4_17:                                ##   in Loop: Header=BB4_12 Depth=1
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	##DEBUG_VALUE: enif_get_big_num:length <- $ecx
 	##DEBUG_VALUE: i <- [DW_OP_plus_uconst 1, DW_OP_stack_value] undef
-	cmpq	%rax, %r14
-Ltmp63:
-	.loc	3 44 3                  ## native/lib.c:44:3
-	jl	LBB4_11
-	jmp	LBB4_17
-Ltmp64:
-LBB4_15:                                ##   in Loop: Header=BB4_11 Depth=1
+	.loc	3 43 20                 ## native/lib.c:43:20
+	cmpq	%rcx, %r14
+Ltmp60:
+	.loc	3 43 3                  ## native/lib.c:43:3
+	jb	LBB4_12
+	jmp	LBB4_18
+Ltmp61:
+LBB4_16:                                ##   in Loop: Header=BB4_12 Depth=1
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
 	##DEBUG_VALUE: i <- $r14
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
-	.loc	3 50 12 is_stmt 1       ## native/lib.c:50:12
+	.loc	3 49 12 is_stmt 1       ## native/lib.c:49:12
 	incq	%r14
-Ltmp65:
-	.loc	3 50 18 is_stmt 0       ## native/lib.c:50:18
+Ltmp62:
+	.loc	3 49 18 is_stmt 0       ## native/lib.c:49:18
 	movl	-44(%rbp), %ecx
-Ltmp66:
+Ltmp63:
 	##DEBUG_VALUE: enif_get_big_num:length <- $ecx
-	.loc	3 50 16                 ## native/lib.c:50:16
-	movslq	%ecx, %rax
-	cmpq	%rax, %r14
-Ltmp67:
-	.loc	3 50 10                 ## native/lib.c:50:10
-	jge	LBB4_16
-Ltmp68:
-LBB4_12:
+	.loc	3 49 16                 ## native/lib.c:49:16
+	cmpq	%rcx, %r14
+Ltmp64:
+	.loc	3 49 10                 ## native/lib.c:49:10
+	jae	LBB4_17
+Ltmp65:
+LBB4_13:
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	.loc	3 0 10                  ## native/lib.c:0:10
 	movq	%r15, %rdi
 	callq	_enif_free
 	xorl	%r12d, %r12d
-	jmp	LBB4_19
-Ltmp69:
-LBB4_17:
+	jmp	LBB4_20
+Ltmp66:
+LBB4_18:
 	##DEBUG_VALUE: enif_get_big_num:value <- [DW_OP_constu 88, DW_OP_minus] [$rbp+0]
 	##DEBUG_VALUE: enif_get_big_num:length <- $ecx
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
-	.loc	3 56 4 is_stmt 1        ## native/lib.c:56:4
+	.loc	3 55 4 is_stmt 1        ## native/lib.c:55:4
 	movq	-88(%rbp), %rax         ## 8-byte Reload
 	movq	(%rax), %rax
-Ltmp70:
-LBB4_18:
-	##DEBUG_VALUE: enif_get_big_num:length <- $ecx
+	jmp	LBB4_19
+Ltmp67:
+LBB4_9:
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
+	##DEBUG_VALUE: enif_get_big_num:value <- $r14
+	.loc	3 0 4 is_stmt 0         ## native/lib.c:0:4
+	xorl	%ecx, %ecx
+Ltmp68:
+LBB4_19:
+	##DEBUG_VALUE: enif_get_big_num:v <- $r15
+	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	##DEBUG_VALUE: enif_get_big_num:length <- undef
-	.loc	3 56 18 is_stmt 0       ## native/lib.c:56:18
+	.loc	3 55 18                 ## native/lib.c:55:18
 	movl	%ecx, (%rax)
-	.loc	3 57 19 is_stmt 1       ## native/lib.c:57:19
+	.loc	3 56 19 is_stmt 1       ## native/lib.c:56:19
 	movq	%r15, 8(%rax)
 	movl	$1, %r12d
-Ltmp71:
-LBB4_19:
+Ltmp69:
+LBB4_20:
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
-	.loc	3 59 1                  ## native/lib.c:59:1
+	.loc	3 58 1                  ## native/lib.c:58:1
 	movl	%r12d, %eax
 	addq	$56, %rsp
 	popq	%rbx
-Ltmp72:
+Ltmp70:
 	popq	%r12
 	popq	%r13
 	popq	%r14
 	popq	%r15
 	popq	%rbp
 	retq
-LBB4_3:
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
-Ltmp73:
-	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
-	##DEBUG_VALUE: enif_get_big_num:value <- $r14
-	.loc	3 0 1 is_stmt 0         ## native/lib.c:0:1
-	xorl	%r12d, %r12d
-	jmp	LBB4_19
-Ltmp74:
-LBB4_20:
+LBB4_10:
+Ltmp71:
 	##DEBUG_VALUE: enif_get_big_num:v <- $r15
 	##DEBUG_VALUE: enif_get_big_num:tail <- [DW_OP_constu 72, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:head <- [DW_OP_constu 80, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:length <- [DW_OP_constu 44, DW_OP_minus, DW_OP_deref] $rbp
-	##DEBUG_VALUE: enif_get_big_num:is_negative <- [DW_OP_constu 92, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:tuple_arity <- [DW_OP_constu 60, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: enif_get_big_num:env <- $rbx
 	##DEBUG_VALUE: enif_get_big_num:value <- $r14
-	.loc	3 41 5 is_stmt 1        ## native/lib.c:41:5
+	.loc	3 40 5                  ## native/lib.c:40:5
 	movq	%r15, %rdi
 	callq	_enif_free
-	jmp	LBB4_19
-Ltmp75:
+	jmp	LBB4_20
+Ltmp72:
 Lfunc_end4:
+	.cfi_endproc
+                                        ## -- End function
+	.globl	_enif_make_big_num      ## -- Begin function enif_make_big_num
+	.p2align	4, 0x90
+_enif_make_big_num:                     ## @enif_make_big_num
+Lfunc_begin5:
+	.loc	3 61 0                  ## native/lib.c:61:0
+	.cfi_startproc
+## %bb.0:
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	pushq	%rax
+	.cfi_offset %rbx, -56
+	.cfi_offset %r12, -48
+	.cfi_offset %r13, -40
+	.cfi_offset %r14, -32
+	.cfi_offset %r15, -24
+	##DEBUG_VALUE: enif_make_big_num:env <- $rdi
+	##DEBUG_VALUE: enif_make_big_num:is_negative <- $esi
+	##DEBUG_VALUE: enif_make_big_num:value <- $rdx
+Ltmp73:
+	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
+	movq	%rdx, %r13
+	movq	%rdi, %r15
+Ltmp74:
+	##DEBUG_VALUE: enif_make_tuple2:env <- $r15
+	##DEBUG_VALUE: enif_make_big_num:value <- $r13
+	##DEBUG_VALUE: enif_make_big_num:is_negative <- $esi
+	##DEBUG_VALUE: enif_make_big_num:env <- $r15
+	##DEBUG_VALUE: enif_make_big_num:is_negative <- $esi
+	.loc	3 62 34 prologue_end    ## native/lib.c:62:34
+	callq	_enif_make_uint
+Ltmp75:
+	movq	%rax, %r14
+Ltmp76:
+	##DEBUG_VALUE: enif_make_big_num:term_is_negative <- $r14
+	##DEBUG_VALUE: enif_make_tuple2:e1 <- $r14
+	.loc	3 63 70                 ## native/lib.c:63:70
+	movslq	(%r13), %rdi
+	.loc	3 63 61 is_stmt 0       ## native/lib.c:63:61
+	shlq	$3, %rdi
+	.loc	3 63 29                 ## native/lib.c:63:29
+	callq	_enif_alloc
+	movq	%rax, %r12
+Ltmp77:
+	##DEBUG_VALUE: i <- 0
+	##DEBUG_VALUE: enif_make_big_num:term_array <- $r12
+	.loc	3 64 28 is_stmt 1       ## native/lib.c:64:28
+	movl	(%r13), %edx
+	.loc	3 64 19 is_stmt 0       ## native/lib.c:64:19
+	testl	%edx, %edx
+Ltmp78:
+	.loc	3 64 2                  ## native/lib.c:64:2
+	jle	LBB5_3
+Ltmp79:
+## %bb.1:
+	##DEBUG_VALUE: enif_make_big_num:term_array <- $r12
+	##DEBUG_VALUE: enif_make_big_num:term_is_negative <- $r14
+	##DEBUG_VALUE: enif_make_big_num:env <- $r15
+	##DEBUG_VALUE: enif_make_big_num:value <- $r13
+	.loc	3 0 2                   ## native/lib.c:0:2
+	xorl	%ebx, %ebx
+Ltmp80:
+	.p2align	4, 0x90
+LBB5_2:                                 ## =>This Inner Loop Header: Depth=1
+	##DEBUG_VALUE: enif_make_big_num:term_array <- $r12
+	##DEBUG_VALUE: enif_make_big_num:term_is_negative <- $r14
+	##DEBUG_VALUE: enif_make_big_num:env <- $r15
+	##DEBUG_VALUE: enif_make_big_num:value <- $r13
+	##DEBUG_VALUE: i <- $rbx
+	.loc	3 65 48 is_stmt 1       ## native/lib.c:65:48
+	movq	8(%r13), %rax
+	.loc	3 65 41 is_stmt 0       ## native/lib.c:65:41
+	movq	(%rax,%rbx,8), %rsi
+	.loc	3 65 19                 ## native/lib.c:65:19
+	movq	%r15, %rdi
+	callq	_enif_make_ulong
+	.loc	3 65 17                 ## native/lib.c:65:17
+	movq	%rax, (%r12,%rbx,8)
+Ltmp81:
+	.loc	3 64 35 is_stmt 1       ## native/lib.c:64:35
+	incq	%rbx
+Ltmp82:
+	##DEBUG_VALUE: i <- [DW_OP_plus_uconst 1, DW_OP_stack_value] undef
+	.loc	3 64 28 is_stmt 0       ## native/lib.c:64:28
+	movslq	(%r13), %rdx
+	.loc	3 64 19                 ## native/lib.c:64:19
+	cmpq	%rdx, %rbx
+Ltmp83:
+	.loc	3 64 2                  ## native/lib.c:64:2
+	jl	LBB5_2
+Ltmp84:
+LBB5_3:
+	##DEBUG_VALUE: enif_make_big_num:term_array <- $r12
+	##DEBUG_VALUE: enif_make_big_num:term_is_negative <- $r14
+	##DEBUG_VALUE: enif_make_big_num:env <- $r15
+	##DEBUG_VALUE: enif_make_big_num:value <- $r13
+	.loc	3 67 27 is_stmt 1       ## native/lib.c:67:27
+	movq	%r15, %rdi
+	movq	%r12, %rsi
+                                        ## kill: def $edx killed $edx killed $rdx
+	callq	_enif_make_list_from_array
+	movq	%rax, %rbx
+Ltmp85:
+	##DEBUG_VALUE: enif_make_big_num:term_list <- $rbx
+	.loc	3 68 2                  ## native/lib.c:68:2
+	movq	%r12, %rdi
+	callq	_enif_free
+Ltmp86:
+	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rbx
+	.file	7 "/Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h"
+	.loc	7 426 12                ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
+	movl	$2, %esi
+	xorl	%eax, %eax
+	movq	%r15, %rdi
+	movq	%r14, %rdx
+	movq	%rbx, %rcx
+	addq	$8, %rsp
+	popq	%rbx
+Ltmp87:
+	popq	%r12
+Ltmp88:
+	popq	%r13
+Ltmp89:
+	popq	%r14
+Ltmp90:
+	popq	%r15
+Ltmp91:
+	popq	%rbp
+	jmp	_enif_make_tuple        ## TAILCALL
+Ltmp92:
+Lfunc_end5:
 	.cfi_endproc
                                         ## -- End function
 	.p2align	4, 0x90         ## -- Begin function asm_1_nif_ii
 _asm_1_nif_ii:                          ## @asm_1_nif_ii
-Lfunc_begin5:
-	.loc	3 76 0                  ## native/lib.c:76:0
+Lfunc_begin6:
+	.loc	3 87 0                  ## native/lib.c:87:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -622,135 +752,134 @@ Lfunc_begin5:
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_ii:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- $rdx
-Ltmp76:
+Ltmp93:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp77:
+Ltmp94:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
-	.loc	3 78 44 prologue_end    ## native/lib.c:78:44
+	.loc	3 89 44 prologue_end    ## native/lib.c:89:44
 	movq	(%rdx), %rsi
-Ltmp78:
+Ltmp95:
 	.loc	3 0 44 is_stmt 0        ## native/lib.c:0:44
 	leaq	-32(%rbp), %rdx
-Ltmp79:
+Ltmp96:
 	##DEBUG_VALUE: asm_1_nif_ii:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 78 24                 ## native/lib.c:78:24
+	.loc	3 89 24                 ## native/lib.c:89:24
 	callq	_enif_get_long
-	.loc	3 78 57                 ## native/lib.c:78:57
+	.loc	3 89 57                 ## native/lib.c:89:57
 	testl	%eax, %eax
-Ltmp80:
-	.loc	3 78 6                  ## native/lib.c:78:6
-	je	LBB5_4
-Ltmp81:
+Ltmp97:
+	.loc	3 89 6                  ## native/lib.c:89:6
+	je	LBB6_4
+Ltmp98:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_ii:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- $rbx
-	.loc	3 81 44 is_stmt 1       ## native/lib.c:81:44
+	.loc	3 92 44 is_stmt 1       ## native/lib.c:92:44
 	movq	8(%rbx), %rsi
 	leaq	-24(%rbp), %rdx
-Ltmp82:
+Ltmp99:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 81 24 is_stmt 0       ## native/lib.c:81:24
+	.loc	3 92 24 is_stmt 0       ## native/lib.c:92:24
 	movq	%r14, %rdi
 	callq	_enif_get_long
-	.loc	3 81 57                 ## native/lib.c:81:57
+	.loc	3 92 57                 ## native/lib.c:92:57
 	testl	%eax, %eax
-Ltmp83:
-	.loc	3 81 6                  ## native/lib.c:81:6
-	je	LBB5_4
-Ltmp84:
+Ltmp100:
+	.loc	3 92 6                  ## native/lib.c:92:6
+	je	LBB6_4
+Ltmp101:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ii:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- $rbx
-	.loc	3 87 48 is_stmt 1       ## native/lib.c:87:48
+	.loc	3 98 48 is_stmt 1       ## native/lib.c:98:48
 	movq	-32(%rbp), %rsi
-Ltmp85:
+Ltmp102:
 	##DEBUG_VALUE: asm_1_nif_ii:a <- $rsi
-	.loc	3 87 23 is_stmt 0       ## native/lib.c:87:23
+	.loc	3 98 23 is_stmt 0       ## native/lib.c:98:23
 	addq	-24(%rbp), %rsi
-Ltmp86:
-	.loc	3 87 6                  ## native/lib.c:87:6
-	jo	LBB5_5
-Ltmp87:
+Ltmp103:
+	.loc	3 98 6                  ## native/lib.c:98:6
+	jo	LBB6_5
+Ltmp104:
 ## %bb.3:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_ii:result <- $rsi
-	.loc	3 91 32 is_stmt 1       ## native/lib.c:91:32
+	.loc	3 102 32 is_stmt 1      ## native/lib.c:102:32
 	movq	_ok_atom(%rip), %rbx
-Ltmp88:
-	.loc	3 91 41 is_stmt 0       ## native/lib.c:91:41
+Ltmp105:
+	.loc	3 102 41 is_stmt 0      ## native/lib.c:102:41
 	movq	%r14, %rdi
 	callq	_enif_make_long
-Ltmp89:
+Ltmp106:
 	movq	%rax, %rcx
-Ltmp90:
+Ltmp107:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rbx
-	.file	7 "/Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h"
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
 	movl	$2, %esi
 	xorl	%eax, %eax
 	movq	%r14, %rdi
 	movq	%rbx, %rdx
-Ltmp91:
-LBB5_6:
+Ltmp108:
+LBB6_6:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
 	.loc	7 426 12 is_stmt 0      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
 	callq	_enif_make_tuple
-Ltmp92:
-LBB5_7:
+Ltmp109:
+LBB6_7:
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
-	.loc	3 96 1 is_stmt 1        ## native/lib.c:96:1
+	.loc	3 107 1 is_stmt 1       ## native/lib.c:107:1
 	addq	$16, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp93:
+Ltmp110:
 	popq	%rbp
 	retq
-LBB5_4:
-Ltmp94:
+LBB6_4:
+Ltmp111:
 	##DEBUG_VALUE: asm_1_nif_ii:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- $rbx
-	.loc	3 93 10                 ## native/lib.c:93:10
+	.loc	3 104 10                ## native/lib.c:104:10
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB5_7
-Ltmp95:
-LBB5_5:
+	jmp	LBB6_7
+Ltmp112:
+LBB6_5:
 	##DEBUG_VALUE: asm_1_nif_ii:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ii:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ii:argv <- $rbx
-	.loc	3 95 32                 ## native/lib.c:95:32
+	.loc	3 106 32                ## native/lib.c:106:32
 	movq	_error_atom(%rip), %rdx
-	.loc	3 95 44 is_stmt 0       ## native/lib.c:95:44
+	.loc	3 106 44 is_stmt 0      ## native/lib.c:106:44
 	movq	_arithmetic_error_atom(%rip), %rcx
-Ltmp96:
+Ltmp113:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rdx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
 	movl	$2, %esi
 	xorl	%eax, %eax
 	movq	%r14, %rdi
-	jmp	LBB5_6
-Ltmp97:
-Lfunc_end5:
+	jmp	LBB6_6
+Ltmp114:
+Lfunc_end6:
 	.cfi_endproc
                                         ## -- End function
 	.p2align	4, 0x90         ## -- Begin function asm_1_nif_uu
 _asm_1_nif_uu:                          ## @asm_1_nif_uu
-Lfunc_begin6:
-	.loc	3 101 0                 ## native/lib.c:101:0
+Lfunc_begin7:
+	.loc	3 112 0                 ## native/lib.c:112:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -766,78 +895,78 @@ Lfunc_begin6:
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_uu:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_uu:argv <- $rdx
-Ltmp98:
+Ltmp115:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp99:
+Ltmp116:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uu:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
-	.loc	3 103 45 prologue_end   ## native/lib.c:103:45
+	.loc	3 114 45 prologue_end   ## native/lib.c:114:45
 	movq	(%rdx), %rsi
-Ltmp100:
+Ltmp117:
 	.loc	3 0 45 is_stmt 0        ## native/lib.c:0:45
 	leaq	-32(%rbp), %rdx
-Ltmp101:
+Ltmp118:
 	##DEBUG_VALUE: asm_1_nif_uu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 103 24                ## native/lib.c:103:24
+	.loc	3 114 24                ## native/lib.c:114:24
 	callq	_enif_get_ulong
-	.loc	3 103 58                ## native/lib.c:103:58
+	.loc	3 114 58                ## native/lib.c:114:58
 	testl	%eax, %eax
-Ltmp102:
-	.loc	3 103 6                 ## native/lib.c:103:6
-	je	LBB6_4
-Ltmp103:
+Ltmp119:
+	.loc	3 114 6                 ## native/lib.c:114:6
+	je	LBB7_4
+Ltmp120:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_uu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uu:argv <- $rbx
-	.loc	3 106 45 is_stmt 1      ## native/lib.c:106:45
+	.loc	3 117 45 is_stmt 1      ## native/lib.c:117:45
 	movq	8(%rbx), %rsi
 	leaq	-24(%rbp), %rdx
-Ltmp104:
+Ltmp121:
 	##DEBUG_VALUE: asm_1_nif_uu:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 106 24 is_stmt 0      ## native/lib.c:106:24
+	.loc	3 117 24 is_stmt 0      ## native/lib.c:117:24
 	movq	%r14, %rdi
 	callq	_enif_get_ulong
-	.loc	3 106 58                ## native/lib.c:106:58
+	.loc	3 117 58                ## native/lib.c:117:58
 	testl	%eax, %eax
-Ltmp105:
-	.loc	3 106 6                 ## native/lib.c:106:6
-	je	LBB6_4
-Ltmp106:
+Ltmp122:
+	.loc	3 117 6                 ## native/lib.c:117:6
+	je	LBB7_4
+Ltmp123:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_uu:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uu:argv <- $rbx
-	.loc	3 112 48 is_stmt 1      ## native/lib.c:112:48
+	.loc	3 123 48 is_stmt 1      ## native/lib.c:123:48
 	movq	-32(%rbp), %rsi
-Ltmp107:
+Ltmp124:
 	##DEBUG_VALUE: asm_1_nif_uu:a <- $rsi
-	.loc	3 112 23 is_stmt 0      ## native/lib.c:112:23
+	.loc	3 123 23 is_stmt 0      ## native/lib.c:123:23
 	addq	-24(%rbp), %rsi
-Ltmp108:
-	.loc	3 112 6                 ## native/lib.c:112:6
-	jb	LBB6_5
-Ltmp109:
+Ltmp125:
+	.loc	3 123 6                 ## native/lib.c:123:6
+	jb	LBB7_5
+Ltmp126:
 ## %bb.3:
 	##DEBUG_VALUE: asm_1_nif_uu:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uu:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_uu:result <- $rsi
-	.loc	3 116 32 is_stmt 1      ## native/lib.c:116:32
+	.loc	3 127 32 is_stmt 1      ## native/lib.c:127:32
 	movq	_ok_atom(%rip), %rbx
-Ltmp110:
-	.loc	3 116 41 is_stmt 0      ## native/lib.c:116:41
+Ltmp127:
+	.loc	3 127 41 is_stmt 0      ## native/lib.c:127:41
 	movq	%r14, %rdi
 	callq	_enif_make_ulong
-Ltmp111:
+Ltmp128:
 	movq	%rax, %rcx
-Ltmp112:
+Ltmp129:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rbx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
@@ -845,55 +974,55 @@ Ltmp112:
 	xorl	%eax, %eax
 	movq	%r14, %rdi
 	movq	%rbx, %rdx
-Ltmp113:
-LBB6_6:
+Ltmp130:
+LBB7_6:
 	##DEBUG_VALUE: asm_1_nif_uu:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
 	.loc	7 426 12 is_stmt 0      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
 	callq	_enif_make_tuple
-Ltmp114:
-LBB6_7:
+Ltmp131:
+LBB7_7:
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
-	.loc	3 121 1 is_stmt 1       ## native/lib.c:121:1
+	.loc	3 132 1 is_stmt 1       ## native/lib.c:132:1
 	addq	$16, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp115:
+Ltmp132:
 	popq	%rbp
 	retq
-LBB6_4:
-Ltmp116:
+LBB7_4:
+Ltmp133:
 	##DEBUG_VALUE: asm_1_nif_uu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uu:argv <- $rbx
-	.loc	3 118 10                ## native/lib.c:118:10
+	.loc	3 129 10                ## native/lib.c:129:10
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB6_7
-Ltmp117:
-LBB6_5:
+	jmp	LBB7_7
+Ltmp134:
+LBB7_5:
 	##DEBUG_VALUE: asm_1_nif_uu:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uu:argv <- $rbx
-	.loc	3 120 32                ## native/lib.c:120:32
+	.loc	3 131 32                ## native/lib.c:131:32
 	movq	_error_atom(%rip), %rdx
-	.loc	3 120 44 is_stmt 0      ## native/lib.c:120:44
+	.loc	3 131 44 is_stmt 0      ## native/lib.c:131:44
 	movq	_arithmetic_error_atom(%rip), %rcx
-Ltmp118:
+Ltmp135:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rdx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
 	movl	$2, %esi
 	xorl	%eax, %eax
 	movq	%r14, %rdi
-	jmp	LBB6_6
-Ltmp119:
-Lfunc_end6:
+	jmp	LBB7_6
+Ltmp136:
+Lfunc_end7:
 	.cfi_endproc
                                         ## -- End function
 	.p2align	4, 0x90         ## -- Begin function asm_1_nif_bb
 _asm_1_nif_bb:                          ## @asm_1_nif_bb
-Lfunc_begin7:
-	.loc	3 125 0                 ## native/lib.c:125:0
+Lfunc_begin8:
+	.loc	3 136 0                 ## native/lib.c:136:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -901,88 +1030,144 @@ Lfunc_begin7:
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
+	pushq	%r15
 	pushq	%r14
 	pushq	%rbx
-	subq	$16, %rsp
-	.cfi_offset %rbx, -32
-	.cfi_offset %r14, -24
+	subq	$40, %rsp
+	.cfi_offset %rbx, -40
+	.cfi_offset %r14, -32
+	.cfi_offset %r15, -24
 	##DEBUG_VALUE: asm_1_nif_bb:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_bb:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_bb:argv <- $rdx
-Ltmp120:
+Ltmp137:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
+	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp121:
+Ltmp138:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
-	##DEBUG_VALUE: asm_1_nif_bb:argv <- $rdx
+	##DEBUG_VALUE: asm_1_nif_bb:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_bb:env <- $r14
-	.loc	3 127 46 prologue_end   ## native/lib.c:127:46
+	.loc	3 139 46 prologue_end   ## native/lib.c:139:46
 	movq	(%rdx), %rsi
-Ltmp122:
+Ltmp139:
 	.loc	3 0 46 is_stmt 0        ## native/lib.c:0:46
-	leaq	-24(%rbp), %rdx
-Ltmp123:
-	##DEBUG_VALUE: asm_1_nif_bb:a <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 127 24                ## native/lib.c:127:24
+	leaq	-28(%rbp), %rdx
+Ltmp140:
+	##DEBUG_VALUE: asm_1_nif_bb:a_neg <- [DW_OP_constu 28, DW_OP_minus, DW_OP_deref] $rbp
+	leaq	-48(%rbp), %rcx
+Ltmp141:
+	##DEBUG_VALUE: asm_1_nif_bb:a_v <- [DW_OP_constu 48, DW_OP_minus, DW_OP_deref] $rbp
+	.loc	3 139 24                ## native/lib.c:139:24
 	callq	_enif_get_big_num
-	.loc	3 127 59                ## native/lib.c:127:59
+	.loc	3 139 69                ## native/lib.c:139:69
 	testl	%eax, %eax
-Ltmp124:
-	.loc	3 127 6                 ## native/lib.c:127:6
-	je	LBB7_1
-Ltmp125:
-## %bb.2:
-	##DEBUG_VALUE: asm_1_nif_bb:a <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
+Ltmp142:
+	.loc	3 139 6                 ## native/lib.c:139:6
+	je	LBB8_5
+Ltmp143:
+## %bb.1:
+	##DEBUG_VALUE: asm_1_nif_bb:a_v <- [DW_OP_constu 48, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: asm_1_nif_bb:a_neg <- [DW_OP_constu 28, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_bb:env <- $r14
-	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
-	.loc	3 131 13 is_stmt 1      ## native/lib.c:131:13
-	movq	-24(%rbp), %rbx
-Ltmp126:
-	##DEBUG_VALUE: asm_1_nif_bb:a <- $rbx
-	.loc	3 131 16 is_stmt 0      ## native/lib.c:131:16
+	##DEBUG_VALUE: asm_1_nif_bb:argv <- $rbx
+	.loc	3 142 46 is_stmt 1      ## native/lib.c:142:46
+	movq	8(%rbx), %rsi
+	leaq	-52(%rbp), %rdx
+Ltmp144:
+	##DEBUG_VALUE: asm_1_nif_bb:b_neg <- [DW_OP_constu 52, DW_OP_minus, DW_OP_deref] $rbp
+	.loc	3 0 46 is_stmt 0        ## native/lib.c:0:46
+	leaq	-40(%rbp), %rcx
+Ltmp145:
+	##DEBUG_VALUE: asm_1_nif_bb:b_v <- [DW_OP_constu 40, DW_OP_minus, DW_OP_deref] $rbp
+	.loc	3 142 24                ## native/lib.c:142:24
+	movq	%r14, %rdi
+	callq	_enif_get_big_num
+	.loc	3 142 69                ## native/lib.c:142:69
+	testl	%eax, %eax
+Ltmp146:
+	.loc	3 142 6                 ## native/lib.c:142:6
+	je	LBB8_5
+Ltmp147:
+## %bb.2:
+	##DEBUG_VALUE: asm_1_nif_bb:b_v <- [DW_OP_constu 40, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: asm_1_nif_bb:b_neg <- [DW_OP_constu 52, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: asm_1_nif_bb:a_v <- [DW_OP_constu 48, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: asm_1_nif_bb:a_neg <- [DW_OP_constu 28, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: asm_1_nif_bb:env <- $r14
+	##DEBUG_VALUE: asm_1_nif_bb:argv <- $rbx
+	.loc	3 146 47 is_stmt 1      ## native/lib.c:146:47
+	movl	-28(%rbp), %esi
+Ltmp148:
+	##DEBUG_VALUE: asm_1_nif_bb:a_neg <- $esi
+	.loc	3 146 54 is_stmt 0      ## native/lib.c:146:54
+	movq	-48(%rbp), %rbx
+Ltmp149:
+	##DEBUG_VALUE: asm_1_nif_bb:a_v <- $rbx
+	.loc	3 146 24                ## native/lib.c:146:24
+	movq	%r14, %rdi
+	movq	%rbx, %rdx
+	callq	_enif_make_big_num
+Ltmp150:
+	movq	%rax, %r15
+Ltmp151:
+	##DEBUG_VALUE: asm_1_nif_bb:result <- $r15
+	.loc	3 148 18 is_stmt 1      ## native/lib.c:148:18
 	movq	8(%rbx), %rdi
-	.loc	3 131 3                 ## native/lib.c:131:3
+	.loc	3 148 3 is_stmt 0       ## native/lib.c:148:3
 	callq	_enif_free
-	.loc	3 132 3 is_stmt 1       ## native/lib.c:132:3
+	.loc	3 149 3 is_stmt 1       ## native/lib.c:149:3
 	movq	%rbx, %rdi
 	callq	_enif_free
-	.loc	3 133 32                ## native/lib.c:133:32
-	movq	_error_atom(%rip), %rdx
-	.loc	3 133 44 is_stmt 0      ## native/lib.c:133:44
-	movq	_arithmetic_error_atom(%rip), %rcx
-Ltmp127:
-	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
+	.loc	3 150 13                ## native/lib.c:150:13
+	movq	-40(%rbp), %rbx
+Ltmp152:
+	##DEBUG_VALUE: asm_1_nif_bb:b_v <- $rbx
+	.loc	3 150 18 is_stmt 0      ## native/lib.c:150:18
+	movq	8(%rbx), %rdi
+	.loc	3 150 3                 ## native/lib.c:150:3
+	callq	_enif_free
+	.loc	3 151 3 is_stmt 1       ## native/lib.c:151:3
+	movq	%rbx, %rdi
+	callq	_enif_free
+	.loc	3 153 32                ## native/lib.c:153:32
+	movq	_ok_atom(%rip), %rdx
+Ltmp153:
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rdx
-	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
+	##DEBUG_VALUE: enif_make_tuple2:e2 <- $r15
+	.loc	7 426 12                ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
 	movl	$2, %esi
 	xorl	%eax, %eax
 	movq	%r14, %rdi
+	movq	%r15, %rcx
 	callq	_enif_make_tuple
-Ltmp128:
-LBB7_3:
+Ltmp154:
+LBB8_3:
 	##DEBUG_VALUE: asm_1_nif_bb:env <- $r14
-	.loc	3 134 1                 ## native/lib.c:134:1
-	addq	$16, %rsp
+	.loc	3 154 1                 ## native/lib.c:154:1
+	addq	$40, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp129:
+Ltmp155:
+	popq	%r15
 	popq	%rbp
 	retq
-LBB7_1:
-Ltmp130:
-	##DEBUG_VALUE: asm_1_nif_bb:a <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
+Ltmp156:
+LBB8_5:
+	##DEBUG_VALUE: asm_1_nif_bb:a_v <- [DW_OP_constu 48, DW_OP_minus, DW_OP_deref] $rbp
+	##DEBUG_VALUE: asm_1_nif_bb:a_neg <- [DW_OP_constu 28, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_bb:env <- $r14
-	.loc	3 128 12                ## native/lib.c:128:12
+	##DEBUG_VALUE: asm_1_nif_bb:argv <- $rbx
+	.loc	3 0 1 is_stmt 0         ## native/lib.c:0:1
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB7_3
-Ltmp131:
-Lfunc_end7:
+	jmp	LBB8_3
+Lfunc_end8:
 	.cfi_endproc
                                         ## -- End function
 	.p2align	4, 0x90         ## -- Begin function asm_1_nif_if
 _asm_1_nif_if:                          ## @asm_1_nif_if
-Lfunc_begin8:
-	.loc	3 138 0                 ## native/lib.c:138:0
+Lfunc_begin9:
+	.loc	3 158 0 is_stmt 1       ## native/lib.c:158:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -998,67 +1183,67 @@ Lfunc_begin8:
 	##DEBUG_VALUE: asm_1_nif_if:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_if:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_if:argv <- $rdx
-Ltmp132:
+Ltmp157:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp133:
+Ltmp158:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_if:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_if:env <- $r14
-	.loc	3 141 44 prologue_end   ## native/lib.c:141:44
+	.loc	3 161 44 prologue_end   ## native/lib.c:161:44
 	movq	(%rdx), %rsi
-Ltmp134:
+Ltmp159:
 	.loc	3 0 44 is_stmt 0        ## native/lib.c:0:44
 	leaq	-32(%rbp), %rdx
-Ltmp135:
+Ltmp160:
 	##DEBUG_VALUE: asm_1_nif_if:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 141 24                ## native/lib.c:141:24
+	.loc	3 161 24                ## native/lib.c:161:24
 	callq	_enif_get_long
-	.loc	3 141 57                ## native/lib.c:141:57
+	.loc	3 161 57                ## native/lib.c:161:57
 	testl	%eax, %eax
-Ltmp136:
-	.loc	3 141 6                 ## native/lib.c:141:6
-	je	LBB8_3
-Ltmp137:
+Ltmp161:
+	.loc	3 161 6                 ## native/lib.c:161:6
+	je	LBB9_3
+Ltmp162:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_if:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_if:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_if:argv <- $rbx
-	.loc	3 144 45 is_stmt 1      ## native/lib.c:144:45
+	.loc	3 164 45 is_stmt 1      ## native/lib.c:164:45
 	movq	8(%rbx), %rsi
 	leaq	-24(%rbp), %rdx
-Ltmp138:
+Ltmp163:
 	##DEBUG_VALUE: asm_1_nif_if:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 144 24 is_stmt 0      ## native/lib.c:144:24
+	.loc	3 164 24 is_stmt 0      ## native/lib.c:164:24
 	movq	%r14, %rdi
 	callq	_enif_get_double
-	.loc	3 144 58                ## native/lib.c:144:58
+	.loc	3 164 58                ## native/lib.c:164:58
 	testl	%eax, %eax
-Ltmp139:
-	.loc	3 144 6                 ## native/lib.c:144:6
-	je	LBB8_3
-Ltmp140:
+Ltmp164:
+	.loc	3 164 6                 ## native/lib.c:164:6
+	je	LBB9_3
+Ltmp165:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_if:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_if:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_if:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_if:argv <- $rbx
-	.loc	3 147 20 is_stmt 1      ## native/lib.c:147:20
+	.loc	3 167 20 is_stmt 1      ## native/lib.c:167:20
 	cvtsi2sdq	-32(%rbp), %xmm0
-	.loc	3 147 31 is_stmt 0      ## native/lib.c:147:31
+	.loc	3 167 31 is_stmt 0      ## native/lib.c:167:31
 	addsd	-24(%rbp), %xmm0
-Ltmp141:
+Ltmp166:
 	##DEBUG_VALUE: asm_1_nif_if:result <- $xmm0
-	.loc	3 148 32 is_stmt 1      ## native/lib.c:148:32
+	.loc	3 168 32 is_stmt 1      ## native/lib.c:168:32
 	movq	_ok_atom(%rip), %rbx
-Ltmp142:
-	.loc	3 148 41 is_stmt 0      ## native/lib.c:148:41
+Ltmp167:
+	.loc	3 168 41 is_stmt 0      ## native/lib.c:168:41
 	movq	%r14, %rdi
 	callq	_enif_make_double
-Ltmp143:
+Ltmp168:
 	movq	%rax, %rcx
-Ltmp144:
+Ltmp169:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rbx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
@@ -1067,44 +1252,44 @@ Ltmp144:
 	movq	%r14, %rdi
 	movq	%rbx, %rdx
 	callq	_enif_make_tuple
-Ltmp145:
-LBB8_4:
+Ltmp170:
+LBB9_4:
 	##DEBUG_VALUE: asm_1_nif_if:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_if:env <- $r14
-	.loc	3 151 1                 ## native/lib.c:151:1
+	.loc	3 171 1                 ## native/lib.c:171:1
 	addq	$16, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp146:
+Ltmp171:
 	popq	%rbp
 	retq
-LBB8_3:
+LBB9_3:
 	##DEBUG_VALUE: asm_1_nif_if:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-Ltmp147:
+Ltmp172:
 	##DEBUG_VALUE: asm_1_nif_if:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_if:argv <- $rbx
-	.loc	3 150 10                ## native/lib.c:150:10
+	.loc	3 170 10                ## native/lib.c:170:10
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB8_4
-Ltmp148:
-Lfunc_end8:
+	jmp	LBB9_4
+Ltmp173:
+Lfunc_end9:
 	.cfi_endproc
                                         ## -- End function
 	.section	__TEXT,__literal16,16byte_literals
 	.p2align	4               ## -- Begin function asm_1_nif_uf
-LCPI9_0:
+LCPI10_0:
 	.long	1127219200              ## 0x43300000
 	.long	1160773632              ## 0x45300000
 	.long	0                       ## 0x0
 	.long	0                       ## 0x0
-LCPI9_1:
+LCPI10_1:
 	.quad	4841369599423283200     ## double 4503599627370496
 	.quad	4985484787499139072     ## double 1.9342813113834067E+25
 	.section	__TEXT,__text,regular,pure_instructions
 	.p2align	4, 0x90
 _asm_1_nif_uf:                          ## @asm_1_nif_uf
-Lfunc_begin9:
-	.loc	3 156 0                 ## native/lib.c:156:0
+Lfunc_begin10:
+	.loc	3 176 0                 ## native/lib.c:176:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -1120,70 +1305,70 @@ Lfunc_begin9:
 	##DEBUG_VALUE: asm_1_nif_uf:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_uf:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_uf:argv <- $rdx
-Ltmp149:
+Ltmp174:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp150:
+Ltmp175:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uf:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_uf:env <- $r14
-	.loc	3 159 45 prologue_end   ## native/lib.c:159:45
+	.loc	3 179 45 prologue_end   ## native/lib.c:179:45
 	movq	(%rdx), %rsi
-Ltmp151:
+Ltmp176:
 	.loc	3 0 45 is_stmt 0        ## native/lib.c:0:45
 	leaq	-32(%rbp), %rdx
-Ltmp152:
+Ltmp177:
 	##DEBUG_VALUE: asm_1_nif_uf:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 159 24                ## native/lib.c:159:24
+	.loc	3 179 24                ## native/lib.c:179:24
 	callq	_enif_get_ulong
-	.loc	3 159 58                ## native/lib.c:159:58
+	.loc	3 179 58                ## native/lib.c:179:58
 	testl	%eax, %eax
-Ltmp153:
-	.loc	3 159 6                 ## native/lib.c:159:6
-	je	LBB9_3
-Ltmp154:
+Ltmp178:
+	.loc	3 179 6                 ## native/lib.c:179:6
+	je	LBB10_3
+Ltmp179:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_uf:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uf:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uf:argv <- $rbx
-	.loc	3 162 45 is_stmt 1      ## native/lib.c:162:45
+	.loc	3 182 45 is_stmt 1      ## native/lib.c:182:45
 	movq	8(%rbx), %rsi
 	leaq	-24(%rbp), %rdx
-Ltmp155:
+Ltmp180:
 	##DEBUG_VALUE: asm_1_nif_uf:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 162 24 is_stmt 0      ## native/lib.c:162:24
+	.loc	3 182 24 is_stmt 0      ## native/lib.c:182:24
 	movq	%r14, %rdi
 	callq	_enif_get_double
-	.loc	3 162 58                ## native/lib.c:162:58
+	.loc	3 182 58                ## native/lib.c:182:58
 	testl	%eax, %eax
-Ltmp156:
-	.loc	3 162 6                 ## native/lib.c:162:6
-	je	LBB9_3
-Ltmp157:
+Ltmp181:
+	.loc	3 182 6                 ## native/lib.c:182:6
+	je	LBB10_3
+Ltmp182:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_uf:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uf:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uf:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uf:argv <- $rbx
-	.loc	3 165 20 is_stmt 1      ## native/lib.c:165:20
+	.loc	3 185 20 is_stmt 1      ## native/lib.c:185:20
 	movsd	-32(%rbp), %xmm0        ## xmm0 = mem[0],zero
-	unpcklps	LCPI9_0(%rip), %xmm0 ## xmm0 = xmm0[0],mem[0],xmm0[1],mem[1]
-	subpd	LCPI9_1(%rip), %xmm0
+	unpcklps	LCPI10_0(%rip), %xmm0 ## xmm0 = xmm0[0],mem[0],xmm0[1],mem[1]
+	subpd	LCPI10_1(%rip), %xmm0
 	haddpd	%xmm0, %xmm0
-	.loc	3 165 31 is_stmt 0      ## native/lib.c:165:31
+	.loc	3 185 31 is_stmt 0      ## native/lib.c:185:31
 	addsd	-24(%rbp), %xmm0
-Ltmp158:
+Ltmp183:
 	##DEBUG_VALUE: asm_1_nif_uf:result <- $xmm0
-	.loc	3 166 32 is_stmt 1      ## native/lib.c:166:32
+	.loc	3 186 32 is_stmt 1      ## native/lib.c:186:32
 	movq	_ok_atom(%rip), %rbx
-Ltmp159:
-	.loc	3 166 41 is_stmt 0      ## native/lib.c:166:41
+Ltmp184:
+	.loc	3 186 41 is_stmt 0      ## native/lib.c:186:41
 	movq	%r14, %rdi
 	callq	_enif_make_double
-Ltmp160:
+Ltmp185:
 	movq	%rax, %rcx
-Ltmp161:
+Ltmp186:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rbx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
@@ -1192,33 +1377,33 @@ Ltmp161:
 	movq	%r14, %rdi
 	movq	%rbx, %rdx
 	callq	_enif_make_tuple
-Ltmp162:
-LBB9_4:
+Ltmp187:
+LBB10_4:
 	##DEBUG_VALUE: asm_1_nif_uf:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_uf:env <- $r14
-	.loc	3 169 1                 ## native/lib.c:169:1
+	.loc	3 189 1                 ## native/lib.c:189:1
 	addq	$16, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp163:
+Ltmp188:
 	popq	%rbp
 	retq
-LBB9_3:
+LBB10_3:
 	##DEBUG_VALUE: asm_1_nif_uf:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-Ltmp164:
+Ltmp189:
 	##DEBUG_VALUE: asm_1_nif_uf:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_uf:argv <- $rbx
-	.loc	3 168 10                ## native/lib.c:168:10
+	.loc	3 188 10                ## native/lib.c:188:10
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB9_4
-Ltmp165:
-Lfunc_end9:
+	jmp	LBB10_4
+Ltmp190:
+Lfunc_end10:
 	.cfi_endproc
                                         ## -- End function
 	.p2align	4, 0x90         ## -- Begin function asm_1_nif_fi
 _asm_1_nif_fi:                          ## @asm_1_nif_fi
-Lfunc_begin10:
-	.loc	3 173 0                 ## native/lib.c:173:0
+Lfunc_begin11:
+	.loc	3 193 0                 ## native/lib.c:193:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -1234,67 +1419,67 @@ Lfunc_begin10:
 	##DEBUG_VALUE: asm_1_nif_fi:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_fi:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_fi:argv <- $rdx
-Ltmp166:
+Ltmp191:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp167:
+Ltmp192:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fi:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_fi:env <- $r14
-	.loc	3 176 45 prologue_end   ## native/lib.c:176:45
+	.loc	3 196 45 prologue_end   ## native/lib.c:196:45
 	movq	(%rdx), %rsi
-Ltmp168:
+Ltmp193:
 	.loc	3 0 45 is_stmt 0        ## native/lib.c:0:45
 	leaq	-32(%rbp), %rdx
-Ltmp169:
+Ltmp194:
 	##DEBUG_VALUE: asm_1_nif_fi:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 176 24                ## native/lib.c:176:24
+	.loc	3 196 24                ## native/lib.c:196:24
 	callq	_enif_get_double
-	.loc	3 176 58                ## native/lib.c:176:58
+	.loc	3 196 58                ## native/lib.c:196:58
 	testl	%eax, %eax
-Ltmp170:
-	.loc	3 176 6                 ## native/lib.c:176:6
-	je	LBB10_3
-Ltmp171:
+Ltmp195:
+	.loc	3 196 6                 ## native/lib.c:196:6
+	je	LBB11_3
+Ltmp196:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_fi:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fi:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fi:argv <- $rbx
-	.loc	3 179 44 is_stmt 1      ## native/lib.c:179:44
+	.loc	3 199 44 is_stmt 1      ## native/lib.c:199:44
 	movq	8(%rbx), %rsi
 	leaq	-24(%rbp), %rdx
-Ltmp172:
+Ltmp197:
 	##DEBUG_VALUE: asm_1_nif_fi:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 179 24 is_stmt 0      ## native/lib.c:179:24
+	.loc	3 199 24 is_stmt 0      ## native/lib.c:199:24
 	movq	%r14, %rdi
 	callq	_enif_get_long
-	.loc	3 179 57                ## native/lib.c:179:57
+	.loc	3 199 57                ## native/lib.c:199:57
 	testl	%eax, %eax
-Ltmp173:
-	.loc	3 179 6                 ## native/lib.c:179:6
-	je	LBB10_3
-Ltmp174:
+Ltmp198:
+	.loc	3 199 6                 ## native/lib.c:199:6
+	je	LBB11_3
+Ltmp199:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_fi:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fi:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fi:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fi:argv <- $rbx
-	.loc	3 182 24 is_stmt 1      ## native/lib.c:182:24
+	.loc	3 202 24 is_stmt 1      ## native/lib.c:202:24
 	cvtsi2sdq	-24(%rbp), %xmm0
-	.loc	3 182 21 is_stmt 0      ## native/lib.c:182:21
+	.loc	3 202 21 is_stmt 0      ## native/lib.c:202:21
 	addsd	-32(%rbp), %xmm0
-Ltmp175:
+Ltmp200:
 	##DEBUG_VALUE: asm_1_nif_fi:result <- $xmm0
-	.loc	3 183 32 is_stmt 1      ## native/lib.c:183:32
+	.loc	3 203 32 is_stmt 1      ## native/lib.c:203:32
 	movq	_ok_atom(%rip), %rbx
-Ltmp176:
-	.loc	3 183 41 is_stmt 0      ## native/lib.c:183:41
+Ltmp201:
+	.loc	3 203 41 is_stmt 0      ## native/lib.c:203:41
 	movq	%r14, %rdi
 	callq	_enif_make_double
-Ltmp177:
+Ltmp202:
 	movq	%rax, %rcx
-Ltmp178:
+Ltmp203:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rbx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
@@ -1303,44 +1488,44 @@ Ltmp178:
 	movq	%r14, %rdi
 	movq	%rbx, %rdx
 	callq	_enif_make_tuple
-Ltmp179:
-LBB10_4:
+Ltmp204:
+LBB11_4:
 	##DEBUG_VALUE: asm_1_nif_fi:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fi:env <- $r14
-	.loc	3 186 1                 ## native/lib.c:186:1
+	.loc	3 206 1                 ## native/lib.c:206:1
 	addq	$16, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp180:
+Ltmp205:
 	popq	%rbp
 	retq
-LBB10_3:
+LBB11_3:
 	##DEBUG_VALUE: asm_1_nif_fi:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-Ltmp181:
+Ltmp206:
 	##DEBUG_VALUE: asm_1_nif_fi:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fi:argv <- $rbx
-	.loc	3 185 10                ## native/lib.c:185:10
+	.loc	3 205 10                ## native/lib.c:205:10
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB10_4
-Ltmp182:
-Lfunc_end10:
+	jmp	LBB11_4
+Ltmp207:
+Lfunc_end11:
 	.cfi_endproc
                                         ## -- End function
 	.section	__TEXT,__literal16,16byte_literals
 	.p2align	4               ## -- Begin function asm_1_nif_fu
-LCPI11_0:
+LCPI12_0:
 	.long	1127219200              ## 0x43300000
 	.long	1160773632              ## 0x45300000
 	.long	0                       ## 0x0
 	.long	0                       ## 0x0
-LCPI11_1:
+LCPI12_1:
 	.quad	4841369599423283200     ## double 4503599627370496
 	.quad	4985484787499139072     ## double 1.9342813113834067E+25
 	.section	__TEXT,__text,regular,pure_instructions
 	.p2align	4, 0x90
 _asm_1_nif_fu:                          ## @asm_1_nif_fu
-Lfunc_begin11:
-	.loc	3 190 0                 ## native/lib.c:190:0
+Lfunc_begin12:
+	.loc	3 210 0                 ## native/lib.c:210:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -1356,70 +1541,70 @@ Lfunc_begin11:
 	##DEBUG_VALUE: asm_1_nif_fu:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_fu:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_fu:argv <- $rdx
-Ltmp183:
+Ltmp208:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp184:
+Ltmp209:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fu:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_fu:env <- $r14
-	.loc	3 193 45 prologue_end   ## native/lib.c:193:45
+	.loc	3 213 45 prologue_end   ## native/lib.c:213:45
 	movq	(%rdx), %rsi
-Ltmp185:
+Ltmp210:
 	.loc	3 0 45 is_stmt 0        ## native/lib.c:0:45
 	leaq	-32(%rbp), %rdx
-Ltmp186:
+Ltmp211:
 	##DEBUG_VALUE: asm_1_nif_fu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 193 24                ## native/lib.c:193:24
+	.loc	3 213 24                ## native/lib.c:213:24
 	callq	_enif_get_double
-	.loc	3 193 58                ## native/lib.c:193:58
+	.loc	3 213 58                ## native/lib.c:213:58
 	testl	%eax, %eax
-Ltmp187:
-	.loc	3 193 6                 ## native/lib.c:193:6
-	je	LBB11_3
-Ltmp188:
+Ltmp212:
+	.loc	3 213 6                 ## native/lib.c:213:6
+	je	LBB12_3
+Ltmp213:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_fu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fu:argv <- $rbx
-	.loc	3 196 45 is_stmt 1      ## native/lib.c:196:45
+	.loc	3 216 45 is_stmt 1      ## native/lib.c:216:45
 	movq	8(%rbx), %rsi
 	leaq	-24(%rbp), %rdx
-Ltmp189:
+Ltmp214:
 	##DEBUG_VALUE: asm_1_nif_fu:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 196 24 is_stmt 0      ## native/lib.c:196:24
+	.loc	3 216 24 is_stmt 0      ## native/lib.c:216:24
 	movq	%r14, %rdi
 	callq	_enif_get_ulong
-	.loc	3 196 58                ## native/lib.c:196:58
+	.loc	3 216 58                ## native/lib.c:216:58
 	testl	%eax, %eax
-Ltmp190:
-	.loc	3 196 6                 ## native/lib.c:196:6
-	je	LBB11_3
-Ltmp191:
+Ltmp215:
+	.loc	3 216 6                 ## native/lib.c:216:6
+	je	LBB12_3
+Ltmp216:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_fu:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fu:argv <- $rbx
-	.loc	3 199 24 is_stmt 1      ## native/lib.c:199:24
+	.loc	3 219 24 is_stmt 1      ## native/lib.c:219:24
 	movsd	-24(%rbp), %xmm0        ## xmm0 = mem[0],zero
-	unpcklps	LCPI11_0(%rip), %xmm0 ## xmm0 = xmm0[0],mem[0],xmm0[1],mem[1]
-	subpd	LCPI11_1(%rip), %xmm0
+	unpcklps	LCPI12_0(%rip), %xmm0 ## xmm0 = xmm0[0],mem[0],xmm0[1],mem[1]
+	subpd	LCPI12_1(%rip), %xmm0
 	haddpd	%xmm0, %xmm0
-	.loc	3 199 21 is_stmt 0      ## native/lib.c:199:21
+	.loc	3 219 21 is_stmt 0      ## native/lib.c:219:21
 	addsd	-32(%rbp), %xmm0
-Ltmp192:
+Ltmp217:
 	##DEBUG_VALUE: asm_1_nif_fu:result <- $xmm0
-	.loc	3 200 32 is_stmt 1      ## native/lib.c:200:32
+	.loc	3 220 32 is_stmt 1      ## native/lib.c:220:32
 	movq	_ok_atom(%rip), %rbx
-Ltmp193:
-	.loc	3 200 41 is_stmt 0      ## native/lib.c:200:41
+Ltmp218:
+	.loc	3 220 41 is_stmt 0      ## native/lib.c:220:41
 	movq	%r14, %rdi
 	callq	_enif_make_double
-Ltmp194:
+Ltmp219:
 	movq	%rax, %rcx
-Ltmp195:
+Ltmp220:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rbx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
@@ -1428,33 +1613,33 @@ Ltmp195:
 	movq	%r14, %rdi
 	movq	%rbx, %rdx
 	callq	_enif_make_tuple
-Ltmp196:
-LBB11_4:
+Ltmp221:
+LBB12_4:
 	##DEBUG_VALUE: asm_1_nif_fu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_fu:env <- $r14
-	.loc	3 203 1                 ## native/lib.c:203:1
+	.loc	3 223 1                 ## native/lib.c:223:1
 	addq	$16, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp197:
+Ltmp222:
 	popq	%rbp
 	retq
-LBB11_3:
+LBB12_3:
 	##DEBUG_VALUE: asm_1_nif_fu:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-Ltmp198:
+Ltmp223:
 	##DEBUG_VALUE: asm_1_nif_fu:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_fu:argv <- $rbx
-	.loc	3 202 10                ## native/lib.c:202:10
+	.loc	3 222 10                ## native/lib.c:222:10
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB11_4
-Ltmp199:
-Lfunc_end11:
+	jmp	LBB12_4
+Ltmp224:
+Lfunc_end12:
 	.cfi_endproc
                                         ## -- End function
 	.p2align	4, 0x90         ## -- Begin function asm_1_nif_ff
 _asm_1_nif_ff:                          ## @asm_1_nif_ff
-Lfunc_begin12:
-	.loc	3 206 0                 ## native/lib.c:206:0
+Lfunc_begin13:
+	.loc	3 226 0                 ## native/lib.c:226:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -1470,69 +1655,69 @@ Lfunc_begin12:
 	##DEBUG_VALUE: asm_1_nif_ff:env <- $rdi
 	##DEBUG_VALUE: asm_1_nif_ff:argc <- $esi
 	##DEBUG_VALUE: asm_1_nif_ff:argv <- $rdx
-Ltmp200:
+Ltmp225:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $rdi
 	movq	%rdx, %rbx
 	movq	%rdi, %r14
-Ltmp201:
+Ltmp226:
 	##DEBUG_VALUE: enif_make_tuple2:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ff:argv <- $rbx
 	##DEBUG_VALUE: asm_1_nif_ff:env <- $r14
-	.loc	3 208 45 prologue_end   ## native/lib.c:208:45
+	.loc	3 228 45 prologue_end   ## native/lib.c:228:45
 	movq	(%rdx), %rsi
-Ltmp202:
+Ltmp227:
 	.loc	3 0 45 is_stmt 0        ## native/lib.c:0:45
 	leaq	-32(%rbp), %rdx
-Ltmp203:
+Ltmp228:
 	##DEBUG_VALUE: asm_1_nif_ff:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 208 24                ## native/lib.c:208:24
+	.loc	3 228 24                ## native/lib.c:228:24
 	callq	_enif_get_double
-	.loc	3 208 58                ## native/lib.c:208:58
+	.loc	3 228 58                ## native/lib.c:228:58
 	testl	%eax, %eax
-Ltmp204:
-	.loc	3 208 6                 ## native/lib.c:208:6
-	je	LBB12_3
-Ltmp205:
+Ltmp229:
+	.loc	3 228 6                 ## native/lib.c:228:6
+	je	LBB13_3
+Ltmp230:
 ## %bb.1:
 	##DEBUG_VALUE: asm_1_nif_ff:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ff:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ff:argv <- $rbx
-	.loc	3 211 45 is_stmt 1      ## native/lib.c:211:45
+	.loc	3 231 45 is_stmt 1      ## native/lib.c:231:45
 	movq	8(%rbx), %rsi
 	leaq	-24(%rbp), %rdx
-Ltmp206:
+Ltmp231:
 	##DEBUG_VALUE: asm_1_nif_ff:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
-	.loc	3 211 24 is_stmt 0      ## native/lib.c:211:24
+	.loc	3 231 24 is_stmt 0      ## native/lib.c:231:24
 	movq	%r14, %rdi
 	callq	_enif_get_double
-	.loc	3 211 58                ## native/lib.c:211:58
+	.loc	3 231 58                ## native/lib.c:231:58
 	testl	%eax, %eax
-Ltmp207:
-	.loc	3 211 6                 ## native/lib.c:211:6
-	je	LBB12_3
-Ltmp208:
+Ltmp232:
+	.loc	3 231 6                 ## native/lib.c:231:6
+	je	LBB13_3
+Ltmp233:
 ## %bb.2:
 	##DEBUG_VALUE: asm_1_nif_ff:b <- [DW_OP_constu 24, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ff:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ff:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ff:argv <- $rbx
-	.loc	3 214 19 is_stmt 1      ## native/lib.c:214:19
+	.loc	3 234 19 is_stmt 1      ## native/lib.c:234:19
 	movsd	-32(%rbp), %xmm0        ## xmm0 = mem[0],zero
-Ltmp209:
+Ltmp234:
 	##DEBUG_VALUE: asm_1_nif_ff:a <- $xmm0
-	.loc	3 214 21 is_stmt 0      ## native/lib.c:214:21
+	.loc	3 234 21 is_stmt 0      ## native/lib.c:234:21
 	addsd	-24(%rbp), %xmm0
-Ltmp210:
+Ltmp235:
 	##DEBUG_VALUE: asm_1_nif_ff:result <- $xmm0
-	.loc	3 215 32 is_stmt 1      ## native/lib.c:215:32
+	.loc	3 235 32 is_stmt 1      ## native/lib.c:235:32
 	movq	_ok_atom(%rip), %rbx
-Ltmp211:
-	.loc	3 215 41 is_stmt 0      ## native/lib.c:215:41
+Ltmp236:
+	.loc	3 235 41 is_stmt 0      ## native/lib.c:235:41
 	movq	%r14, %rdi
 	callq	_enif_make_double
-Ltmp212:
+Ltmp237:
 	movq	%rax, %rcx
-Ltmp213:
+Ltmp238:
 	##DEBUG_VALUE: enif_make_tuple2:e2 <- $rcx
 	##DEBUG_VALUE: enif_make_tuple2:e1 <- $rbx
 	.loc	7 426 12 is_stmt 1      ## /Users/zacky/.erlenv/releases/21.1/lib/erlang/erts-10.1/include/erl_nif_api_funcs.h:426:12
@@ -1541,33 +1726,33 @@ Ltmp213:
 	movq	%r14, %rdi
 	movq	%rbx, %rdx
 	callq	_enif_make_tuple
-Ltmp214:
-LBB12_4:
+Ltmp239:
+LBB13_4:
 	##DEBUG_VALUE: asm_1_nif_ff:env <- $r14
-	.loc	3 218 1                 ## native/lib.c:218:1
+	.loc	3 238 1                 ## native/lib.c:238:1
 	addq	$16, %rsp
 	popq	%rbx
 	popq	%r14
-Ltmp215:
+Ltmp240:
 	popq	%rbp
 	retq
-LBB12_3:
-Ltmp216:
+LBB13_3:
+Ltmp241:
 	##DEBUG_VALUE: asm_1_nif_ff:a <- [DW_OP_constu 32, DW_OP_minus, DW_OP_deref] $rbp
 	##DEBUG_VALUE: asm_1_nif_ff:env <- $r14
 	##DEBUG_VALUE: asm_1_nif_ff:argv <- $rbx
-	.loc	3 217 10                ## native/lib.c:217:10
+	.loc	3 237 10                ## native/lib.c:237:10
 	movq	_arithmetic_error(%rip), %rax
-	jmp	LBB12_4
-Ltmp217:
-Lfunc_end12:
+	jmp	LBB13_4
+Ltmp242:
+Lfunc_end13:
 	.cfi_endproc
                                         ## -- End function
 	.globl	_nif_init               ## -- Begin function nif_init
 	.p2align	4, 0x90
 _nif_init:                              ## @nif_init
-Lfunc_begin13:
-	.loc	3 234 0                 ## native/lib.c:234:0
+Lfunc_begin14:
+	.loc	3 254 0                 ## native/lib.c:254:0
 	.cfi_startproc
 ## %bb.0:
 	pushq	%rbp
@@ -1575,13 +1760,13 @@ Lfunc_begin13:
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-Ltmp218:
-	.loc	3 234 1 prologue_end    ## native/lib.c:234:1
+Ltmp243:
+	.loc	3 254 1 prologue_end    ## native/lib.c:254:1
 	leaq	_nif_init.entry(%rip), %rax
 	popq	%rbp
 	retq
-Ltmp219:
-Lfunc_end13:
+Ltmp244:
+Lfunc_end14:
 	.cfi_endproc
                                         ## -- End function
 	.section	__TEXT,__cstring,cstring_literals
@@ -1765,31 +1950,39 @@ Linfo_string:
 	.asciz	"enif_make_tuple2"      ## string offset=622
 	.asciz	"e1"                    ## string offset=639
 	.asciz	"e2"                    ## string offset=642
-	.asciz	"asm_1_nif_ii"          ## string offset=645
-	.asciz	"asm_1_nif_uu"          ## string offset=658
-	.asciz	"asm_1_nif_bb"          ## string offset=671
-	.asciz	"asm_1_nif_if"          ## string offset=684
-	.asciz	"asm_1_nif_uf"          ## string offset=697
-	.asciz	"asm_1_nif_fi"          ## string offset=710
-	.asciz	"asm_1_nif_fu"          ## string offset=723
-	.asciz	"asm_1_nif_ff"          ## string offset=736
-	.asciz	"nif_init"              ## string offset=749
-	.asciz	"old_priv"              ## string offset=758
-	.asciz	"term"                  ## string offset=767
-	.asciz	"tuple_arity"           ## string offset=772
-	.asciz	"tuple"                 ## string offset=784
+	.asciz	"enif_make_big_num"     ## string offset=645
+	.asciz	"asm_1_nif_ii"          ## string offset=663
+	.asciz	"asm_1_nif_uu"          ## string offset=676
+	.asciz	"asm_1_nif_bb"          ## string offset=689
+	.asciz	"asm_1_nif_if"          ## string offset=702
+	.asciz	"asm_1_nif_uf"          ## string offset=715
+	.asciz	"asm_1_nif_fi"          ## string offset=728
+	.asciz	"asm_1_nif_fu"          ## string offset=741
+	.asciz	"asm_1_nif_ff"          ## string offset=754
+	.asciz	"nif_init"              ## string offset=767
+	.asciz	"old_priv"              ## string offset=776
+	.asciz	"term"                  ## string offset=785
 	.asciz	"is_negative"           ## string offset=790
-	.asciz	"length"                ## string offset=802
-	.asciz	"head"                  ## string offset=809
-	.asciz	"tail"                  ## string offset=814
-	.asciz	"v"                     ## string offset=819
-	.asciz	"i"                     ## string offset=821
-	.asciz	"argc"                  ## string offset=823
-	.asciz	"argv"                  ## string offset=828
-	.asciz	"a"                     ## string offset=833
-	.asciz	"long int"              ## string offset=835
-	.asciz	"b"                     ## string offset=844
-	.asciz	"result"                ## string offset=846
+	.asciz	"tuple_arity"           ## string offset=802
+	.asciz	"tuple"                 ## string offset=814
+	.asciz	"length"                ## string offset=820
+	.asciz	"head"                  ## string offset=827
+	.asciz	"tail"                  ## string offset=832
+	.asciz	"v"                     ## string offset=837
+	.asciz	"i"                     ## string offset=839
+	.asciz	"term_is_negative"      ## string offset=841
+	.asciz	"term_array"            ## string offset=858
+	.asciz	"term_list"             ## string offset=869
+	.asciz	"argc"                  ## string offset=879
+	.asciz	"argv"                  ## string offset=884
+	.asciz	"a"                     ## string offset=889
+	.asciz	"long int"              ## string offset=891
+	.asciz	"b"                     ## string offset=900
+	.asciz	"result"                ## string offset=902
+	.asciz	"a_neg"                 ## string offset=909
+	.asciz	"a_v"                   ## string offset=915
+	.asciz	"b_neg"                 ## string offset=919
+	.asciz	"b_v"                   ## string offset=925
 	.section	__DWARF,__debug_loc,regular,debug
 Lsection_debug_loc:
 Ldebug_loc0:
@@ -1939,11 +2132,11 @@ Ldebug_loc12:
 	.byte	85                      ## DW_OP_reg5
 .set Lset36, Ltmp18-Lfunc_begin0
 	.quad	Lset36
-.set Lset37, Ltmp72-Lfunc_begin0
+.set Lset37, Ltmp70-Lfunc_begin0
 	.quad	Lset37
 	.short	1                       ## Loc expr size
 	.byte	83                      ## DW_OP_reg3
-.set Lset38, Ltmp73-Lfunc_begin0
+.set Lset38, Ltmp71-Lfunc_begin0
 	.quad	Lset38
 .set Lset39, Lfunc_end4-Lfunc_begin0
 	.quad	Lset39
@@ -1969,125 +2162,143 @@ Ldebug_loc14:
 	.byte	81                      ## DW_OP_reg1
 .set Lset44, Ltmp18-Lfunc_begin0
 	.quad	Lset44
-.set Lset45, Ltmp52-Lfunc_begin0
+.set Lset45, Ltmp44-Lfunc_begin0
 	.quad	Lset45
 	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset46, Ltmp52-Lfunc_begin0
+	.byte	95                      ## DW_OP_reg15
+	.quad	0
+	.quad	0
+Ldebug_loc15:
+.set Lset46, Lfunc_begin4-Lfunc_begin0
 	.quad	Lset46
-.set Lset47, Ltmp73-Lfunc_begin0
+.set Lset47, Ltmp18-Lfunc_begin0
 	.quad	Lset47
+	.short	1                       ## Loc expr size
+	.byte	82                      ## DW_OP_reg2
+.set Lset48, Ltmp18-Lfunc_begin0
+	.quad	Lset48
+.set Lset49, Ltmp50-Lfunc_begin0
+	.quad	Lset49
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset50, Ltmp50-Lfunc_begin0
+	.quad	Lset50
+.set Lset51, Ltmp67-Lfunc_begin0
+	.quad	Lset51
 	.short	3                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	168                     ## -88
 	.byte	127                     ## 
-.set Lset48, Ltmp73-Lfunc_begin0
-	.quad	Lset48
-.set Lset49, Lfunc_end4-Lfunc_begin0
-	.quad	Lset49
+.set Lset52, Ltmp67-Lfunc_begin0
+	.quad	Lset52
+.set Lset53, Ltmp68-Lfunc_begin0
+	.quad	Lset53
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset54, Ltmp71-Lfunc_begin0
+	.quad	Lset54
+.set Lset55, Lfunc_end4-Lfunc_begin0
+	.quad	Lset55
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
-Ldebug_loc15:
-.set Lset50, Ltmp20-Lfunc_begin0
-	.quad	Lset50
-.set Lset51, Ltmp25-Lfunc_begin0
-	.quad	Lset51
+Ldebug_loc16:
+.set Lset56, Ltmp20-Lfunc_begin0
+	.quad	Lset56
+.set Lset57, Ltmp25-Lfunc_begin0
+	.quad	Lset57
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	72                      ## -56
-.set Lset52, Ltmp25-Lfunc_begin0
-	.quad	Lset52
-.set Lset53, Ltmp27-Lfunc_begin0
-	.quad	Lset53
-	.short	1                       ## Loc expr size
-	.byte	80                      ## DW_OP_reg0
-.set Lset54, Ltmp30-Lfunc_begin0
-	.quad	Lset54
-.set Lset55, Ltmp32-Lfunc_begin0
-	.quad	Lset55
-	.short	1                       ## Loc expr size
-	.byte	80                      ## DW_OP_reg0
-.set Lset56, Ltmp36-Lfunc_begin0
-	.quad	Lset56
-.set Lset57, Ltmp39-Lfunc_begin0
-	.quad	Lset57
-	.short	1                       ## Loc expr size
-	.byte	80                      ## DW_OP_reg0
-	.quad	0
-	.quad	0
-Ldebug_loc16:
-.set Lset58, Ltmp26-Lfunc_begin0
+.set Lset58, Ltmp25-Lfunc_begin0
 	.quad	Lset58
-.set Lset59, Lfunc_end4-Lfunc_begin0
+.set Lset59, Ltmp26-Lfunc_begin0
 	.quad	Lset59
-	.short	3                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	164                     ## -92
-	.byte	127                     ## 
+	.short	1                       ## Loc expr size
+	.byte	80                      ## DW_OP_reg0
+.set Lset60, Ltmp29-Lfunc_begin0
+	.quad	Lset60
+.set Lset61, Ltmp31-Lfunc_begin0
+	.quad	Lset61
+	.short	1                       ## Loc expr size
+	.byte	80                      ## DW_OP_reg0
+.set Lset62, Ltmp35-Lfunc_begin0
+	.quad	Lset62
+.set Lset63, Ltmp38-Lfunc_begin0
+	.quad	Lset63
+	.short	1                       ## Loc expr size
+	.byte	80                      ## DW_OP_reg0
 	.quad	0
 	.quad	0
 Ldebug_loc17:
-.set Lset60, Ltmp31-Lfunc_begin0
-	.quad	Lset60
-.set Lset61, Ltmp49-Lfunc_begin0
-	.quad	Lset61
+.set Lset64, Ltmp30-Lfunc_begin0
+	.quad	Lset64
+.set Lset65, Ltmp59-Lfunc_begin0
+	.quad	Lset65
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	84                      ## -44
-.set Lset62, Ltmp49-Lfunc_begin0
-	.quad	Lset62
-.set Lset63, Ltmp55-Lfunc_begin0
-	.quad	Lset63
-	.short	1                       ## Loc expr size
-	.byte	82                      ## super-register DW_OP_reg2
-.set Lset64, Ltmp62-Lfunc_begin0
-	.quad	Lset64
-.set Lset65, Ltmp64-Lfunc_begin0
-	.quad	Lset65
-	.short	1                       ## Loc expr size
-	.byte	82                      ## super-register DW_OP_reg2
-.set Lset66, Ltmp66-Lfunc_begin0
+.set Lset66, Ltmp59-Lfunc_begin0
 	.quad	Lset66
-.set Lset67, Ltmp68-Lfunc_begin0
+.set Lset67, Ltmp61-Lfunc_begin0
 	.quad	Lset67
 	.short	1                       ## Loc expr size
 	.byte	82                      ## super-register DW_OP_reg2
-.set Lset68, Ltmp69-Lfunc_begin0
+.set Lset68, Ltmp61-Lfunc_begin0
 	.quad	Lset68
-.set Lset69, Ltmp70-Lfunc_begin0
+.set Lset69, Ltmp63-Lfunc_begin0
 	.quad	Lset69
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	84                      ## -44
+.set Lset70, Ltmp63-Lfunc_begin0
+	.quad	Lset70
+.set Lset71, Ltmp65-Lfunc_begin0
+	.quad	Lset71
 	.short	1                       ## Loc expr size
 	.byte	82                      ## super-register DW_OP_reg2
-.set Lset70, Ltmp74-Lfunc_begin0
-	.quad	Lset70
-.set Lset71, Lfunc_end4-Lfunc_begin0
-	.quad	Lset71
+.set Lset72, Ltmp66-Lfunc_begin0
+	.quad	Lset72
+.set Lset73, Ltmp67-Lfunc_begin0
+	.quad	Lset73
+	.short	1                       ## Loc expr size
+	.byte	82                      ## super-register DW_OP_reg2
+.set Lset74, Ltmp67-Lfunc_begin0
+	.quad	Lset74
+.set Lset75, Ltmp68-Lfunc_begin0
+	.quad	Lset75
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	84                      ## -44
+.set Lset76, Ltmp71-Lfunc_begin0
+	.quad	Lset76
+.set Lset77, Lfunc_end4-Lfunc_begin0
+	.quad	Lset77
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	84                      ## -44
 	.quad	0
 	.quad	0
 Ldebug_loc18:
-.set Lset72, Ltmp37-Lfunc_begin0
-	.quad	Lset72
-.set Lset73, Ltmp54-Lfunc_begin0
-	.quad	Lset73
+.set Lset78, Ltmp36-Lfunc_begin0
+	.quad	Lset78
+.set Lset79, Ltmp52-Lfunc_begin0
+	.quad	Lset79
 	.short	3                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	176                     ## -80
 	.byte	127                     ## 
-.set Lset74, Ltmp54-Lfunc_begin0
-	.quad	Lset74
-.set Lset75, Ltmp55-Lfunc_begin0
-	.quad	Lset75
+.set Lset80, Ltmp52-Lfunc_begin0
+	.quad	Lset80
+.set Lset81, Ltmp53-Lfunc_begin0
+	.quad	Lset81
 	.short	1                       ## Loc expr size
 	.byte	84                      ## DW_OP_reg4
-.set Lset76, Ltmp58-Lfunc_begin0
-	.quad	Lset76
-.set Lset77, Lfunc_end4-Lfunc_begin0
-	.quad	Lset77
+.set Lset82, Ltmp56-Lfunc_begin0
+	.quad	Lset82
+.set Lset83, Lfunc_end4-Lfunc_begin0
+	.quad	Lset83
 	.short	3                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	176                     ## -80
@@ -2095,24 +2306,24 @@ Ldebug_loc18:
 	.quad	0
 	.quad	0
 Ldebug_loc19:
-.set Lset78, Ltmp38-Lfunc_begin0
-	.quad	Lset78
-.set Lset79, Ltmp58-Lfunc_begin0
-	.quad	Lset79
+.set Lset84, Ltmp37-Lfunc_begin0
+	.quad	Lset84
+.set Lset85, Ltmp56-Lfunc_begin0
+	.quad	Lset85
 	.short	3                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	184                     ## -72
 	.byte	127                     ## 
-.set Lset80, Ltmp58-Lfunc_begin0
-	.quad	Lset80
-.set Lset81, Ltmp58-Lfunc_begin0
-	.quad	Lset81
+.set Lset86, Ltmp56-Lfunc_begin0
+	.quad	Lset86
+.set Lset87, Ltmp56-Lfunc_begin0
+	.quad	Lset87
 	.short	1                       ## Loc expr size
 	.byte	84                      ## DW_OP_reg4
-.set Lset82, Ltmp58-Lfunc_begin0
-	.quad	Lset82
-.set Lset83, Lfunc_end4-Lfunc_begin0
-	.quad	Lset83
+.set Lset88, Ltmp56-Lfunc_begin0
+	.quad	Lset88
+.set Lset89, Lfunc_end4-Lfunc_begin0
+	.quad	Lset89
 	.short	3                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	184                     ## -72
@@ -2120,1030 +2331,1216 @@ Ldebug_loc19:
 	.quad	0
 	.quad	0
 Ldebug_loc20:
-.set Lset84, Ltmp45-Lfunc_begin0
-	.quad	Lset84
-.set Lset85, Ltmp71-Lfunc_begin0
-	.quad	Lset85
+.set Lset90, Ltmp44-Lfunc_begin0
+	.quad	Lset90
+.set Lset91, Ltmp69-Lfunc_begin0
+	.quad	Lset91
 	.short	1                       ## Loc expr size
 	.byte	95                      ## DW_OP_reg15
-.set Lset86, Ltmp74-Lfunc_begin0
-	.quad	Lset86
-.set Lset87, Lfunc_end4-Lfunc_begin0
-	.quad	Lset87
+.set Lset92, Ltmp71-Lfunc_begin0
+	.quad	Lset92
+.set Lset93, Lfunc_end4-Lfunc_begin0
+	.quad	Lset93
 	.short	1                       ## Loc expr size
 	.byte	95                      ## DW_OP_reg15
 	.quad	0
 	.quad	0
 Ldebug_loc21:
-.set Lset88, Ltmp48-Lfunc_begin0
-	.quad	Lset88
-.set Lset89, Ltmp53-Lfunc_begin0
-	.quad	Lset89
+.set Lset94, Ltmp47-Lfunc_begin0
+	.quad	Lset94
+.set Lset95, Ltmp51-Lfunc_begin0
+	.quad	Lset95
 	.short	3                       ## Loc expr size
 	.byte	17                      ## DW_OP_consts
 	.byte	0                       ## 0
 	.byte	159                     ## DW_OP_stack_value
-.set Lset90, Ltmp53-Lfunc_begin0
-	.quad	Lset90
-.set Lset91, Ltmp61-Lfunc_begin0
-	.quad	Lset91
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset92, Ltmp64-Lfunc_begin0
-	.quad	Lset92
-.set Lset93, Ltmp65-Lfunc_begin0
-	.quad	Lset93
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-	.quad	0
-	.quad	0
-Ldebug_loc22:
-.set Lset94, Lfunc_begin5-Lfunc_begin0
-	.quad	Lset94
-.set Lset95, Ltmp77-Lfunc_begin0
-	.quad	Lset95
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset96, Ltmp77-Lfunc_begin0
+.set Lset96, Ltmp51-Lfunc_begin0
 	.quad	Lset96
-.set Lset97, Ltmp93-Lfunc_begin0
+.set Lset97, Ltmp59-Lfunc_begin0
 	.quad	Lset97
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
-.set Lset98, Ltmp94-Lfunc_begin0
+.set Lset98, Ltmp61-Lfunc_begin0
 	.quad	Lset98
-.set Lset99, Lfunc_end5-Lfunc_begin0
+.set Lset99, Ltmp62-Lfunc_begin0
 	.quad	Lset99
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
-Ldebug_loc23:
+Ldebug_loc22:
 .set Lset100, Lfunc_begin5-Lfunc_begin0
 	.quad	Lset100
-.set Lset101, Ltmp78-Lfunc_begin0
+.set Lset101, Ltmp74-Lfunc_begin0
 	.quad	Lset101
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset102, Ltmp74-Lfunc_begin0
+	.quad	Lset102
+.set Lset103, Ltmp91-Lfunc_begin0
+	.quad	Lset103
+	.short	1                       ## Loc expr size
+	.byte	95                      ## DW_OP_reg15
+	.quad	0
+	.quad	0
+Ldebug_loc23:
+.set Lset104, Lfunc_begin5-Lfunc_begin0
+	.quad	Lset104
+.set Lset105, Ltmp75-Lfunc_begin0
+	.quad	Lset105
 	.short	1                       ## Loc expr size
 	.byte	84                      ## super-register DW_OP_reg4
 	.quad	0
 	.quad	0
 Ldebug_loc24:
-.set Lset102, Lfunc_begin5-Lfunc_begin0
-	.quad	Lset102
-.set Lset103, Ltmp77-Lfunc_begin0
-	.quad	Lset103
-	.short	1                       ## Loc expr size
-	.byte	81                      ## DW_OP_reg1
-.set Lset104, Ltmp77-Lfunc_begin0
-	.quad	Lset104
-.set Lset105, Ltmp88-Lfunc_begin0
-	.quad	Lset105
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-.set Lset106, Ltmp94-Lfunc_begin0
+.set Lset106, Lfunc_begin5-Lfunc_begin0
 	.quad	Lset106
-.set Lset107, Lfunc_end5-Lfunc_begin0
+.set Lset107, Ltmp74-Lfunc_begin0
 	.quad	Lset107
 	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
+	.byte	81                      ## DW_OP_reg1
+.set Lset108, Ltmp74-Lfunc_begin0
+	.quad	Lset108
+.set Lset109, Ltmp89-Lfunc_begin0
+	.quad	Lset109
+	.short	1                       ## Loc expr size
+	.byte	93                      ## DW_OP_reg13
 	.quad	0
 	.quad	0
 Ldebug_loc25:
-.set Lset108, Ltmp76-Lfunc_begin0
-	.quad	Lset108
-.set Lset109, Ltmp77-Lfunc_begin0
-	.quad	Lset109
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset110, Ltmp77-Lfunc_begin0
+.set Lset110, Ltmp73-Lfunc_begin0
 	.quad	Lset110
-.set Lset111, Ltmp81-Lfunc_begin0
+.set Lset111, Ltmp74-Lfunc_begin0
 	.quad	Lset111
 	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
+	.byte	85                      ## DW_OP_reg5
+.set Lset112, Ltmp74-Lfunc_begin0
+	.quad	Lset112
+.set Lset113, Ltmp79-Lfunc_begin0
+	.quad	Lset113
+	.short	1                       ## Loc expr size
+	.byte	95                      ## DW_OP_reg15
 	.quad	0
 	.quad	0
 Ldebug_loc26:
-.set Lset112, Ltmp76-Lfunc_begin0
-	.quad	Lset112
-.set Lset113, Ltmp77-Lfunc_begin0
-	.quad	Lset113
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset114, Ltmp77-Lfunc_begin0
+.set Lset114, Ltmp76-Lfunc_begin0
 	.quad	Lset114
-.set Lset115, Ltmp81-Lfunc_begin0
+.set Lset115, Ltmp90-Lfunc_begin0
 	.quad	Lset115
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc27:
-.set Lset116, Ltmp79-Lfunc_begin0
+.set Lset116, Ltmp76-Lfunc_begin0
 	.quad	Lset116
-.set Lset117, Ltmp85-Lfunc_begin0
+.set Lset117, Ltmp79-Lfunc_begin0
 	.quad	Lset117
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
-.set Lset118, Ltmp85-Lfunc_begin0
-	.quad	Lset118
-.set Lset119, Ltmp86-Lfunc_begin0
-	.quad	Lset119
 	.short	1                       ## Loc expr size
-	.byte	84                      ## DW_OP_reg4
-.set Lset120, Ltmp94-Lfunc_begin0
-	.quad	Lset120
-.set Lset121, Lfunc_end5-Lfunc_begin0
-	.quad	Lset121
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
+	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc28:
-.set Lset122, Ltmp82-Lfunc_begin0
-	.quad	Lset122
-.set Lset123, Lfunc_end5-Lfunc_begin0
-	.quad	Lset123
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	104                     ## -24
+.set Lset118, Ltmp77-Lfunc_begin0
+	.quad	Lset118
+.set Lset119, Ltmp80-Lfunc_begin0
+	.quad	Lset119
+	.short	3                       ## Loc expr size
+	.byte	17                      ## DW_OP_consts
+	.byte	0                       ## 0
+	.byte	159                     ## DW_OP_stack_value
+.set Lset120, Ltmp80-Lfunc_begin0
+	.quad	Lset120
+.set Lset121, Ltmp82-Lfunc_begin0
+	.quad	Lset121
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc29:
-.set Lset124, Ltmp87-Lfunc_begin0
-	.quad	Lset124
-.set Lset125, Ltmp89-Lfunc_begin0
-	.quad	Lset125
+.set Lset122, Ltmp77-Lfunc_begin0
+	.quad	Lset122
+.set Lset123, Ltmp88-Lfunc_begin0
+	.quad	Lset123
 	.short	1                       ## Loc expr size
-	.byte	84                      ## DW_OP_reg4
+	.byte	92                      ## DW_OP_reg12
 	.quad	0
 	.quad	0
 Ldebug_loc30:
-.set Lset126, Ltmp90-Lfunc_begin0
-	.quad	Lset126
-.set Lset127, Ltmp91-Lfunc_begin0
-	.quad	Lset127
+.set Lset124, Ltmp85-Lfunc_begin0
+	.quad	Lset124
+.set Lset125, Ltmp87-Lfunc_begin0
+	.quad	Lset125
 	.short	1                       ## Loc expr size
-	.byte	82                      ## DW_OP_reg2
+	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc31:
-.set Lset128, Ltmp90-Lfunc_begin0
-	.quad	Lset128
-.set Lset129, Ltmp91-Lfunc_begin0
-	.quad	Lset129
+.set Lset126, Ltmp86-Lfunc_begin0
+	.quad	Lset126
+.set Lset127, Ltmp87-Lfunc_begin0
+	.quad	Lset127
 	.short	1                       ## Loc expr size
 	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc32:
-.set Lset130, Ltmp96-Lfunc_begin0
+.set Lset128, Lfunc_begin6-Lfunc_begin0
+	.quad	Lset128
+.set Lset129, Ltmp94-Lfunc_begin0
+	.quad	Lset129
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset130, Ltmp94-Lfunc_begin0
 	.quad	Lset130
-.set Lset131, Lfunc_end5-Lfunc_begin0
+.set Lset131, Ltmp110-Lfunc_begin0
 	.quad	Lset131
 	.short	1                       ## Loc expr size
-	.byte	82                      ## DW_OP_reg2
+	.byte	94                      ## DW_OP_reg14
+.set Lset132, Ltmp111-Lfunc_begin0
+	.quad	Lset132
+.set Lset133, Lfunc_end6-Lfunc_begin0
+	.quad	Lset133
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc33:
-.set Lset132, Ltmp96-Lfunc_begin0
-	.quad	Lset132
-.set Lset133, Lfunc_end5-Lfunc_begin0
-	.quad	Lset133
-	.short	1                       ## Loc expr size
-	.byte	81                      ## DW_OP_reg1
-	.quad	0
-	.quad	0
-Ldebug_loc34:
 .set Lset134, Lfunc_begin6-Lfunc_begin0
 	.quad	Lset134
-.set Lset135, Ltmp99-Lfunc_begin0
+.set Lset135, Ltmp95-Lfunc_begin0
 	.quad	Lset135
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset136, Ltmp99-Lfunc_begin0
-	.quad	Lset136
-.set Lset137, Ltmp115-Lfunc_begin0
-	.quad	Lset137
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset138, Ltmp116-Lfunc_begin0
-	.quad	Lset138
-.set Lset139, Lfunc_end6-Lfunc_begin0
-	.quad	Lset139
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-	.quad	0
-	.quad	0
-Ldebug_loc35:
-.set Lset140, Lfunc_begin6-Lfunc_begin0
-	.quad	Lset140
-.set Lset141, Ltmp100-Lfunc_begin0
-	.quad	Lset141
 	.short	1                       ## Loc expr size
 	.byte	84                      ## super-register DW_OP_reg4
 	.quad	0
 	.quad	0
-Ldebug_loc36:
-.set Lset142, Lfunc_begin6-Lfunc_begin0
-	.quad	Lset142
-.set Lset143, Ltmp99-Lfunc_begin0
-	.quad	Lset143
+Ldebug_loc34:
+.set Lset136, Lfunc_begin6-Lfunc_begin0
+	.quad	Lset136
+.set Lset137, Ltmp94-Lfunc_begin0
+	.quad	Lset137
 	.short	1                       ## Loc expr size
 	.byte	81                      ## DW_OP_reg1
-.set Lset144, Ltmp99-Lfunc_begin0
+.set Lset138, Ltmp94-Lfunc_begin0
+	.quad	Lset138
+.set Lset139, Ltmp105-Lfunc_begin0
+	.quad	Lset139
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset140, Ltmp111-Lfunc_begin0
+	.quad	Lset140
+.set Lset141, Lfunc_end6-Lfunc_begin0
+	.quad	Lset141
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
+Ldebug_loc35:
+.set Lset142, Ltmp93-Lfunc_begin0
+	.quad	Lset142
+.set Lset143, Ltmp94-Lfunc_begin0
+	.quad	Lset143
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset144, Ltmp94-Lfunc_begin0
 	.quad	Lset144
-.set Lset145, Ltmp110-Lfunc_begin0
+.set Lset145, Ltmp98-Lfunc_begin0
 	.quad	Lset145
 	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-.set Lset146, Ltmp116-Lfunc_begin0
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc36:
+.set Lset146, Ltmp93-Lfunc_begin0
 	.quad	Lset146
-.set Lset147, Lfunc_end6-Lfunc_begin0
+.set Lset147, Ltmp94-Lfunc_begin0
 	.quad	Lset147
 	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
+	.byte	85                      ## DW_OP_reg5
+.set Lset148, Ltmp94-Lfunc_begin0
+	.quad	Lset148
+.set Lset149, Ltmp98-Lfunc_begin0
+	.quad	Lset149
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc37:
-.set Lset148, Ltmp98-Lfunc_begin0
-	.quad	Lset148
-.set Lset149, Ltmp99-Lfunc_begin0
-	.quad	Lset149
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset150, Ltmp99-Lfunc_begin0
+.set Lset150, Ltmp96-Lfunc_begin0
 	.quad	Lset150
-.set Lset151, Ltmp103-Lfunc_begin0
+.set Lset151, Ltmp102-Lfunc_begin0
 	.quad	Lset151
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
+.set Lset152, Ltmp102-Lfunc_begin0
+	.quad	Lset152
+.set Lset153, Ltmp103-Lfunc_begin0
+	.quad	Lset153
 	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
+	.byte	84                      ## DW_OP_reg4
+.set Lset154, Ltmp111-Lfunc_begin0
+	.quad	Lset154
+.set Lset155, Lfunc_end6-Lfunc_begin0
+	.quad	Lset155
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
 	.quad	0
 	.quad	0
 Ldebug_loc38:
-.set Lset152, Ltmp98-Lfunc_begin0
-	.quad	Lset152
-.set Lset153, Ltmp99-Lfunc_begin0
-	.quad	Lset153
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset154, Ltmp99-Lfunc_begin0
-	.quad	Lset154
-.set Lset155, Ltmp103-Lfunc_begin0
-	.quad	Lset155
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-	.quad	0
-	.quad	0
-Ldebug_loc39:
-.set Lset156, Ltmp101-Lfunc_begin0
+.set Lset156, Ltmp99-Lfunc_begin0
 	.quad	Lset156
-.set Lset157, Ltmp107-Lfunc_begin0
+.set Lset157, Lfunc_end6-Lfunc_begin0
 	.quad	Lset157
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
-.set Lset158, Ltmp107-Lfunc_begin0
-	.quad	Lset158
-.set Lset159, Ltmp108-Lfunc_begin0
-	.quad	Lset159
-	.short	1                       ## Loc expr size
-	.byte	84                      ## DW_OP_reg4
-.set Lset160, Ltmp116-Lfunc_begin0
-	.quad	Lset160
-.set Lset161, Lfunc_end6-Lfunc_begin0
-	.quad	Lset161
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
-	.quad	0
-	.quad	0
-Ldebug_loc40:
-.set Lset162, Ltmp104-Lfunc_begin0
-	.quad	Lset162
-.set Lset163, Lfunc_end6-Lfunc_begin0
-	.quad	Lset163
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	104                     ## -24
 	.quad	0
 	.quad	0
-Ldebug_loc41:
-.set Lset164, Ltmp109-Lfunc_begin0
-	.quad	Lset164
-.set Lset165, Ltmp111-Lfunc_begin0
-	.quad	Lset165
+Ldebug_loc39:
+.set Lset158, Ltmp104-Lfunc_begin0
+	.quad	Lset158
+.set Lset159, Ltmp106-Lfunc_begin0
+	.quad	Lset159
 	.short	1                       ## Loc expr size
 	.byte	84                      ## DW_OP_reg4
 	.quad	0
 	.quad	0
+Ldebug_loc40:
+.set Lset160, Ltmp107-Lfunc_begin0
+	.quad	Lset160
+.set Lset161, Ltmp108-Lfunc_begin0
+	.quad	Lset161
+	.short	1                       ## Loc expr size
+	.byte	82                      ## DW_OP_reg2
+	.quad	0
+	.quad	0
+Ldebug_loc41:
+.set Lset162, Ltmp107-Lfunc_begin0
+	.quad	Lset162
+.set Lset163, Ltmp108-Lfunc_begin0
+	.quad	Lset163
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
 Ldebug_loc42:
-.set Lset166, Ltmp112-Lfunc_begin0
-	.quad	Lset166
-.set Lset167, Ltmp113-Lfunc_begin0
-	.quad	Lset167
+.set Lset164, Ltmp113-Lfunc_begin0
+	.quad	Lset164
+.set Lset165, Lfunc_end6-Lfunc_begin0
+	.quad	Lset165
 	.short	1                       ## Loc expr size
 	.byte	82                      ## DW_OP_reg2
 	.quad	0
 	.quad	0
 Ldebug_loc43:
-.set Lset168, Ltmp112-Lfunc_begin0
-	.quad	Lset168
-.set Lset169, Ltmp113-Lfunc_begin0
-	.quad	Lset169
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-	.quad	0
-	.quad	0
-Ldebug_loc44:
-.set Lset170, Ltmp118-Lfunc_begin0
-	.quad	Lset170
-.set Lset171, Lfunc_end6-Lfunc_begin0
-	.quad	Lset171
-	.short	1                       ## Loc expr size
-	.byte	82                      ## DW_OP_reg2
-	.quad	0
-	.quad	0
-Ldebug_loc45:
-.set Lset172, Ltmp118-Lfunc_begin0
-	.quad	Lset172
-.set Lset173, Lfunc_end6-Lfunc_begin0
-	.quad	Lset173
+.set Lset166, Ltmp113-Lfunc_begin0
+	.quad	Lset166
+.set Lset167, Lfunc_end6-Lfunc_begin0
+	.quad	Lset167
 	.short	1                       ## Loc expr size
 	.byte	81                      ## DW_OP_reg1
 	.quad	0
 	.quad	0
-Ldebug_loc46:
-.set Lset174, Lfunc_begin7-Lfunc_begin0
-	.quad	Lset174
-.set Lset175, Ltmp121-Lfunc_begin0
-	.quad	Lset175
+Ldebug_loc44:
+.set Lset168, Lfunc_begin7-Lfunc_begin0
+	.quad	Lset168
+.set Lset169, Ltmp116-Lfunc_begin0
+	.quad	Lset169
 	.short	1                       ## Loc expr size
 	.byte	85                      ## DW_OP_reg5
-.set Lset176, Ltmp121-Lfunc_begin0
-	.quad	Lset176
-.set Lset177, Ltmp129-Lfunc_begin0
-	.quad	Lset177
+.set Lset170, Ltmp116-Lfunc_begin0
+	.quad	Lset170
+.set Lset171, Ltmp132-Lfunc_begin0
+	.quad	Lset171
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
-.set Lset178, Ltmp130-Lfunc_begin0
-	.quad	Lset178
-.set Lset179, Lfunc_end7-Lfunc_begin0
-	.quad	Lset179
+.set Lset172, Ltmp133-Lfunc_begin0
+	.quad	Lset172
+.set Lset173, Lfunc_end7-Lfunc_begin0
+	.quad	Lset173
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
-Ldebug_loc47:
-.set Lset180, Lfunc_begin7-Lfunc_begin0
-	.quad	Lset180
-.set Lset181, Ltmp122-Lfunc_begin0
-	.quad	Lset181
+Ldebug_loc45:
+.set Lset174, Lfunc_begin7-Lfunc_begin0
+	.quad	Lset174
+.set Lset175, Ltmp117-Lfunc_begin0
+	.quad	Lset175
 	.short	1                       ## Loc expr size
 	.byte	84                      ## super-register DW_OP_reg4
 	.quad	0
 	.quad	0
-Ldebug_loc48:
-.set Lset182, Lfunc_begin7-Lfunc_begin0
-	.quad	Lset182
-.set Lset183, Ltmp123-Lfunc_begin0
-	.quad	Lset183
+Ldebug_loc46:
+.set Lset176, Lfunc_begin7-Lfunc_begin0
+	.quad	Lset176
+.set Lset177, Ltmp116-Lfunc_begin0
+	.quad	Lset177
 	.short	1                       ## Loc expr size
 	.byte	81                      ## DW_OP_reg1
+.set Lset178, Ltmp116-Lfunc_begin0
+	.quad	Lset178
+.set Lset179, Ltmp127-Lfunc_begin0
+	.quad	Lset179
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset180, Ltmp133-Lfunc_begin0
+	.quad	Lset180
+.set Lset181, Lfunc_end7-Lfunc_begin0
+	.quad	Lset181
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
-Ldebug_loc49:
-.set Lset184, Ltmp120-Lfunc_begin0
-	.quad	Lset184
-.set Lset185, Ltmp121-Lfunc_begin0
-	.quad	Lset185
+Ldebug_loc47:
+.set Lset182, Ltmp115-Lfunc_begin0
+	.quad	Lset182
+.set Lset183, Ltmp116-Lfunc_begin0
+	.quad	Lset183
 	.short	1                       ## Loc expr size
 	.byte	85                      ## DW_OP_reg5
-.set Lset186, Ltmp121-Lfunc_begin0
-	.quad	Lset186
-.set Lset187, Ltmp128-Lfunc_begin0
-	.quad	Lset187
+.set Lset184, Ltmp116-Lfunc_begin0
+	.quad	Lset184
+.set Lset185, Ltmp120-Lfunc_begin0
+	.quad	Lset185
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
-Ldebug_loc50:
-.set Lset188, Ltmp123-Lfunc_begin0
+Ldebug_loc48:
+.set Lset186, Ltmp115-Lfunc_begin0
+	.quad	Lset186
+.set Lset187, Ltmp116-Lfunc_begin0
+	.quad	Lset187
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset188, Ltmp116-Lfunc_begin0
 	.quad	Lset188
-.set Lset189, Ltmp126-Lfunc_begin0
+.set Lset189, Ltmp120-Lfunc_begin0
 	.quad	Lset189
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc49:
+.set Lset190, Ltmp118-Lfunc_begin0
+	.quad	Lset190
+.set Lset191, Ltmp124-Lfunc_begin0
+	.quad	Lset191
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
-	.byte	104                     ## -24
-.set Lset190, Ltmp126-Lfunc_begin0
-	.quad	Lset190
-.set Lset191, Ltmp128-Lfunc_begin0
-	.quad	Lset191
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-.set Lset192, Ltmp130-Lfunc_begin0
+	.byte	96                      ## -32
+.set Lset192, Ltmp124-Lfunc_begin0
 	.quad	Lset192
-.set Lset193, Lfunc_end7-Lfunc_begin0
+.set Lset193, Ltmp125-Lfunc_begin0
 	.quad	Lset193
+	.short	1                       ## Loc expr size
+	.byte	84                      ## DW_OP_reg4
+.set Lset194, Ltmp133-Lfunc_begin0
+	.quad	Lset194
+.set Lset195, Lfunc_end7-Lfunc_begin0
+	.quad	Lset195
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
+	.quad	0
+	.quad	0
+Ldebug_loc50:
+.set Lset196, Ltmp121-Lfunc_begin0
+	.quad	Lset196
+.set Lset197, Lfunc_end7-Lfunc_begin0
+	.quad	Lset197
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	104                     ## -24
 	.quad	0
 	.quad	0
 Ldebug_loc51:
-.set Lset194, Ltmp127-Lfunc_begin0
-	.quad	Lset194
-.set Lset195, Ltmp128-Lfunc_begin0
-	.quad	Lset195
+.set Lset198, Ltmp126-Lfunc_begin0
+	.quad	Lset198
+.set Lset199, Ltmp128-Lfunc_begin0
+	.quad	Lset199
+	.short	1                       ## Loc expr size
+	.byte	84                      ## DW_OP_reg4
+	.quad	0
+	.quad	0
+Ldebug_loc52:
+.set Lset200, Ltmp129-Lfunc_begin0
+	.quad	Lset200
+.set Lset201, Ltmp130-Lfunc_begin0
+	.quad	Lset201
 	.short	1                       ## Loc expr size
 	.byte	82                      ## DW_OP_reg2
 	.quad	0
 	.quad	0
-Ldebug_loc52:
-.set Lset196, Ltmp127-Lfunc_begin0
-	.quad	Lset196
-.set Lset197, Ltmp128-Lfunc_begin0
-	.quad	Lset197
-	.short	1                       ## Loc expr size
-	.byte	81                      ## DW_OP_reg1
-	.quad	0
-	.quad	0
 Ldebug_loc53:
-.set Lset198, Lfunc_begin8-Lfunc_begin0
-	.quad	Lset198
-.set Lset199, Ltmp133-Lfunc_begin0
-	.quad	Lset199
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset200, Ltmp133-Lfunc_begin0
-	.quad	Lset200
-.set Lset201, Ltmp146-Lfunc_begin0
-	.quad	Lset201
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset202, Ltmp147-Lfunc_begin0
+.set Lset202, Ltmp129-Lfunc_begin0
 	.quad	Lset202
-.set Lset203, Lfunc_end8-Lfunc_begin0
+.set Lset203, Ltmp130-Lfunc_begin0
 	.quad	Lset203
 	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
+	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc54:
-.set Lset204, Lfunc_begin8-Lfunc_begin0
+.set Lset204, Ltmp135-Lfunc_begin0
 	.quad	Lset204
-.set Lset205, Ltmp134-Lfunc_begin0
+.set Lset205, Lfunc_end7-Lfunc_begin0
 	.quad	Lset205
 	.short	1                       ## Loc expr size
-	.byte	84                      ## super-register DW_OP_reg4
+	.byte	82                      ## DW_OP_reg2
 	.quad	0
 	.quad	0
 Ldebug_loc55:
-.set Lset206, Lfunc_begin8-Lfunc_begin0
+.set Lset206, Ltmp135-Lfunc_begin0
 	.quad	Lset206
-.set Lset207, Ltmp133-Lfunc_begin0
+.set Lset207, Lfunc_end7-Lfunc_begin0
 	.quad	Lset207
 	.short	1                       ## Loc expr size
 	.byte	81                      ## DW_OP_reg1
-.set Lset208, Ltmp133-Lfunc_begin0
-	.quad	Lset208
-.set Lset209, Ltmp142-Lfunc_begin0
-	.quad	Lset209
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-.set Lset210, Ltmp147-Lfunc_begin0
-	.quad	Lset210
-.set Lset211, Lfunc_end8-Lfunc_begin0
-	.quad	Lset211
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc56:
-.set Lset212, Ltmp132-Lfunc_begin0
-	.quad	Lset212
-.set Lset213, Ltmp133-Lfunc_begin0
-	.quad	Lset213
+.set Lset208, Lfunc_begin8-Lfunc_begin0
+	.quad	Lset208
+.set Lset209, Ltmp138-Lfunc_begin0
+	.quad	Lset209
 	.short	1                       ## Loc expr size
 	.byte	85                      ## DW_OP_reg5
-.set Lset214, Ltmp133-Lfunc_begin0
-	.quad	Lset214
-.set Lset215, Ltmp137-Lfunc_begin0
-	.quad	Lset215
+.set Lset210, Ltmp138-Lfunc_begin0
+	.quad	Lset210
+.set Lset211, Ltmp155-Lfunc_begin0
+	.quad	Lset211
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset212, Ltmp156-Lfunc_begin0
+	.quad	Lset212
+.set Lset213, Lfunc_end8-Lfunc_begin0
+	.quad	Lset213
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc57:
-.set Lset216, Ltmp135-Lfunc_begin0
-	.quad	Lset216
-.set Lset217, Lfunc_end8-Lfunc_begin0
-	.quad	Lset217
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
-	.quad	0
-	.quad	0
-Ldebug_loc58:
-.set Lset218, Ltmp138-Lfunc_begin0
-	.quad	Lset218
-.set Lset219, Lfunc_end8-Lfunc_begin0
-	.quad	Lset219
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	104                     ## -24
-	.quad	0
-	.quad	0
-Ldebug_loc59:
-.set Lset220, Ltmp141-Lfunc_begin0
-	.quad	Lset220
-.set Lset221, Ltmp143-Lfunc_begin0
-	.quad	Lset221
-	.short	1                       ## Loc expr size
-	.byte	97                      ## DW_OP_reg17
-	.quad	0
-	.quad	0
-Ldebug_loc60:
-.set Lset222, Ltmp144-Lfunc_begin0
-	.quad	Lset222
-.set Lset223, Ltmp145-Lfunc_begin0
-	.quad	Lset223
-	.short	1                       ## Loc expr size
-	.byte	82                      ## DW_OP_reg2
-	.quad	0
-	.quad	0
-Ldebug_loc61:
-.set Lset224, Ltmp144-Lfunc_begin0
-	.quad	Lset224
-.set Lset225, Ltmp145-Lfunc_begin0
-	.quad	Lset225
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-	.quad	0
-	.quad	0
-Ldebug_loc62:
-.set Lset226, Lfunc_begin9-Lfunc_begin0
-	.quad	Lset226
-.set Lset227, Ltmp150-Lfunc_begin0
-	.quad	Lset227
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset228, Ltmp150-Lfunc_begin0
-	.quad	Lset228
-.set Lset229, Ltmp163-Lfunc_begin0
-	.quad	Lset229
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset230, Ltmp164-Lfunc_begin0
-	.quad	Lset230
-.set Lset231, Lfunc_end9-Lfunc_begin0
-	.quad	Lset231
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-	.quad	0
-	.quad	0
-Ldebug_loc63:
-.set Lset232, Lfunc_begin9-Lfunc_begin0
-	.quad	Lset232
-.set Lset233, Ltmp151-Lfunc_begin0
-	.quad	Lset233
+.set Lset214, Lfunc_begin8-Lfunc_begin0
+	.quad	Lset214
+.set Lset215, Ltmp139-Lfunc_begin0
+	.quad	Lset215
 	.short	1                       ## Loc expr size
 	.byte	84                      ## super-register DW_OP_reg4
 	.quad	0
 	.quad	0
-Ldebug_loc64:
-.set Lset234, Lfunc_begin9-Lfunc_begin0
-	.quad	Lset234
-.set Lset235, Ltmp150-Lfunc_begin0
-	.quad	Lset235
+Ldebug_loc58:
+.set Lset216, Lfunc_begin8-Lfunc_begin0
+	.quad	Lset216
+.set Lset217, Ltmp138-Lfunc_begin0
+	.quad	Lset217
 	.short	1                       ## Loc expr size
 	.byte	81                      ## DW_OP_reg1
-.set Lset236, Ltmp150-Lfunc_begin0
-	.quad	Lset236
-.set Lset237, Ltmp159-Lfunc_begin0
-	.quad	Lset237
+.set Lset218, Ltmp138-Lfunc_begin0
+	.quad	Lset218
+.set Lset219, Ltmp149-Lfunc_begin0
+	.quad	Lset219
 	.short	1                       ## Loc expr size
 	.byte	83                      ## DW_OP_reg3
-.set Lset238, Ltmp164-Lfunc_begin0
-	.quad	Lset238
-.set Lset239, Lfunc_end9-Lfunc_begin0
-	.quad	Lset239
+.set Lset220, Ltmp156-Lfunc_begin0
+	.quad	Lset220
+.set Lset221, Lfunc_end8-Lfunc_begin0
+	.quad	Lset221
 	.short	1                       ## Loc expr size
 	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
-Ldebug_loc65:
-.set Lset240, Ltmp149-Lfunc_begin0
-	.quad	Lset240
-.set Lset241, Ltmp150-Lfunc_begin0
-	.quad	Lset241
+Ldebug_loc59:
+.set Lset222, Ltmp137-Lfunc_begin0
+	.quad	Lset222
+.set Lset223, Ltmp138-Lfunc_begin0
+	.quad	Lset223
 	.short	1                       ## Loc expr size
 	.byte	85                      ## DW_OP_reg5
-.set Lset242, Ltmp150-Lfunc_begin0
+.set Lset224, Ltmp138-Lfunc_begin0
+	.quad	Lset224
+.set Lset225, Ltmp143-Lfunc_begin0
+	.quad	Lset225
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc60:
+.set Lset226, Ltmp140-Lfunc_begin0
+	.quad	Lset226
+.set Lset227, Ltmp148-Lfunc_begin0
+	.quad	Lset227
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	100                     ## -28
+.set Lset228, Ltmp148-Lfunc_begin0
+	.quad	Lset228
+.set Lset229, Ltmp150-Lfunc_begin0
+	.quad	Lset229
+	.short	1                       ## Loc expr size
+	.byte	84                      ## super-register DW_OP_reg4
+.set Lset230, Ltmp156-Lfunc_begin0
+	.quad	Lset230
+.set Lset231, Lfunc_end8-Lfunc_begin0
+	.quad	Lset231
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	100                     ## -28
+	.quad	0
+	.quad	0
+Ldebug_loc61:
+.set Lset232, Ltmp141-Lfunc_begin0
+	.quad	Lset232
+.set Lset233, Ltmp149-Lfunc_begin0
+	.quad	Lset233
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	80                      ## -48
+.set Lset234, Ltmp149-Lfunc_begin0
+	.quad	Lset234
+.set Lset235, Ltmp152-Lfunc_begin0
+	.quad	Lset235
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset236, Ltmp156-Lfunc_begin0
+	.quad	Lset236
+.set Lset237, Lfunc_end8-Lfunc_begin0
+	.quad	Lset237
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	80                      ## -48
+	.quad	0
+	.quad	0
+Ldebug_loc62:
+.set Lset238, Ltmp144-Lfunc_begin0
+	.quad	Lset238
+.set Lset239, Lfunc_end8-Lfunc_begin0
+	.quad	Lset239
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	76                      ## -52
+	.quad	0
+	.quad	0
+Ldebug_loc63:
+.set Lset240, Ltmp145-Lfunc_begin0
+	.quad	Lset240
+.set Lset241, Ltmp152-Lfunc_begin0
+	.quad	Lset241
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	88                      ## -40
+.set Lset242, Ltmp152-Lfunc_begin0
 	.quad	Lset242
 .set Lset243, Ltmp154-Lfunc_begin0
 	.quad	Lset243
 	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
+Ldebug_loc64:
+.set Lset244, Ltmp151-Lfunc_begin0
+	.quad	Lset244
+.set Lset245, Ltmp154-Lfunc_begin0
+	.quad	Lset245
+	.short	1                       ## Loc expr size
+	.byte	95                      ## DW_OP_reg15
+	.quad	0
+	.quad	0
+Ldebug_loc65:
+.set Lset246, Ltmp153-Lfunc_begin0
+	.quad	Lset246
+.set Lset247, Ltmp154-Lfunc_begin0
+	.quad	Lset247
+	.short	1                       ## Loc expr size
+	.byte	81                      ## DW_OP_reg1
 	.quad	0
 	.quad	0
 Ldebug_loc66:
-.set Lset244, Ltmp152-Lfunc_begin0
-	.quad	Lset244
-.set Lset245, Lfunc_end9-Lfunc_begin0
-	.quad	Lset245
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
+.set Lset248, Ltmp153-Lfunc_begin0
+	.quad	Lset248
+.set Lset249, Ltmp154-Lfunc_begin0
+	.quad	Lset249
+	.short	1                       ## Loc expr size
+	.byte	95                      ## DW_OP_reg15
 	.quad	0
 	.quad	0
 Ldebug_loc67:
-.set Lset246, Ltmp155-Lfunc_begin0
-	.quad	Lset246
-.set Lset247, Lfunc_end9-Lfunc_begin0
-	.quad	Lset247
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	104                     ## -24
+.set Lset250, Lfunc_begin9-Lfunc_begin0
+	.quad	Lset250
+.set Lset251, Ltmp158-Lfunc_begin0
+	.quad	Lset251
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset252, Ltmp158-Lfunc_begin0
+	.quad	Lset252
+.set Lset253, Ltmp171-Lfunc_begin0
+	.quad	Lset253
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset254, Ltmp172-Lfunc_begin0
+	.quad	Lset254
+.set Lset255, Lfunc_end9-Lfunc_begin0
+	.quad	Lset255
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc68:
-.set Lset248, Ltmp158-Lfunc_begin0
-	.quad	Lset248
-.set Lset249, Ltmp160-Lfunc_begin0
-	.quad	Lset249
+.set Lset256, Lfunc_begin9-Lfunc_begin0
+	.quad	Lset256
+.set Lset257, Ltmp159-Lfunc_begin0
+	.quad	Lset257
 	.short	1                       ## Loc expr size
-	.byte	97                      ## DW_OP_reg17
+	.byte	84                      ## super-register DW_OP_reg4
 	.quad	0
 	.quad	0
 Ldebug_loc69:
-.set Lset250, Ltmp161-Lfunc_begin0
-	.quad	Lset250
-.set Lset251, Ltmp162-Lfunc_begin0
-	.quad	Lset251
+.set Lset258, Lfunc_begin9-Lfunc_begin0
+	.quad	Lset258
+.set Lset259, Ltmp158-Lfunc_begin0
+	.quad	Lset259
 	.short	1                       ## Loc expr size
-	.byte	82                      ## DW_OP_reg2
+	.byte	81                      ## DW_OP_reg1
+.set Lset260, Ltmp158-Lfunc_begin0
+	.quad	Lset260
+.set Lset261, Ltmp167-Lfunc_begin0
+	.quad	Lset261
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset262, Ltmp172-Lfunc_begin0
+	.quad	Lset262
+.set Lset263, Lfunc_end9-Lfunc_begin0
+	.quad	Lset263
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc70:
-.set Lset252, Ltmp161-Lfunc_begin0
-	.quad	Lset252
-.set Lset253, Ltmp162-Lfunc_begin0
-	.quad	Lset253
+.set Lset264, Ltmp157-Lfunc_begin0
+	.quad	Lset264
+.set Lset265, Ltmp158-Lfunc_begin0
+	.quad	Lset265
 	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
+	.byte	85                      ## DW_OP_reg5
+.set Lset266, Ltmp158-Lfunc_begin0
+	.quad	Lset266
+.set Lset267, Ltmp162-Lfunc_begin0
+	.quad	Lset267
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc71:
-.set Lset254, Lfunc_begin10-Lfunc_begin0
-	.quad	Lset254
-.set Lset255, Ltmp167-Lfunc_begin0
-	.quad	Lset255
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset256, Ltmp167-Lfunc_begin0
-	.quad	Lset256
-.set Lset257, Ltmp180-Lfunc_begin0
-	.quad	Lset257
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset258, Ltmp181-Lfunc_begin0
-	.quad	Lset258
-.set Lset259, Lfunc_end10-Lfunc_begin0
-	.quad	Lset259
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
+.set Lset268, Ltmp160-Lfunc_begin0
+	.quad	Lset268
+.set Lset269, Lfunc_end9-Lfunc_begin0
+	.quad	Lset269
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
 	.quad	0
 	.quad	0
 Ldebug_loc72:
-.set Lset260, Lfunc_begin10-Lfunc_begin0
-	.quad	Lset260
-.set Lset261, Ltmp168-Lfunc_begin0
-	.quad	Lset261
-	.short	1                       ## Loc expr size
-	.byte	84                      ## super-register DW_OP_reg4
+.set Lset270, Ltmp163-Lfunc_begin0
+	.quad	Lset270
+.set Lset271, Lfunc_end9-Lfunc_begin0
+	.quad	Lset271
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	104                     ## -24
 	.quad	0
 	.quad	0
 Ldebug_loc73:
-.set Lset262, Lfunc_begin10-Lfunc_begin0
-	.quad	Lset262
-.set Lset263, Ltmp167-Lfunc_begin0
-	.quad	Lset263
+.set Lset272, Ltmp166-Lfunc_begin0
+	.quad	Lset272
+.set Lset273, Ltmp168-Lfunc_begin0
+	.quad	Lset273
 	.short	1                       ## Loc expr size
-	.byte	81                      ## DW_OP_reg1
-.set Lset264, Ltmp167-Lfunc_begin0
-	.quad	Lset264
-.set Lset265, Ltmp176-Lfunc_begin0
-	.quad	Lset265
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-.set Lset266, Ltmp181-Lfunc_begin0
-	.quad	Lset266
-.set Lset267, Lfunc_end10-Lfunc_begin0
-	.quad	Lset267
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
+	.byte	97                      ## DW_OP_reg17
 	.quad	0
 	.quad	0
 Ldebug_loc74:
-.set Lset268, Ltmp166-Lfunc_begin0
-	.quad	Lset268
-.set Lset269, Ltmp167-Lfunc_begin0
-	.quad	Lset269
+.set Lset274, Ltmp169-Lfunc_begin0
+	.quad	Lset274
+.set Lset275, Ltmp170-Lfunc_begin0
+	.quad	Lset275
 	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset270, Ltmp167-Lfunc_begin0
-	.quad	Lset270
-.set Lset271, Ltmp171-Lfunc_begin0
-	.quad	Lset271
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
+	.byte	82                      ## DW_OP_reg2
 	.quad	0
 	.quad	0
 Ldebug_loc75:
-.set Lset272, Ltmp169-Lfunc_begin0
-	.quad	Lset272
-.set Lset273, Lfunc_end10-Lfunc_begin0
-	.quad	Lset273
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
+.set Lset276, Ltmp169-Lfunc_begin0
+	.quad	Lset276
+.set Lset277, Ltmp170-Lfunc_begin0
+	.quad	Lset277
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc76:
-.set Lset274, Ltmp172-Lfunc_begin0
-	.quad	Lset274
-.set Lset275, Lfunc_end10-Lfunc_begin0
-	.quad	Lset275
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	104                     ## -24
+.set Lset278, Lfunc_begin10-Lfunc_begin0
+	.quad	Lset278
+.set Lset279, Ltmp175-Lfunc_begin0
+	.quad	Lset279
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset280, Ltmp175-Lfunc_begin0
+	.quad	Lset280
+.set Lset281, Ltmp188-Lfunc_begin0
+	.quad	Lset281
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset282, Ltmp189-Lfunc_begin0
+	.quad	Lset282
+.set Lset283, Lfunc_end10-Lfunc_begin0
+	.quad	Lset283
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc77:
-.set Lset276, Ltmp175-Lfunc_begin0
-	.quad	Lset276
-.set Lset277, Ltmp177-Lfunc_begin0
-	.quad	Lset277
+.set Lset284, Lfunc_begin10-Lfunc_begin0
+	.quad	Lset284
+.set Lset285, Ltmp176-Lfunc_begin0
+	.quad	Lset285
 	.short	1                       ## Loc expr size
-	.byte	97                      ## DW_OP_reg17
+	.byte	84                      ## super-register DW_OP_reg4
 	.quad	0
 	.quad	0
 Ldebug_loc78:
-.set Lset278, Ltmp178-Lfunc_begin0
-	.quad	Lset278
-.set Lset279, Ltmp179-Lfunc_begin0
-	.quad	Lset279
+.set Lset286, Lfunc_begin10-Lfunc_begin0
+	.quad	Lset286
+.set Lset287, Ltmp175-Lfunc_begin0
+	.quad	Lset287
 	.short	1                       ## Loc expr size
-	.byte	82                      ## DW_OP_reg2
+	.byte	81                      ## DW_OP_reg1
+.set Lset288, Ltmp175-Lfunc_begin0
+	.quad	Lset288
+.set Lset289, Ltmp184-Lfunc_begin0
+	.quad	Lset289
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset290, Ltmp189-Lfunc_begin0
+	.quad	Lset290
+.set Lset291, Lfunc_end10-Lfunc_begin0
+	.quad	Lset291
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
 Ldebug_loc79:
-.set Lset280, Ltmp178-Lfunc_begin0
-	.quad	Lset280
-.set Lset281, Ltmp179-Lfunc_begin0
-	.quad	Lset281
+.set Lset292, Ltmp174-Lfunc_begin0
+	.quad	Lset292
+.set Lset293, Ltmp175-Lfunc_begin0
+	.quad	Lset293
 	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
+	.byte	85                      ## DW_OP_reg5
+.set Lset294, Ltmp175-Lfunc_begin0
+	.quad	Lset294
+.set Lset295, Ltmp179-Lfunc_begin0
+	.quad	Lset295
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
 Ldebug_loc80:
-.set Lset282, Lfunc_begin11-Lfunc_begin0
-	.quad	Lset282
-.set Lset283, Ltmp184-Lfunc_begin0
-	.quad	Lset283
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset284, Ltmp184-Lfunc_begin0
-	.quad	Lset284
-.set Lset285, Ltmp197-Lfunc_begin0
-	.quad	Lset285
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset286, Ltmp198-Lfunc_begin0
-	.quad	Lset286
-.set Lset287, Lfunc_end11-Lfunc_begin0
-	.quad	Lset287
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
+.set Lset296, Ltmp177-Lfunc_begin0
+	.quad	Lset296
+.set Lset297, Lfunc_end10-Lfunc_begin0
+	.quad	Lset297
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
 	.quad	0
 	.quad	0
 Ldebug_loc81:
-.set Lset288, Lfunc_begin11-Lfunc_begin0
-	.quad	Lset288
-.set Lset289, Ltmp185-Lfunc_begin0
-	.quad	Lset289
-	.short	1                       ## Loc expr size
-	.byte	84                      ## super-register DW_OP_reg4
+.set Lset298, Ltmp180-Lfunc_begin0
+	.quad	Lset298
+.set Lset299, Lfunc_end10-Lfunc_begin0
+	.quad	Lset299
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	104                     ## -24
 	.quad	0
 	.quad	0
 Ldebug_loc82:
-.set Lset290, Lfunc_begin11-Lfunc_begin0
-	.quad	Lset290
-.set Lset291, Ltmp184-Lfunc_begin0
-	.quad	Lset291
-	.short	1                       ## Loc expr size
-	.byte	81                      ## DW_OP_reg1
-.set Lset292, Ltmp184-Lfunc_begin0
-	.quad	Lset292
-.set Lset293, Ltmp193-Lfunc_begin0
-	.quad	Lset293
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-.set Lset294, Ltmp198-Lfunc_begin0
-	.quad	Lset294
-.set Lset295, Lfunc_end11-Lfunc_begin0
-	.quad	Lset295
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-	.quad	0
-	.quad	0
-Ldebug_loc83:
-.set Lset296, Ltmp183-Lfunc_begin0
-	.quad	Lset296
-.set Lset297, Ltmp184-Lfunc_begin0
-	.quad	Lset297
-	.short	1                       ## Loc expr size
-	.byte	85                      ## DW_OP_reg5
-.set Lset298, Ltmp184-Lfunc_begin0
-	.quad	Lset298
-.set Lset299, Ltmp188-Lfunc_begin0
-	.quad	Lset299
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-	.quad	0
-	.quad	0
-Ldebug_loc84:
-.set Lset300, Ltmp186-Lfunc_begin0
+.set Lset300, Ltmp183-Lfunc_begin0
 	.quad	Lset300
-.set Lset301, Lfunc_end11-Lfunc_begin0
+.set Lset301, Ltmp185-Lfunc_begin0
 	.quad	Lset301
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
-	.quad	0
-	.quad	0
-Ldebug_loc85:
-.set Lset302, Ltmp189-Lfunc_begin0
-	.quad	Lset302
-.set Lset303, Lfunc_end11-Lfunc_begin0
-	.quad	Lset303
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	104                     ## -24
-	.quad	0
-	.quad	0
-Ldebug_loc86:
-.set Lset304, Ltmp192-Lfunc_begin0
-	.quad	Lset304
-.set Lset305, Ltmp194-Lfunc_begin0
-	.quad	Lset305
 	.short	1                       ## Loc expr size
 	.byte	97                      ## DW_OP_reg17
 	.quad	0
 	.quad	0
-Ldebug_loc87:
-.set Lset306, Ltmp195-Lfunc_begin0
-	.quad	Lset306
-.set Lset307, Ltmp196-Lfunc_begin0
-	.quad	Lset307
+Ldebug_loc83:
+.set Lset302, Ltmp186-Lfunc_begin0
+	.quad	Lset302
+.set Lset303, Ltmp187-Lfunc_begin0
+	.quad	Lset303
 	.short	1                       ## Loc expr size
 	.byte	82                      ## DW_OP_reg2
 	.quad	0
 	.quad	0
-Ldebug_loc88:
-.set Lset308, Ltmp195-Lfunc_begin0
-	.quad	Lset308
-.set Lset309, Ltmp196-Lfunc_begin0
-	.quad	Lset309
+Ldebug_loc84:
+.set Lset304, Ltmp186-Lfunc_begin0
+	.quad	Lset304
+.set Lset305, Ltmp187-Lfunc_begin0
+	.quad	Lset305
 	.short	1                       ## Loc expr size
 	.byte	83                      ## DW_OP_reg3
 	.quad	0
 	.quad	0
-Ldebug_loc89:
-.set Lset310, Lfunc_begin12-Lfunc_begin0
-	.quad	Lset310
-.set Lset311, Ltmp201-Lfunc_begin0
-	.quad	Lset311
+Ldebug_loc85:
+.set Lset306, Lfunc_begin11-Lfunc_begin0
+	.quad	Lset306
+.set Lset307, Ltmp192-Lfunc_begin0
+	.quad	Lset307
 	.short	1                       ## Loc expr size
 	.byte	85                      ## DW_OP_reg5
-.set Lset312, Ltmp201-Lfunc_begin0
+.set Lset308, Ltmp192-Lfunc_begin0
+	.quad	Lset308
+.set Lset309, Ltmp205-Lfunc_begin0
+	.quad	Lset309
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset310, Ltmp206-Lfunc_begin0
+	.quad	Lset310
+.set Lset311, Lfunc_end11-Lfunc_begin0
+	.quad	Lset311
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc86:
+.set Lset312, Lfunc_begin11-Lfunc_begin0
 	.quad	Lset312
-.set Lset313, Ltmp215-Lfunc_begin0
+.set Lset313, Ltmp193-Lfunc_begin0
 	.quad	Lset313
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-.set Lset314, Ltmp216-Lfunc_begin0
-	.quad	Lset314
-.set Lset315, Lfunc_end12-Lfunc_begin0
-	.quad	Lset315
-	.short	1                       ## Loc expr size
-	.byte	94                      ## DW_OP_reg14
-	.quad	0
-	.quad	0
-Ldebug_loc90:
-.set Lset316, Lfunc_begin12-Lfunc_begin0
-	.quad	Lset316
-.set Lset317, Ltmp202-Lfunc_begin0
-	.quad	Lset317
 	.short	1                       ## Loc expr size
 	.byte	84                      ## super-register DW_OP_reg4
 	.quad	0
 	.quad	0
-Ldebug_loc91:
-.set Lset318, Lfunc_begin12-Lfunc_begin0
-	.quad	Lset318
-.set Lset319, Ltmp201-Lfunc_begin0
-	.quad	Lset319
+Ldebug_loc87:
+.set Lset314, Lfunc_begin11-Lfunc_begin0
+	.quad	Lset314
+.set Lset315, Ltmp192-Lfunc_begin0
+	.quad	Lset315
 	.short	1                       ## Loc expr size
 	.byte	81                      ## DW_OP_reg1
-.set Lset320, Ltmp201-Lfunc_begin0
+.set Lset316, Ltmp192-Lfunc_begin0
+	.quad	Lset316
+.set Lset317, Ltmp201-Lfunc_begin0
+	.quad	Lset317
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset318, Ltmp206-Lfunc_begin0
+	.quad	Lset318
+.set Lset319, Lfunc_end11-Lfunc_begin0
+	.quad	Lset319
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
+Ldebug_loc88:
+.set Lset320, Ltmp191-Lfunc_begin0
 	.quad	Lset320
-.set Lset321, Ltmp211-Lfunc_begin0
+.set Lset321, Ltmp192-Lfunc_begin0
 	.quad	Lset321
 	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-.set Lset322, Ltmp216-Lfunc_begin0
-	.quad	Lset322
-.set Lset323, Lfunc_end12-Lfunc_begin0
-	.quad	Lset323
-	.short	1                       ## Loc expr size
-	.byte	83                      ## DW_OP_reg3
-	.quad	0
-	.quad	0
-Ldebug_loc92:
-.set Lset324, Ltmp200-Lfunc_begin0
-	.quad	Lset324
-.set Lset325, Ltmp201-Lfunc_begin0
-	.quad	Lset325
-	.short	1                       ## Loc expr size
 	.byte	85                      ## DW_OP_reg5
-.set Lset326, Ltmp201-Lfunc_begin0
-	.quad	Lset326
-.set Lset327, Ltmp205-Lfunc_begin0
-	.quad	Lset327
+.set Lset322, Ltmp192-Lfunc_begin0
+	.quad	Lset322
+.set Lset323, Ltmp196-Lfunc_begin0
+	.quad	Lset323
 	.short	1                       ## Loc expr size
 	.byte	94                      ## DW_OP_reg14
 	.quad	0
 	.quad	0
-Ldebug_loc93:
-.set Lset328, Ltmp203-Lfunc_begin0
-	.quad	Lset328
-.set Lset329, Ltmp209-Lfunc_begin0
-	.quad	Lset329
-	.short	2                       ## Loc expr size
-	.byte	118                     ## DW_OP_breg6
-	.byte	96                      ## -32
-.set Lset330, Ltmp209-Lfunc_begin0
-	.quad	Lset330
-.set Lset331, Ltmp210-Lfunc_begin0
-	.quad	Lset331
-	.short	1                       ## Loc expr size
-	.byte	97                      ## DW_OP_reg17
-.set Lset332, Ltmp216-Lfunc_begin0
-	.quad	Lset332
-.set Lset333, Lfunc_end12-Lfunc_begin0
-	.quad	Lset333
+Ldebug_loc89:
+.set Lset324, Ltmp194-Lfunc_begin0
+	.quad	Lset324
+.set Lset325, Lfunc_end11-Lfunc_begin0
+	.quad	Lset325
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	96                      ## -32
 	.quad	0
 	.quad	0
-Ldebug_loc94:
-.set Lset334, Ltmp206-Lfunc_begin0
-	.quad	Lset334
-.set Lset335, Lfunc_end12-Lfunc_begin0
-	.quad	Lset335
+Ldebug_loc90:
+.set Lset326, Ltmp197-Lfunc_begin0
+	.quad	Lset326
+.set Lset327, Lfunc_end11-Lfunc_begin0
+	.quad	Lset327
 	.short	2                       ## Loc expr size
 	.byte	118                     ## DW_OP_breg6
 	.byte	104                     ## -24
 	.quad	0
 	.quad	0
-Ldebug_loc95:
-.set Lset336, Ltmp210-Lfunc_begin0
-	.quad	Lset336
-.set Lset337, Ltmp212-Lfunc_begin0
-	.quad	Lset337
+Ldebug_loc91:
+.set Lset328, Ltmp200-Lfunc_begin0
+	.quad	Lset328
+.set Lset329, Ltmp202-Lfunc_begin0
+	.quad	Lset329
 	.short	1                       ## Loc expr size
 	.byte	97                      ## DW_OP_reg17
 	.quad	0
 	.quad	0
-Ldebug_loc96:
-.set Lset338, Ltmp213-Lfunc_begin0
-	.quad	Lset338
-.set Lset339, Ltmp214-Lfunc_begin0
-	.quad	Lset339
+Ldebug_loc92:
+.set Lset330, Ltmp203-Lfunc_begin0
+	.quad	Lset330
+.set Lset331, Ltmp204-Lfunc_begin0
+	.quad	Lset331
 	.short	1                       ## Loc expr size
 	.byte	82                      ## DW_OP_reg2
 	.quad	0
 	.quad	0
-Ldebug_loc97:
-.set Lset340, Ltmp213-Lfunc_begin0
+Ldebug_loc93:
+.set Lset332, Ltmp203-Lfunc_begin0
+	.quad	Lset332
+.set Lset333, Ltmp204-Lfunc_begin0
+	.quad	Lset333
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
+Ldebug_loc94:
+.set Lset334, Lfunc_begin12-Lfunc_begin0
+	.quad	Lset334
+.set Lset335, Ltmp209-Lfunc_begin0
+	.quad	Lset335
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset336, Ltmp209-Lfunc_begin0
+	.quad	Lset336
+.set Lset337, Ltmp222-Lfunc_begin0
+	.quad	Lset337
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset338, Ltmp223-Lfunc_begin0
+	.quad	Lset338
+.set Lset339, Lfunc_end12-Lfunc_begin0
+	.quad	Lset339
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc95:
+.set Lset340, Lfunc_begin12-Lfunc_begin0
 	.quad	Lset340
-.set Lset341, Ltmp214-Lfunc_begin0
+.set Lset341, Ltmp210-Lfunc_begin0
 	.quad	Lset341
+	.short	1                       ## Loc expr size
+	.byte	84                      ## super-register DW_OP_reg4
+	.quad	0
+	.quad	0
+Ldebug_loc96:
+.set Lset342, Lfunc_begin12-Lfunc_begin0
+	.quad	Lset342
+.set Lset343, Ltmp209-Lfunc_begin0
+	.quad	Lset343
+	.short	1                       ## Loc expr size
+	.byte	81                      ## DW_OP_reg1
+.set Lset344, Ltmp209-Lfunc_begin0
+	.quad	Lset344
+.set Lset345, Ltmp218-Lfunc_begin0
+	.quad	Lset345
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset346, Ltmp223-Lfunc_begin0
+	.quad	Lset346
+.set Lset347, Lfunc_end12-Lfunc_begin0
+	.quad	Lset347
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
+Ldebug_loc97:
+.set Lset348, Ltmp208-Lfunc_begin0
+	.quad	Lset348
+.set Lset349, Ltmp209-Lfunc_begin0
+	.quad	Lset349
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset350, Ltmp209-Lfunc_begin0
+	.quad	Lset350
+.set Lset351, Ltmp213-Lfunc_begin0
+	.quad	Lset351
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc98:
+.set Lset352, Ltmp211-Lfunc_begin0
+	.quad	Lset352
+.set Lset353, Lfunc_end12-Lfunc_begin0
+	.quad	Lset353
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
+	.quad	0
+	.quad	0
+Ldebug_loc99:
+.set Lset354, Ltmp214-Lfunc_begin0
+	.quad	Lset354
+.set Lset355, Lfunc_end12-Lfunc_begin0
+	.quad	Lset355
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	104                     ## -24
+	.quad	0
+	.quad	0
+Ldebug_loc100:
+.set Lset356, Ltmp217-Lfunc_begin0
+	.quad	Lset356
+.set Lset357, Ltmp219-Lfunc_begin0
+	.quad	Lset357
+	.short	1                       ## Loc expr size
+	.byte	97                      ## DW_OP_reg17
+	.quad	0
+	.quad	0
+Ldebug_loc101:
+.set Lset358, Ltmp220-Lfunc_begin0
+	.quad	Lset358
+.set Lset359, Ltmp221-Lfunc_begin0
+	.quad	Lset359
+	.short	1                       ## Loc expr size
+	.byte	82                      ## DW_OP_reg2
+	.quad	0
+	.quad	0
+Ldebug_loc102:
+.set Lset360, Ltmp220-Lfunc_begin0
+	.quad	Lset360
+.set Lset361, Ltmp221-Lfunc_begin0
+	.quad	Lset361
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
+Ldebug_loc103:
+.set Lset362, Lfunc_begin13-Lfunc_begin0
+	.quad	Lset362
+.set Lset363, Ltmp226-Lfunc_begin0
+	.quad	Lset363
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset364, Ltmp226-Lfunc_begin0
+	.quad	Lset364
+.set Lset365, Ltmp240-Lfunc_begin0
+	.quad	Lset365
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+.set Lset366, Ltmp241-Lfunc_begin0
+	.quad	Lset366
+.set Lset367, Lfunc_end13-Lfunc_begin0
+	.quad	Lset367
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc104:
+.set Lset368, Lfunc_begin13-Lfunc_begin0
+	.quad	Lset368
+.set Lset369, Ltmp227-Lfunc_begin0
+	.quad	Lset369
+	.short	1                       ## Loc expr size
+	.byte	84                      ## super-register DW_OP_reg4
+	.quad	0
+	.quad	0
+Ldebug_loc105:
+.set Lset370, Lfunc_begin13-Lfunc_begin0
+	.quad	Lset370
+.set Lset371, Ltmp226-Lfunc_begin0
+	.quad	Lset371
+	.short	1                       ## Loc expr size
+	.byte	81                      ## DW_OP_reg1
+.set Lset372, Ltmp226-Lfunc_begin0
+	.quad	Lset372
+.set Lset373, Ltmp236-Lfunc_begin0
+	.quad	Lset373
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+.set Lset374, Ltmp241-Lfunc_begin0
+	.quad	Lset374
+.set Lset375, Lfunc_end13-Lfunc_begin0
+	.quad	Lset375
+	.short	1                       ## Loc expr size
+	.byte	83                      ## DW_OP_reg3
+	.quad	0
+	.quad	0
+Ldebug_loc106:
+.set Lset376, Ltmp225-Lfunc_begin0
+	.quad	Lset376
+.set Lset377, Ltmp226-Lfunc_begin0
+	.quad	Lset377
+	.short	1                       ## Loc expr size
+	.byte	85                      ## DW_OP_reg5
+.set Lset378, Ltmp226-Lfunc_begin0
+	.quad	Lset378
+.set Lset379, Ltmp230-Lfunc_begin0
+	.quad	Lset379
+	.short	1                       ## Loc expr size
+	.byte	94                      ## DW_OP_reg14
+	.quad	0
+	.quad	0
+Ldebug_loc107:
+.set Lset380, Ltmp228-Lfunc_begin0
+	.quad	Lset380
+.set Lset381, Ltmp234-Lfunc_begin0
+	.quad	Lset381
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
+.set Lset382, Ltmp234-Lfunc_begin0
+	.quad	Lset382
+.set Lset383, Ltmp235-Lfunc_begin0
+	.quad	Lset383
+	.short	1                       ## Loc expr size
+	.byte	97                      ## DW_OP_reg17
+.set Lset384, Ltmp241-Lfunc_begin0
+	.quad	Lset384
+.set Lset385, Lfunc_end13-Lfunc_begin0
+	.quad	Lset385
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	96                      ## -32
+	.quad	0
+	.quad	0
+Ldebug_loc108:
+.set Lset386, Ltmp231-Lfunc_begin0
+	.quad	Lset386
+.set Lset387, Lfunc_end13-Lfunc_begin0
+	.quad	Lset387
+	.short	2                       ## Loc expr size
+	.byte	118                     ## DW_OP_breg6
+	.byte	104                     ## -24
+	.quad	0
+	.quad	0
+Ldebug_loc109:
+.set Lset388, Ltmp235-Lfunc_begin0
+	.quad	Lset388
+.set Lset389, Ltmp237-Lfunc_begin0
+	.quad	Lset389
+	.short	1                       ## Loc expr size
+	.byte	97                      ## DW_OP_reg17
+	.quad	0
+	.quad	0
+Ldebug_loc110:
+.set Lset390, Ltmp238-Lfunc_begin0
+	.quad	Lset390
+.set Lset391, Ltmp239-Lfunc_begin0
+	.quad	Lset391
+	.short	1                       ## Loc expr size
+	.byte	82                      ## DW_OP_reg2
+	.quad	0
+	.quad	0
+Ldebug_loc111:
+.set Lset392, Ltmp238-Lfunc_begin0
+	.quad	Lset392
+.set Lset393, Ltmp239-Lfunc_begin0
+	.quad	Lset393
 	.short	1                       ## Loc expr size
 	.byte	83                      ## DW_OP_reg3
 	.quad	0
@@ -3589,27 +3986,27 @@ Lsection_abbrev:
 	.section	__DWARF,__debug_info,regular,debug
 Lsection_info:
 Lcu_begin0:
-	.long	2835                    ## Length of Unit
+	.long	3107                    ## Length of Unit
 	.short	4                       ## DWARF version number
-.set Lset342, Lsection_abbrev-Lsection_abbrev ## Offset Into Abbrev. Section
-	.long	Lset342
+.set Lset394, Lsection_abbrev-Lsection_abbrev ## Offset Into Abbrev. Section
+	.long	Lset394
 	.byte	8                       ## Address Size (in bytes)
-	.byte	1                       ## Abbrev [1] 0xb:0xb0c DW_TAG_compile_unit
+	.byte	1                       ## Abbrev [1] 0xb:0xc1c DW_TAG_compile_unit
 	.long	0                       ## DW_AT_producer
 	.short	12                      ## DW_AT_language
 	.long	45                      ## DW_AT_name
-.set Lset343, Lline_table_start0-Lsection_line ## DW_AT_stmt_list
-	.long	Lset343
+.set Lset395, Lline_table_start0-Lsection_line ## DW_AT_stmt_list
+	.long	Lset395
 	.long	58                      ## DW_AT_comp_dir
                                         ## DW_AT_APPLE_optimized
 	.quad	Lfunc_begin0            ## DW_AT_low_pc
-.set Lset344, Lfunc_end13-Lfunc_begin0  ## DW_AT_high_pc
-	.long	Lset344
+.set Lset396, Lfunc_end14-Lfunc_begin0  ## DW_AT_high_pc
+	.long	Lset396
 	.byte	2                       ## Abbrev [2] 0x2a:0x15 DW_TAG_variable
 	.long	87                      ## DW_AT_name
 	.long	63                      ## DW_AT_type
 	.byte	3                       ## DW_AT_decl_file
-	.byte	221                     ## DW_AT_decl_line
+	.byte	241                     ## DW_AT_decl_line
 	.byte	9                       ## DW_AT_location
 	.byte	3
 	.quad	_nif_funcs
@@ -3725,23 +4122,23 @@ Lcu_begin0:
 	.byte	8                       ## DW_AT_byte_size
 	.byte	7                       ## DW_AT_encoding
 	.byte	15                      ## Abbrev [15] 0x121:0x2f DW_TAG_subprogram
-	.quad	Lfunc_begin13           ## DW_AT_low_pc
-.set Lset345, Lfunc_end13-Lfunc_begin13 ## DW_AT_high_pc
-	.long	Lset345
+	.quad	Lfunc_begin14           ## DW_AT_low_pc
+.set Lset397, Lfunc_end14-Lfunc_begin14 ## DW_AT_high_pc
+	.long	Lset397
 	.byte	1                       ## DW_AT_frame_base
 	.byte	86
-	.long	749                     ## DW_AT_name
+	.long	767                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	234                     ## DW_AT_decl_line
+	.byte	254                     ## DW_AT_decl_line
                                         ## DW_AT_prototyped
-	.long	2821                    ## DW_AT_type
+	.long	3068                    ## DW_AT_type
                                         ## DW_AT_external
                                         ## DW_AT_APPLE_optimized
 	.byte	2                       ## Abbrev [2] 0x13a:0x15 DW_TAG_variable
 	.long	281                     ## DW_AT_name
 	.long	336                     ## DW_AT_type
 	.byte	3                       ## DW_AT_decl_file
-	.byte	234                     ## DW_AT_decl_line
+	.byte	254                     ## DW_AT_decl_line
 	.byte	9                       ## DW_AT_location
 	.byte	3
 	.quad	_nif_init.entry
@@ -3889,7 +4286,7 @@ Lcu_begin0:
 	.long	451                     ## DW_AT_name
 	.long	193                     ## DW_AT_type
 	.byte	3                       ## DW_AT_decl_file
-	.byte	61                      ## DW_AT_decl_line
+	.byte	72                      ## DW_AT_decl_line
 	.byte	9                       ## DW_AT_location
 	.byte	3
 	.quad	_arithmetic_error
@@ -3897,7 +4294,7 @@ Lcu_begin0:
 	.long	468                     ## DW_AT_name
 	.long	193                     ## DW_AT_type
 	.byte	3                       ## DW_AT_decl_file
-	.byte	62                      ## DW_AT_decl_line
+	.byte	73                      ## DW_AT_decl_line
 	.byte	9                       ## DW_AT_location
 	.byte	3
 	.quad	_ok_atom
@@ -3905,7 +4302,7 @@ Lcu_begin0:
 	.long	476                     ## DW_AT_name
 	.long	193                     ## DW_AT_type
 	.byte	3                       ## DW_AT_decl_file
-	.byte	63                      ## DW_AT_decl_line
+	.byte	74                      ## DW_AT_decl_line
 	.byte	9                       ## DW_AT_location
 	.byte	3
 	.quad	_error_atom
@@ -3913,7 +4310,7 @@ Lcu_begin0:
 	.long	487                     ## DW_AT_name
 	.long	193                     ## DW_AT_type
 	.byte	3                       ## DW_AT_decl_file
-	.byte	64                      ## DW_AT_decl_line
+	.byte	75                      ## DW_AT_decl_line
 	.byte	9                       ## DW_AT_location
 	.byte	3
 	.quad	_arithmetic_error_atom
@@ -3953,66 +4350,64 @@ Lcu_begin0:
 	.byte	0                       ## DW_AT_data_member_location
 	.byte	7                       ## Abbrev [7] 0x305:0xc DW_TAG_member
 	.long	564                     ## DW_AT_name
-	.long	786                     ## DW_AT_type
+	.long	732                     ## DW_AT_type
 	.byte	3                       ## DW_AT_decl_file
 	.byte	7                       ## DW_AT_decl_line
 	.byte	8                       ## DW_AT_data_member_location
 	.byte	0                       ## End Of Children Mark
-	.byte	8                       ## Abbrev [8] 0x312:0x5 DW_TAG_pointer_type
-	.long	265                     ## DW_AT_type
-	.byte	10                      ## Abbrev [10] 0x317:0x7 DW_TAG_base_type
+	.byte	10                      ## Abbrev [10] 0x312:0x7 DW_TAG_base_type
 	.long	570                     ## DW_AT_name
 	.byte	4                       ## DW_AT_encoding
 	.byte	8                       ## DW_AT_byte_size
-	.byte	18                      ## Abbrev [18] 0x31e:0x14 DW_TAG_subprogram
+	.byte	18                      ## Abbrev [18] 0x319:0x14 DW_TAG_subprogram
 	.long	577                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	66                      ## DW_AT_decl_line
+	.byte	77                      ## DW_AT_decl_line
                                         ## DW_AT_prototyped
                                         ## DW_AT_APPLE_optimized
 	.byte	1                       ## DW_AT_inline
-	.byte	19                      ## Abbrev [19] 0x326:0xb DW_TAG_formal_parameter
+	.byte	19                      ## Abbrev [19] 0x321:0xb DW_TAG_formal_parameter
 	.long	591                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	66                      ## DW_AT_decl_line
+	.byte	77                      ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
 	.byte	0                       ## End Of Children Mark
-	.byte	20                      ## Abbrev [20] 0x332:0x4c DW_TAG_subprogram
+	.byte	20                      ## Abbrev [20] 0x32d:0x4c DW_TAG_subprogram
 	.quad	Lfunc_begin0            ## DW_AT_low_pc
-.set Lset346, Lfunc_end0-Lfunc_begin0   ## DW_AT_high_pc
-	.long	Lset346
+.set Lset398, Lfunc_end0-Lfunc_begin0   ## DW_AT_high_pc
+	.long	Lset398
 	.byte	1                       ## DW_AT_frame_base
 	.byte	86
-	.long	1007                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x345:0x9 DW_TAG_formal_parameter
-.set Lset347, Ldebug_loc0-Lsection_debug_loc ## DW_AT_location
-	.long	Lset347
-	.long	1019                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x34e:0x9 DW_TAG_formal_parameter
-.set Lset348, Ldebug_loc1-Lsection_debug_loc ## DW_AT_location
-	.long	Lset348
-	.long	1030                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x357:0x9 DW_TAG_formal_parameter
-.set Lset349, Ldebug_loc2-Lsection_debug_loc ## DW_AT_location
-	.long	Lset349
-	.long	1041                    ## DW_AT_abstract_origin
-	.byte	22                      ## Abbrev [22] 0x360:0x1d DW_TAG_inlined_subroutine
-	.long	798                     ## DW_AT_abstract_origin
+	.long	1002                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x340:0x9 DW_TAG_formal_parameter
+.set Lset399, Ldebug_loc0-Lsection_debug_loc ## DW_AT_location
+	.long	Lset399
+	.long	1014                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x349:0x9 DW_TAG_formal_parameter
+.set Lset400, Ldebug_loc1-Lsection_debug_loc ## DW_AT_location
+	.long	Lset400
+	.long	1025                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x352:0x9 DW_TAG_formal_parameter
+.set Lset401, Ldebug_loc2-Lsection_debug_loc ## DW_AT_location
+	.long	Lset401
+	.long	1036                    ## DW_AT_abstract_origin
+	.byte	22                      ## Abbrev [22] 0x35b:0x1d DW_TAG_inlined_subroutine
+	.long	793                     ## DW_AT_abstract_origin
 	.quad	Ltmp1                   ## DW_AT_low_pc
-.set Lset350, Ltmp4-Ltmp1               ## DW_AT_high_pc
-	.long	Lset350
+.set Lset402, Ltmp4-Ltmp1               ## DW_AT_high_pc
+	.long	Lset402
 	.byte	6                       ## DW_AT_call_file
 	.byte	8                       ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x373:0x9 DW_TAG_formal_parameter
-.set Lset351, Ldebug_loc3-Lsection_debug_loc ## DW_AT_location
-	.long	Lset351
-	.long	806                     ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x36e:0x9 DW_TAG_formal_parameter
+.set Lset403, Ldebug_loc3-Lsection_debug_loc ## DW_AT_location
+	.long	Lset403
+	.long	801                     ## DW_AT_abstract_origin
 	.byte	0                       ## End Of Children Mark
 	.byte	0                       ## End Of Children Mark
-	.byte	23                      ## Abbrev [23] 0x37e:0x30 DW_TAG_subprogram
+	.byte	23                      ## Abbrev [23] 0x379:0x30 DW_TAG_subprogram
 	.quad	Lfunc_begin1            ## DW_AT_low_pc
-.set Lset352, Lfunc_end1-Lfunc_begin1   ## DW_AT_high_pc
-	.long	Lset352
+.set Lset404, Lfunc_end1-Lfunc_begin1   ## DW_AT_high_pc
+	.long	Lset404
 	.byte	1                       ## DW_AT_frame_base
 	.byte	86
 	.long	363                     ## DW_AT_name
@@ -4020,14 +4415,14 @@ Lcu_begin0:
 	.byte	13                      ## DW_AT_decl_line
                                         ## DW_AT_prototyped
                                         ## DW_AT_APPLE_optimized
-	.byte	24                      ## Abbrev [24] 0x393:0xd DW_TAG_formal_parameter
+	.byte	24                      ## Abbrev [24] 0x38e:0xd DW_TAG_formal_parameter
 	.byte	1                       ## DW_AT_location
 	.byte	85
 	.long	591                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	13                      ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	24                      ## Abbrev [24] 0x3a0:0xd DW_TAG_formal_parameter
+	.byte	24                      ## Abbrev [24] 0x39b:0xd DW_TAG_formal_parameter
 	.byte	1                       ## DW_AT_location
 	.byte	84
 	.long	595                     ## DW_AT_name
@@ -4035,10 +4430,10 @@ Lcu_begin0:
 	.byte	13                      ## DW_AT_decl_line
 	.long	548                     ## DW_AT_type
 	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x3ae:0x41 DW_TAG_subprogram
+	.byte	25                      ## Abbrev [25] 0x3a9:0x41 DW_TAG_subprogram
 	.quad	Lfunc_begin2            ## DW_AT_low_pc
-.set Lset353, Lfunc_end2-Lfunc_begin2   ## DW_AT_high_pc
-	.long	Lset353
+.set Lset405, Lfunc_end2-Lfunc_begin2   ## DW_AT_high_pc
+	.long	Lset405
 	.byte	1                       ## DW_AT_frame_base
 	.byte	86
 	.long	348                     ## DW_AT_name
@@ -4047,21 +4442,21 @@ Lcu_begin0:
                                         ## DW_AT_prototyped
 	.long	265                     ## DW_AT_type
                                         ## DW_AT_APPLE_optimized
-	.byte	24                      ## Abbrev [24] 0x3c7:0xd DW_TAG_formal_parameter
+	.byte	24                      ## Abbrev [24] 0x3c2:0xd DW_TAG_formal_parameter
 	.byte	1                       ## DW_AT_location
 	.byte	85
 	.long	591                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	18                      ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	24                      ## Abbrev [24] 0x3d4:0xd DW_TAG_formal_parameter
+	.byte	24                      ## Abbrev [24] 0x3cf:0xd DW_TAG_formal_parameter
 	.byte	1                       ## DW_AT_location
 	.byte	84
 	.long	595                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	18                      ## DW_AT_decl_line
 	.long	543                     ## DW_AT_type
-	.byte	24                      ## Abbrev [24] 0x3e1:0xd DW_TAG_formal_parameter
+	.byte	24                      ## Abbrev [24] 0x3dc:0xd DW_TAG_formal_parameter
 	.byte	1                       ## DW_AT_location
 	.byte	81
 	.long	600                     ## DW_AT_name
@@ -4069,7 +4464,7 @@ Lcu_begin0:
 	.byte	18                      ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
 	.byte	0                       ## End Of Children Mark
-	.byte	26                      ## Abbrev [26] 0x3ef:0x2e DW_TAG_subprogram
+	.byte	26                      ## Abbrev [26] 0x3ea:0x2e DW_TAG_subprogram
 	.long	343                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	6                       ## DW_AT_decl_line
@@ -4077,26 +4472,26 @@ Lcu_begin0:
 	.long	265                     ## DW_AT_type
                                         ## DW_AT_APPLE_optimized
 	.byte	1                       ## DW_AT_inline
-	.byte	19                      ## Abbrev [19] 0x3fb:0xb DW_TAG_formal_parameter
+	.byte	19                      ## Abbrev [19] 0x3f6:0xb DW_TAG_formal_parameter
 	.long	591                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	6                       ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	19                      ## Abbrev [19] 0x406:0xb DW_TAG_formal_parameter
+	.byte	19                      ## Abbrev [19] 0x401:0xb DW_TAG_formal_parameter
 	.long	595                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	6                       ## DW_AT_decl_line
 	.long	543                     ## DW_AT_type
-	.byte	19                      ## Abbrev [19] 0x411:0xb DW_TAG_formal_parameter
+	.byte	19                      ## Abbrev [19] 0x40c:0xb DW_TAG_formal_parameter
 	.long	600                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	6                       ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
 	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x41d:0xa2 DW_TAG_subprogram
+	.byte	25                      ## Abbrev [25] 0x418:0xa2 DW_TAG_subprogram
 	.quad	Lfunc_begin3            ## DW_AT_low_pc
-.set Lset354, Lfunc_end3-Lfunc_begin3   ## DW_AT_high_pc
-	.long	Lset354
+.set Lset406, Lfunc_end3-Lfunc_begin3   ## DW_AT_high_pc
+	.long	Lset406
 	.byte	1                       ## DW_AT_frame_base
 	.byte	86
 	.long	355                     ## DW_AT_name
@@ -4105,71 +4500,71 @@ Lcu_begin0:
                                         ## DW_AT_prototyped
 	.long	265                     ## DW_AT_type
                                         ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x436:0xf DW_TAG_formal_parameter
-.set Lset355, Ldebug_loc4-Lsection_debug_loc ## DW_AT_location
-	.long	Lset355
+	.byte	27                      ## Abbrev [27] 0x431:0xf DW_TAG_formal_parameter
+.set Lset407, Ldebug_loc4-Lsection_debug_loc ## DW_AT_location
+	.long	Lset407
 	.long	591                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	24                      ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x445:0xf DW_TAG_formal_parameter
-.set Lset356, Ldebug_loc5-Lsection_debug_loc ## DW_AT_location
-	.long	Lset356
+	.byte	27                      ## Abbrev [27] 0x440:0xf DW_TAG_formal_parameter
+.set Lset408, Ldebug_loc5-Lsection_debug_loc ## DW_AT_location
+	.long	Lset408
 	.long	595                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	24                      ## DW_AT_decl_line
 	.long	543                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x454:0xf DW_TAG_formal_parameter
-.set Lset357, Ldebug_loc6-Lsection_debug_loc ## DW_AT_location
-	.long	Lset357
-	.long	758                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0x44f:0xf DW_TAG_formal_parameter
+.set Lset409, Ldebug_loc6-Lsection_debug_loc ## DW_AT_location
+	.long	Lset409
+	.long	776                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	24                      ## DW_AT_decl_line
 	.long	543                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x463:0xf DW_TAG_formal_parameter
-.set Lset358, Ldebug_loc7-Lsection_debug_loc ## DW_AT_location
-	.long	Lset358
+	.byte	27                      ## Abbrev [27] 0x45e:0xf DW_TAG_formal_parameter
+.set Lset410, Ldebug_loc7-Lsection_debug_loc ## DW_AT_location
+	.long	Lset410
 	.long	600                     ## DW_AT_name
 	.byte	6                       ## DW_AT_decl_file
 	.byte	24                      ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0x472:0x4c DW_TAG_inlined_subroutine
-	.long	1007                    ## DW_AT_abstract_origin
+	.byte	22                      ## Abbrev [22] 0x46d:0x4c DW_TAG_inlined_subroutine
+	.long	1002                    ## DW_AT_abstract_origin
 	.quad	Ltmp12                  ## DW_AT_low_pc
-.set Lset359, Ltmp15-Ltmp12             ## DW_AT_high_pc
-	.long	Lset359
+.set Lset411, Ltmp15-Ltmp12             ## DW_AT_high_pc
+	.long	Lset411
 	.byte	6                       ## DW_AT_call_file
 	.byte	26                      ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x485:0x9 DW_TAG_formal_parameter
-.set Lset360, Ldebug_loc8-Lsection_debug_loc ## DW_AT_location
-	.long	Lset360
-	.long	1019                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x48e:0x9 DW_TAG_formal_parameter
-.set Lset361, Ldebug_loc9-Lsection_debug_loc ## DW_AT_location
-	.long	Lset361
-	.long	1030                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x497:0x9 DW_TAG_formal_parameter
-.set Lset362, Ldebug_loc10-Lsection_debug_loc ## DW_AT_location
-	.long	Lset362
-	.long	1041                    ## DW_AT_abstract_origin
-	.byte	22                      ## Abbrev [22] 0x4a0:0x1d DW_TAG_inlined_subroutine
-	.long	798                     ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x480:0x9 DW_TAG_formal_parameter
+.set Lset412, Ldebug_loc8-Lsection_debug_loc ## DW_AT_location
+	.long	Lset412
+	.long	1014                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x489:0x9 DW_TAG_formal_parameter
+.set Lset413, Ldebug_loc9-Lsection_debug_loc ## DW_AT_location
+	.long	Lset413
+	.long	1025                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x492:0x9 DW_TAG_formal_parameter
+.set Lset414, Ldebug_loc10-Lsection_debug_loc ## DW_AT_location
+	.long	Lset414
+	.long	1036                    ## DW_AT_abstract_origin
+	.byte	22                      ## Abbrev [22] 0x49b:0x1d DW_TAG_inlined_subroutine
+	.long	793                     ## DW_AT_abstract_origin
 	.quad	Ltmp12                  ## DW_AT_low_pc
-.set Lset363, Ltmp15-Ltmp12             ## DW_AT_high_pc
-	.long	Lset363
+.set Lset415, Ltmp15-Ltmp12             ## DW_AT_high_pc
+	.long	Lset415
 	.byte	6                       ## DW_AT_call_file
 	.byte	8                       ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x4b3:0x9 DW_TAG_formal_parameter
-.set Lset364, Ldebug_loc11-Lsection_debug_loc ## DW_AT_location
-	.long	Lset364
-	.long	806                     ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x4ae:0x9 DW_TAG_formal_parameter
+.set Lset416, Ldebug_loc11-Lsection_debug_loc ## DW_AT_location
+	.long	Lset416
+	.long	801                     ## DW_AT_abstract_origin
 	.byte	0                       ## End Of Children Mark
 	.byte	0                       ## End Of Children Mark
 	.byte	0                       ## End Of Children Mark
-	.byte	15                      ## Abbrev [15] 0x4bf:0xcc DW_TAG_subprogram
+	.byte	15                      ## Abbrev [15] 0x4ba:0xcc DW_TAG_subprogram
 	.quad	Lfunc_begin4            ## DW_AT_low_pc
-.set Lset365, Lfunc_end4-Lfunc_begin4   ## DW_AT_high_pc
-	.long	Lset365
+.set Lset417, Lfunc_end4-Lfunc_begin4   ## DW_AT_high_pc
+	.long	Lset417
 	.byte	1                       ## DW_AT_frame_base
 	.byte	86
 	.long	605                     ## DW_AT_name
@@ -4179,91 +4574,91 @@ Lcu_begin0:
 	.long	265                     ## DW_AT_type
                                         ## DW_AT_external
                                         ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x4d8:0xf DW_TAG_formal_parameter
-.set Lset366, Ldebug_loc12-Lsection_debug_loc ## DW_AT_location
-	.long	Lset366
+	.byte	27                      ## Abbrev [27] 0x4d3:0xf DW_TAG_formal_parameter
+.set Lset418, Ldebug_loc12-Lsection_debug_loc ## DW_AT_location
+	.long	Lset418
 	.long	591                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	10                      ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x4e7:0xf DW_TAG_formal_parameter
-.set Lset367, Ldebug_loc13-Lsection_debug_loc ## DW_AT_location
-	.long	Lset367
-	.long	767                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0x4e2:0xf DW_TAG_formal_parameter
+.set Lset419, Ldebug_loc13-Lsection_debug_loc ## DW_AT_location
+	.long	Lset419
+	.long	785                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	10                      ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x4f6:0xf DW_TAG_formal_parameter
-.set Lset368, Ldebug_loc14-Lsection_debug_loc ## DW_AT_location
-	.long	Lset368
+	.byte	27                      ## Abbrev [27] 0x4f1:0xf DW_TAG_formal_parameter
+.set Lset420, Ldebug_loc14-Lsection_debug_loc ## DW_AT_location
+	.long	Lset420
+	.long	790                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	10                      ## DW_AT_decl_line
+	.long	3073                    ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x500:0xf DW_TAG_formal_parameter
+.set Lset421, Ldebug_loc15-Lsection_debug_loc ## DW_AT_location
+	.long	Lset421
 	.long	564                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	10                      ## DW_AT_decl_line
-	.long	2826                    ## DW_AT_type
-	.byte	28                      ## Abbrev [28] 0x505:0xe DW_TAG_variable
+	.long	3078                    ## DW_AT_type
+	.byte	28                      ## Abbrev [28] 0x50f:0xe DW_TAG_variable
 	.byte	2                       ## DW_AT_location
 	.byte	145
 	.byte	68
-	.long	772                     ## DW_AT_name
+	.long	802                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	12                      ## DW_AT_decl_line
 	.long	265                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x513:0xf DW_TAG_variable
-.set Lset369, Ldebug_loc15-Lsection_debug_loc ## DW_AT_location
-	.long	Lset369
-	.long	784                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0x51d:0xf DW_TAG_variable
+.set Lset422, Ldebug_loc16-Lsection_debug_loc ## DW_AT_location
+	.long	Lset422
+	.long	814                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	13                      ## DW_AT_decl_line
 	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x522:0xf DW_TAG_variable
-.set Lset370, Ldebug_loc16-Lsection_debug_loc ## DW_AT_location
-	.long	Lset370
-	.long	790                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0x52c:0xf DW_TAG_variable
+.set Lset423, Ldebug_loc17-Lsection_debug_loc ## DW_AT_location
+	.long	Lset423
+	.long	820                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	20                      ## DW_AT_decl_line
+	.byte	23                      ## DW_AT_decl_line
 	.long	160                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x531:0xf DW_TAG_variable
-.set Lset371, Ldebug_loc17-Lsection_debug_loc ## DW_AT_location
-	.long	Lset371
-	.long	802                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0x53b:0xf DW_TAG_variable
+.set Lset424, Ldebug_loc18-Lsection_debug_loc ## DW_AT_location
+	.long	Lset424
+	.long	827                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	24                      ## DW_AT_decl_line
-	.long	265                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x540:0xf DW_TAG_variable
-.set Lset372, Ldebug_loc18-Lsection_debug_loc ## DW_AT_location
-	.long	Lset372
-	.long	809                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	31                      ## DW_AT_decl_line
+	.byte	30                      ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x54f:0xf DW_TAG_variable
-.set Lset373, Ldebug_loc19-Lsection_debug_loc ## DW_AT_location
-	.long	Lset373
-	.long	814                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0x54a:0xf DW_TAG_variable
+.set Lset425, Ldebug_loc19-Lsection_debug_loc ## DW_AT_location
+	.long	Lset425
+	.long	832                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	31                      ## DW_AT_decl_line
+	.byte	30                      ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x55e:0xf DW_TAG_variable
-.set Lset374, Ldebug_loc20-Lsection_debug_loc ## DW_AT_location
-	.long	Lset374
-	.long	819                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0x559:0xf DW_TAG_variable
+.set Lset426, Ldebug_loc20-Lsection_debug_loc ## DW_AT_location
+	.long	Lset426
+	.long	837                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	35                      ## DW_AT_decl_line
+	.byte	34                      ## DW_AT_decl_line
 	.long	732                     ## DW_AT_type
-	.byte	30                      ## Abbrev [30] 0x56d:0x1d DW_TAG_lexical_block
-	.quad	Ltmp48                  ## DW_AT_low_pc
-.set Lset375, Ltmp68-Ltmp48             ## DW_AT_high_pc
-	.long	Lset375
-	.byte	29                      ## Abbrev [29] 0x57a:0xf DW_TAG_variable
-.set Lset376, Ldebug_loc21-Lsection_debug_loc ## DW_AT_location
-	.long	Lset376
-	.long	821                     ## DW_AT_name
+	.byte	30                      ## Abbrev [30] 0x568:0x1d DW_TAG_lexical_block
+	.quad	Ltmp47                  ## DW_AT_low_pc
+.set Lset427, Ltmp65-Ltmp47             ## DW_AT_high_pc
+	.long	Lset427
+	.byte	29                      ## Abbrev [29] 0x575:0xf DW_TAG_variable
+.set Lset428, Ldebug_loc21-Lsection_debug_loc ## DW_AT_location
+	.long	Lset428
+	.long	839                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	44                      ## DW_AT_decl_line
+	.byte	43                      ## DW_AT_decl_line
 	.long	265                     ## DW_AT_type
 	.byte	0                       ## End Of Children Mark
 	.byte	0                       ## End Of Children Mark
-	.byte	31                      ## Abbrev [31] 0x58b:0x32 DW_TAG_subprogram
+	.byte	31                      ## Abbrev [31] 0x586:0x32 DW_TAG_subprogram
 	.long	622                     ## DW_AT_name
 	.byte	7                       ## DW_AT_decl_file
 	.short	422                     ## DW_AT_decl_line
@@ -4271,677 +4666,803 @@ Lcu_begin0:
 	.long	193                     ## DW_AT_type
                                         ## DW_AT_APPLE_optimized
 	.byte	1                       ## DW_AT_inline
-	.byte	32                      ## Abbrev [32] 0x598:0xc DW_TAG_formal_parameter
+	.byte	32                      ## Abbrev [32] 0x593:0xc DW_TAG_formal_parameter
 	.long	591                     ## DW_AT_name
 	.byte	7                       ## DW_AT_decl_file
 	.short	422                     ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	32                      ## Abbrev [32] 0x5a4:0xc DW_TAG_formal_parameter
+	.byte	32                      ## Abbrev [32] 0x59f:0xc DW_TAG_formal_parameter
 	.long	639                     ## DW_AT_name
 	.byte	7                       ## DW_AT_decl_file
 	.short	423                     ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
-	.byte	32                      ## Abbrev [32] 0x5b0:0xc DW_TAG_formal_parameter
+	.byte	32                      ## Abbrev [32] 0x5ab:0xc DW_TAG_formal_parameter
 	.long	642                     ## DW_AT_name
 	.byte	7                       ## DW_AT_decl_file
 	.short	424                     ## DW_AT_decl_line
 	.long	193                     ## DW_AT_type
 	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x5bd:0xca DW_TAG_subprogram
+	.byte	15                      ## Abbrev [15] 0x5b8:0xc0 DW_TAG_subprogram
 	.quad	Lfunc_begin5            ## DW_AT_low_pc
-.set Lset377, Lfunc_end5-Lfunc_begin5   ## DW_AT_high_pc
-	.long	Lset377
+.set Lset429, Lfunc_end5-Lfunc_begin5   ## DW_AT_high_pc
+	.long	Lset429
 	.byte	1                       ## DW_AT_frame_base
 	.byte	86
 	.long	645                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	75                      ## DW_AT_decl_line
+	.byte	60                      ## DW_AT_decl_line
                                         ## DW_AT_prototyped
 	.long	193                     ## DW_AT_type
+                                        ## DW_AT_external
                                         ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x5d6:0xf DW_TAG_formal_parameter
-.set Lset378, Ldebug_loc22-Lsection_debug_loc ## DW_AT_location
-	.long	Lset378
-	.long	591                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	75                      ## DW_AT_decl_line
-	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x5e5:0xf DW_TAG_formal_parameter
-.set Lset379, Ldebug_loc23-Lsection_debug_loc ## DW_AT_location
-	.long	Lset379
-	.long	823                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	75                      ## DW_AT_decl_line
-	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x5f4:0xf DW_TAG_formal_parameter
-.set Lset380, Ldebug_loc24-Lsection_debug_loc ## DW_AT_location
-	.long	Lset380
-	.long	828                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	75                      ## DW_AT_decl_line
-	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x603:0xf DW_TAG_variable
-.set Lset381, Ldebug_loc27-Lsection_debug_loc ## DW_AT_location
-	.long	Lset381
-	.long	833                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	77                      ## DW_AT_decl_line
-	.long	2831                    ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x612:0xf DW_TAG_variable
-.set Lset382, Ldebug_loc28-Lsection_debug_loc ## DW_AT_location
-	.long	Lset382
-	.long	844                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	77                      ## DW_AT_decl_line
-	.long	2831                    ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x621:0xf DW_TAG_variable
-.set Lset383, Ldebug_loc29-Lsection_debug_loc ## DW_AT_location
-	.long	Lset383
-	.long	846                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	85                      ## DW_AT_decl_line
-	.long	2831                    ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0x630:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp90                  ## DW_AT_low_pc
-.set Lset384, Ltmp91-Ltmp90             ## DW_AT_high_pc
-	.long	Lset384
-	.byte	3                       ## DW_AT_call_file
-	.byte	91                      ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x643:0x9 DW_TAG_formal_parameter
-.set Lset385, Ldebug_loc25-Lsection_debug_loc ## DW_AT_location
-	.long	Lset385
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x64c:0x9 DW_TAG_formal_parameter
-.set Lset386, Ldebug_loc31-Lsection_debug_loc ## DW_AT_location
-	.long	Lset386
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x655:0x9 DW_TAG_formal_parameter
-.set Lset387, Ldebug_loc30-Lsection_debug_loc ## DW_AT_location
-	.long	Lset387
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	33                      ## Abbrev [33] 0x65f:0x27 DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-.set Lset388, Ldebug_ranges0-Ldebug_range ## DW_AT_ranges
-	.long	Lset388
-	.byte	3                       ## DW_AT_call_file
-	.byte	95                      ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x66a:0x9 DW_TAG_formal_parameter
-.set Lset389, Ldebug_loc26-Lsection_debug_loc ## DW_AT_location
-	.long	Lset389
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x673:0x9 DW_TAG_formal_parameter
-.set Lset390, Ldebug_loc33-Lsection_debug_loc ## DW_AT_location
-	.long	Lset390
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x67c:0x9 DW_TAG_formal_parameter
-.set Lset391, Ldebug_loc32-Lsection_debug_loc ## DW_AT_location
-	.long	Lset391
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x687:0xca DW_TAG_subprogram
-	.quad	Lfunc_begin6            ## DW_AT_low_pc
-.set Lset392, Lfunc_end6-Lfunc_begin6   ## DW_AT_high_pc
-	.long	Lset392
-	.byte	1                       ## DW_AT_frame_base
-	.byte	86
-	.long	658                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	100                     ## DW_AT_decl_line
-                                        ## DW_AT_prototyped
-	.long	193                     ## DW_AT_type
-                                        ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x6a0:0xf DW_TAG_formal_parameter
-.set Lset393, Ldebug_loc34-Lsection_debug_loc ## DW_AT_location
-	.long	Lset393
-	.long	591                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	100                     ## DW_AT_decl_line
-	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x6af:0xf DW_TAG_formal_parameter
-.set Lset394, Ldebug_loc35-Lsection_debug_loc ## DW_AT_location
-	.long	Lset394
-	.long	823                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	100                     ## DW_AT_decl_line
-	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x6be:0xf DW_TAG_formal_parameter
-.set Lset395, Ldebug_loc36-Lsection_debug_loc ## DW_AT_location
-	.long	Lset395
-	.long	828                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	100                     ## DW_AT_decl_line
-	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x6cd:0xf DW_TAG_variable
-.set Lset396, Ldebug_loc39-Lsection_debug_loc ## DW_AT_location
-	.long	Lset396
-	.long	833                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	102                     ## DW_AT_decl_line
-	.long	237                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x6dc:0xf DW_TAG_variable
-.set Lset397, Ldebug_loc40-Lsection_debug_loc ## DW_AT_location
-	.long	Lset397
-	.long	844                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	102                     ## DW_AT_decl_line
-	.long	237                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x6eb:0xf DW_TAG_variable
-.set Lset398, Ldebug_loc41-Lsection_debug_loc ## DW_AT_location
-	.long	Lset398
-	.long	846                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	110                     ## DW_AT_decl_line
-	.long	237                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0x6fa:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp112                 ## DW_AT_low_pc
-.set Lset399, Ltmp113-Ltmp112           ## DW_AT_high_pc
-	.long	Lset399
-	.byte	3                       ## DW_AT_call_file
-	.byte	116                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x70d:0x9 DW_TAG_formal_parameter
-.set Lset400, Ldebug_loc37-Lsection_debug_loc ## DW_AT_location
-	.long	Lset400
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x716:0x9 DW_TAG_formal_parameter
-.set Lset401, Ldebug_loc43-Lsection_debug_loc ## DW_AT_location
-	.long	Lset401
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x71f:0x9 DW_TAG_formal_parameter
-.set Lset402, Ldebug_loc42-Lsection_debug_loc ## DW_AT_location
-	.long	Lset402
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	33                      ## Abbrev [33] 0x729:0x27 DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-.set Lset403, Ldebug_ranges1-Ldebug_range ## DW_AT_ranges
-	.long	Lset403
-	.byte	3                       ## DW_AT_call_file
-	.byte	120                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x734:0x9 DW_TAG_formal_parameter
-.set Lset404, Ldebug_loc38-Lsection_debug_loc ## DW_AT_location
-	.long	Lset404
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x73d:0x9 DW_TAG_formal_parameter
-.set Lset405, Ldebug_loc45-Lsection_debug_loc ## DW_AT_location
-	.long	Lset405
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x746:0x9 DW_TAG_formal_parameter
-.set Lset406, Ldebug_loc44-Lsection_debug_loc ## DW_AT_location
-	.long	Lset406
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x751:0x85 DW_TAG_subprogram
-	.quad	Lfunc_begin7            ## DW_AT_low_pc
-.set Lset407, Lfunc_end7-Lfunc_begin7   ## DW_AT_high_pc
-	.long	Lset407
-	.byte	1                       ## DW_AT_frame_base
-	.byte	86
-	.long	671                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	124                     ## DW_AT_decl_line
-                                        ## DW_AT_prototyped
-	.long	193                     ## DW_AT_type
-                                        ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x76a:0xf DW_TAG_formal_parameter
-.set Lset408, Ldebug_loc46-Lsection_debug_loc ## DW_AT_location
-	.long	Lset408
-	.long	591                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	124                     ## DW_AT_decl_line
-	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x779:0xf DW_TAG_formal_parameter
-.set Lset409, Ldebug_loc47-Lsection_debug_loc ## DW_AT_location
-	.long	Lset409
-	.long	823                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	124                     ## DW_AT_decl_line
-	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x788:0xf DW_TAG_formal_parameter
-.set Lset410, Ldebug_loc48-Lsection_debug_loc ## DW_AT_location
-	.long	Lset410
-	.long	828                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	124                     ## DW_AT_decl_line
-	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x797:0xf DW_TAG_variable
-.set Lset411, Ldebug_loc50-Lsection_debug_loc ## DW_AT_location
-	.long	Lset411
-	.long	833                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	126                     ## DW_AT_decl_line
-	.long	737                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0x7a6:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp127                 ## DW_AT_low_pc
-.set Lset412, Ltmp128-Ltmp127           ## DW_AT_high_pc
-	.long	Lset412
-	.byte	3                       ## DW_AT_call_file
-	.byte	133                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x7b9:0x9 DW_TAG_formal_parameter
-.set Lset413, Ldebug_loc49-Lsection_debug_loc ## DW_AT_location
-	.long	Lset413
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x7c2:0x9 DW_TAG_formal_parameter
-.set Lset414, Ldebug_loc52-Lsection_debug_loc ## DW_AT_location
-	.long	Lset414
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x7cb:0x9 DW_TAG_formal_parameter
-.set Lset415, Ldebug_loc51-Lsection_debug_loc ## DW_AT_location
-	.long	Lset415
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x7d6:0xa3 DW_TAG_subprogram
-	.quad	Lfunc_begin8            ## DW_AT_low_pc
-.set Lset416, Lfunc_end8-Lfunc_begin8   ## DW_AT_high_pc
-	.long	Lset416
-	.byte	1                       ## DW_AT_frame_base
-	.byte	86
-	.long	684                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	137                     ## DW_AT_decl_line
-                                        ## DW_AT_prototyped
-	.long	193                     ## DW_AT_type
-                                        ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x7ef:0xf DW_TAG_formal_parameter
-.set Lset417, Ldebug_loc53-Lsection_debug_loc ## DW_AT_location
-	.long	Lset417
-	.long	591                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	137                     ## DW_AT_decl_line
-	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x7fe:0xf DW_TAG_formal_parameter
-.set Lset418, Ldebug_loc54-Lsection_debug_loc ## DW_AT_location
-	.long	Lset418
-	.long	823                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	137                     ## DW_AT_decl_line
-	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x80d:0xf DW_TAG_formal_parameter
-.set Lset419, Ldebug_loc55-Lsection_debug_loc ## DW_AT_location
-	.long	Lset419
-	.long	828                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	137                     ## DW_AT_decl_line
-	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x81c:0xf DW_TAG_variable
-.set Lset420, Ldebug_loc57-Lsection_debug_loc ## DW_AT_location
-	.long	Lset420
-	.long	833                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	139                     ## DW_AT_decl_line
-	.long	2831                    ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x82b:0xf DW_TAG_variable
-.set Lset421, Ldebug_loc58-Lsection_debug_loc ## DW_AT_location
-	.long	Lset421
-	.long	844                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	140                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x83a:0xf DW_TAG_variable
-.set Lset422, Ldebug_loc59-Lsection_debug_loc ## DW_AT_location
-	.long	Lset422
-	.long	846                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	147                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0x849:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp144                 ## DW_AT_low_pc
-.set Lset423, Ltmp145-Ltmp144           ## DW_AT_high_pc
-	.long	Lset423
-	.byte	3                       ## DW_AT_call_file
-	.byte	148                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x85c:0x9 DW_TAG_formal_parameter
-.set Lset424, Ldebug_loc56-Lsection_debug_loc ## DW_AT_location
-	.long	Lset424
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x865:0x9 DW_TAG_formal_parameter
-.set Lset425, Ldebug_loc61-Lsection_debug_loc ## DW_AT_location
-	.long	Lset425
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x86e:0x9 DW_TAG_formal_parameter
-.set Lset426, Ldebug_loc60-Lsection_debug_loc ## DW_AT_location
-	.long	Lset426
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x879:0xa3 DW_TAG_subprogram
-	.quad	Lfunc_begin9            ## DW_AT_low_pc
-.set Lset427, Lfunc_end9-Lfunc_begin9   ## DW_AT_high_pc
-	.long	Lset427
-	.byte	1                       ## DW_AT_frame_base
-	.byte	86
-	.long	697                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	155                     ## DW_AT_decl_line
-                                        ## DW_AT_prototyped
-	.long	193                     ## DW_AT_type
-                                        ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x892:0xf DW_TAG_formal_parameter
-.set Lset428, Ldebug_loc62-Lsection_debug_loc ## DW_AT_location
-	.long	Lset428
-	.long	591                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	155                     ## DW_AT_decl_line
-	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x8a1:0xf DW_TAG_formal_parameter
-.set Lset429, Ldebug_loc63-Lsection_debug_loc ## DW_AT_location
-	.long	Lset429
-	.long	823                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	155                     ## DW_AT_decl_line
-	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x8b0:0xf DW_TAG_formal_parameter
-.set Lset430, Ldebug_loc64-Lsection_debug_loc ## DW_AT_location
+	.byte	27                      ## Abbrev [27] 0x5d1:0xf DW_TAG_formal_parameter
+.set Lset430, Ldebug_loc22-Lsection_debug_loc ## DW_AT_location
 	.long	Lset430
-	.long	828                     ## DW_AT_name
+	.long	591                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	155                     ## DW_AT_decl_line
-	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x8bf:0xf DW_TAG_variable
-.set Lset431, Ldebug_loc66-Lsection_debug_loc ## DW_AT_location
+	.byte	60                      ## DW_AT_decl_line
+	.long	244                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x5e0:0xf DW_TAG_formal_parameter
+.set Lset431, Ldebug_loc23-Lsection_debug_loc ## DW_AT_location
 	.long	Lset431
-	.long	833                     ## DW_AT_name
+	.long	790                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	60                      ## DW_AT_decl_line
+	.long	3083                    ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x5ef:0xf DW_TAG_formal_parameter
+.set Lset432, Ldebug_loc24-Lsection_debug_loc ## DW_AT_location
+	.long	Lset432
+	.long	564                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	60                      ## DW_AT_decl_line
+	.long	3088                    ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x5fe:0xf DW_TAG_variable
+.set Lset433, Ldebug_loc26-Lsection_debug_loc ## DW_AT_location
+	.long	Lset433
+	.long	841                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	62                      ## DW_AT_decl_line
+	.long	193                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x60d:0xf DW_TAG_variable
+.set Lset434, Ldebug_loc29-Lsection_debug_loc ## DW_AT_location
+	.long	Lset434
+	.long	858                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	63                      ## DW_AT_decl_line
+	.long	3098                    ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x61c:0xf DW_TAG_variable
+.set Lset435, Ldebug_loc30-Lsection_debug_loc ## DW_AT_location
+	.long	Lset435
+	.long	869                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	67                      ## DW_AT_decl_line
+	.long	193                     ## DW_AT_type
+	.byte	30                      ## Abbrev [30] 0x62b:0x1d DW_TAG_lexical_block
+	.quad	Ltmp77                  ## DW_AT_low_pc
+.set Lset436, Ltmp84-Ltmp77             ## DW_AT_high_pc
+	.long	Lset436
+	.byte	29                      ## Abbrev [29] 0x638:0xf DW_TAG_variable
+.set Lset437, Ldebug_loc28-Lsection_debug_loc ## DW_AT_location
+	.long	Lset437
+	.long	839                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	64                      ## DW_AT_decl_line
+	.long	265                     ## DW_AT_type
+	.byte	0                       ## End Of Children Mark
+	.byte	22                      ## Abbrev [22] 0x648:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp86                  ## DW_AT_low_pc
+.set Lset438, Ltmp92-Ltmp86             ## DW_AT_high_pc
+	.long	Lset438
+	.byte	3                       ## DW_AT_call_file
+	.byte	69                      ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x65b:0x9 DW_TAG_formal_parameter
+.set Lset439, Ldebug_loc25-Lsection_debug_loc ## DW_AT_location
+	.long	Lset439
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x664:0x9 DW_TAG_formal_parameter
+.set Lset440, Ldebug_loc27-Lsection_debug_loc ## DW_AT_location
+	.long	Lset440
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x66d:0x9 DW_TAG_formal_parameter
+.set Lset441, Ldebug_loc31-Lsection_debug_loc ## DW_AT_location
+	.long	Lset441
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	25                      ## Abbrev [25] 0x678:0xca DW_TAG_subprogram
+	.quad	Lfunc_begin6            ## DW_AT_low_pc
+.set Lset442, Lfunc_end6-Lfunc_begin6   ## DW_AT_high_pc
+	.long	Lset442
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	663                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	86                      ## DW_AT_decl_line
+                                        ## DW_AT_prototyped
+	.long	193                     ## DW_AT_type
+                                        ## DW_AT_APPLE_optimized
+	.byte	27                      ## Abbrev [27] 0x691:0xf DW_TAG_formal_parameter
+.set Lset443, Ldebug_loc32-Lsection_debug_loc ## DW_AT_location
+	.long	Lset443
+	.long	591                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	86                      ## DW_AT_decl_line
+	.long	244                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x6a0:0xf DW_TAG_formal_parameter
+.set Lset444, Ldebug_loc33-Lsection_debug_loc ## DW_AT_location
+	.long	Lset444
+	.long	879                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	86                      ## DW_AT_decl_line
+	.long	265                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x6af:0xf DW_TAG_formal_parameter
+.set Lset445, Ldebug_loc34-Lsection_debug_loc ## DW_AT_location
+	.long	Lset445
+	.long	884                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	86                      ## DW_AT_decl_line
+	.long	272                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x6be:0xf DW_TAG_variable
+.set Lset446, Ldebug_loc37-Lsection_debug_loc ## DW_AT_location
+	.long	Lset446
+	.long	889                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	88                      ## DW_AT_decl_line
+	.long	3103                    ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x6cd:0xf DW_TAG_variable
+.set Lset447, Ldebug_loc38-Lsection_debug_loc ## DW_AT_location
+	.long	Lset447
+	.long	900                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	88                      ## DW_AT_decl_line
+	.long	3103                    ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x6dc:0xf DW_TAG_variable
+.set Lset448, Ldebug_loc39-Lsection_debug_loc ## DW_AT_location
+	.long	Lset448
+	.long	902                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	96                      ## DW_AT_decl_line
+	.long	3103                    ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0x6eb:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp107                 ## DW_AT_low_pc
+.set Lset449, Ltmp108-Ltmp107           ## DW_AT_high_pc
+	.long	Lset449
+	.byte	3                       ## DW_AT_call_file
+	.byte	102                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x6fe:0x9 DW_TAG_formal_parameter
+.set Lset450, Ldebug_loc35-Lsection_debug_loc ## DW_AT_location
+	.long	Lset450
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x707:0x9 DW_TAG_formal_parameter
+.set Lset451, Ldebug_loc41-Lsection_debug_loc ## DW_AT_location
+	.long	Lset451
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x710:0x9 DW_TAG_formal_parameter
+.set Lset452, Ldebug_loc40-Lsection_debug_loc ## DW_AT_location
+	.long	Lset452
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	33                      ## Abbrev [33] 0x71a:0x27 DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+.set Lset453, Ldebug_ranges0-Ldebug_range ## DW_AT_ranges
+	.long	Lset453
+	.byte	3                       ## DW_AT_call_file
+	.byte	106                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x725:0x9 DW_TAG_formal_parameter
+.set Lset454, Ldebug_loc36-Lsection_debug_loc ## DW_AT_location
+	.long	Lset454
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x72e:0x9 DW_TAG_formal_parameter
+.set Lset455, Ldebug_loc43-Lsection_debug_loc ## DW_AT_location
+	.long	Lset455
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x737:0x9 DW_TAG_formal_parameter
+.set Lset456, Ldebug_loc42-Lsection_debug_loc ## DW_AT_location
+	.long	Lset456
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	25                      ## Abbrev [25] 0x742:0xca DW_TAG_subprogram
+	.quad	Lfunc_begin7            ## DW_AT_low_pc
+.set Lset457, Lfunc_end7-Lfunc_begin7   ## DW_AT_high_pc
+	.long	Lset457
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	676                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	111                     ## DW_AT_decl_line
+                                        ## DW_AT_prototyped
+	.long	193                     ## DW_AT_type
+                                        ## DW_AT_APPLE_optimized
+	.byte	27                      ## Abbrev [27] 0x75b:0xf DW_TAG_formal_parameter
+.set Lset458, Ldebug_loc44-Lsection_debug_loc ## DW_AT_location
+	.long	Lset458
+	.long	591                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	111                     ## DW_AT_decl_line
+	.long	244                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x76a:0xf DW_TAG_formal_parameter
+.set Lset459, Ldebug_loc45-Lsection_debug_loc ## DW_AT_location
+	.long	Lset459
+	.long	879                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	111                     ## DW_AT_decl_line
+	.long	265                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x779:0xf DW_TAG_formal_parameter
+.set Lset460, Ldebug_loc46-Lsection_debug_loc ## DW_AT_location
+	.long	Lset460
+	.long	884                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	111                     ## DW_AT_decl_line
+	.long	272                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x788:0xf DW_TAG_variable
+.set Lset461, Ldebug_loc49-Lsection_debug_loc ## DW_AT_location
+	.long	Lset461
+	.long	889                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	113                     ## DW_AT_decl_line
+	.long	237                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x797:0xf DW_TAG_variable
+.set Lset462, Ldebug_loc50-Lsection_debug_loc ## DW_AT_location
+	.long	Lset462
+	.long	900                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	113                     ## DW_AT_decl_line
+	.long	237                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x7a6:0xf DW_TAG_variable
+.set Lset463, Ldebug_loc51-Lsection_debug_loc ## DW_AT_location
+	.long	Lset463
+	.long	902                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	121                     ## DW_AT_decl_line
+	.long	237                     ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0x7b5:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp129                 ## DW_AT_low_pc
+.set Lset464, Ltmp130-Ltmp129           ## DW_AT_high_pc
+	.long	Lset464
+	.byte	3                       ## DW_AT_call_file
+	.byte	127                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x7c8:0x9 DW_TAG_formal_parameter
+.set Lset465, Ldebug_loc47-Lsection_debug_loc ## DW_AT_location
+	.long	Lset465
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x7d1:0x9 DW_TAG_formal_parameter
+.set Lset466, Ldebug_loc53-Lsection_debug_loc ## DW_AT_location
+	.long	Lset466
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x7da:0x9 DW_TAG_formal_parameter
+.set Lset467, Ldebug_loc52-Lsection_debug_loc ## DW_AT_location
+	.long	Lset467
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	33                      ## Abbrev [33] 0x7e4:0x27 DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+.set Lset468, Ldebug_ranges1-Ldebug_range ## DW_AT_ranges
+	.long	Lset468
+	.byte	3                       ## DW_AT_call_file
+	.byte	131                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x7ef:0x9 DW_TAG_formal_parameter
+.set Lset469, Ldebug_loc48-Lsection_debug_loc ## DW_AT_location
+	.long	Lset469
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x7f8:0x9 DW_TAG_formal_parameter
+.set Lset470, Ldebug_loc55-Lsection_debug_loc ## DW_AT_location
+	.long	Lset470
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x801:0x9 DW_TAG_formal_parameter
+.set Lset471, Ldebug_loc54-Lsection_debug_loc ## DW_AT_location
+	.long	Lset471
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	25                      ## Abbrev [25] 0x80c:0xc1 DW_TAG_subprogram
+	.quad	Lfunc_begin8            ## DW_AT_low_pc
+.set Lset472, Lfunc_end8-Lfunc_begin8   ## DW_AT_high_pc
+	.long	Lset472
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	689                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	135                     ## DW_AT_decl_line
+                                        ## DW_AT_prototyped
+	.long	193                     ## DW_AT_type
+                                        ## DW_AT_APPLE_optimized
+	.byte	27                      ## Abbrev [27] 0x825:0xf DW_TAG_formal_parameter
+.set Lset473, Ldebug_loc56-Lsection_debug_loc ## DW_AT_location
+	.long	Lset473
+	.long	591                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	135                     ## DW_AT_decl_line
+	.long	244                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x834:0xf DW_TAG_formal_parameter
+.set Lset474, Ldebug_loc57-Lsection_debug_loc ## DW_AT_location
+	.long	Lset474
+	.long	879                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	135                     ## DW_AT_decl_line
+	.long	265                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0x843:0xf DW_TAG_formal_parameter
+.set Lset475, Ldebug_loc58-Lsection_debug_loc ## DW_AT_location
+	.long	Lset475
+	.long	884                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	135                     ## DW_AT_decl_line
+	.long	272                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x852:0xf DW_TAG_variable
+.set Lset476, Ldebug_loc60-Lsection_debug_loc ## DW_AT_location
+	.long	Lset476
+	.long	909                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	137                     ## DW_AT_decl_line
+	.long	160                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x861:0xf DW_TAG_variable
+.set Lset477, Ldebug_loc61-Lsection_debug_loc ## DW_AT_location
+	.long	Lset477
+	.long	915                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	138                     ## DW_AT_decl_line
+	.long	737                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x870:0xf DW_TAG_variable
+.set Lset478, Ldebug_loc62-Lsection_debug_loc ## DW_AT_location
+	.long	Lset478
+	.long	919                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	137                     ## DW_AT_decl_line
+	.long	160                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x87f:0xf DW_TAG_variable
+.set Lset479, Ldebug_loc63-Lsection_debug_loc ## DW_AT_location
+	.long	Lset479
+	.long	925                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	138                     ## DW_AT_decl_line
+	.long	737                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x88e:0xf DW_TAG_variable
+.set Lset480, Ldebug_loc64-Lsection_debug_loc ## DW_AT_location
+	.long	Lset480
+	.long	902                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	146                     ## DW_AT_decl_line
+	.long	193                     ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0x89d:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp153                 ## DW_AT_low_pc
+.set Lset481, Ltmp154-Ltmp153           ## DW_AT_high_pc
+	.long	Lset481
+	.byte	3                       ## DW_AT_call_file
+	.byte	153                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x8b0:0x9 DW_TAG_formal_parameter
+.set Lset482, Ldebug_loc59-Lsection_debug_loc ## DW_AT_location
+	.long	Lset482
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x8b9:0x9 DW_TAG_formal_parameter
+.set Lset483, Ldebug_loc65-Lsection_debug_loc ## DW_AT_location
+	.long	Lset483
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x8c2:0x9 DW_TAG_formal_parameter
+.set Lset484, Ldebug_loc66-Lsection_debug_loc ## DW_AT_location
+	.long	Lset484
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	25                      ## Abbrev [25] 0x8cd:0xa3 DW_TAG_subprogram
+	.quad	Lfunc_begin9            ## DW_AT_low_pc
+.set Lset485, Lfunc_end9-Lfunc_begin9   ## DW_AT_high_pc
+	.long	Lset485
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	702                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	157                     ## DW_AT_decl_line
-	.long	237                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x8ce:0xf DW_TAG_variable
-.set Lset432, Ldebug_loc67-Lsection_debug_loc ## DW_AT_location
-	.long	Lset432
-	.long	844                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	158                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x8dd:0xf DW_TAG_variable
-.set Lset433, Ldebug_loc68-Lsection_debug_loc ## DW_AT_location
-	.long	Lset433
-	.long	846                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	165                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0x8ec:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp161                 ## DW_AT_low_pc
-.set Lset434, Ltmp162-Ltmp161           ## DW_AT_high_pc
-	.long	Lset434
-	.byte	3                       ## DW_AT_call_file
-	.byte	166                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x8ff:0x9 DW_TAG_formal_parameter
-.set Lset435, Ldebug_loc65-Lsection_debug_loc ## DW_AT_location
-	.long	Lset435
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x908:0x9 DW_TAG_formal_parameter
-.set Lset436, Ldebug_loc70-Lsection_debug_loc ## DW_AT_location
-	.long	Lset436
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x911:0x9 DW_TAG_formal_parameter
-.set Lset437, Ldebug_loc69-Lsection_debug_loc ## DW_AT_location
-	.long	Lset437
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x91c:0xa3 DW_TAG_subprogram
-	.quad	Lfunc_begin10           ## DW_AT_low_pc
-.set Lset438, Lfunc_end10-Lfunc_begin10 ## DW_AT_high_pc
-	.long	Lset438
-	.byte	1                       ## DW_AT_frame_base
-	.byte	86
-	.long	710                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	172                     ## DW_AT_decl_line
                                         ## DW_AT_prototyped
 	.long	193                     ## DW_AT_type
                                         ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x935:0xf DW_TAG_formal_parameter
-.set Lset439, Ldebug_loc71-Lsection_debug_loc ## DW_AT_location
-	.long	Lset439
+	.byte	27                      ## Abbrev [27] 0x8e6:0xf DW_TAG_formal_parameter
+.set Lset486, Ldebug_loc67-Lsection_debug_loc ## DW_AT_location
+	.long	Lset486
 	.long	591                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	172                     ## DW_AT_decl_line
+	.byte	157                     ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x944:0xf DW_TAG_formal_parameter
-.set Lset440, Ldebug_loc72-Lsection_debug_loc ## DW_AT_location
-	.long	Lset440
-	.long	823                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0x8f5:0xf DW_TAG_formal_parameter
+.set Lset487, Ldebug_loc68-Lsection_debug_loc ## DW_AT_location
+	.long	Lset487
+	.long	879                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	172                     ## DW_AT_decl_line
+	.byte	157                     ## DW_AT_decl_line
 	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x953:0xf DW_TAG_formal_parameter
-.set Lset441, Ldebug_loc73-Lsection_debug_loc ## DW_AT_location
-	.long	Lset441
-	.long	828                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0x904:0xf DW_TAG_formal_parameter
+.set Lset488, Ldebug_loc69-Lsection_debug_loc ## DW_AT_location
+	.long	Lset488
+	.long	884                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	172                     ## DW_AT_decl_line
+	.byte	157                     ## DW_AT_decl_line
 	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x962:0xf DW_TAG_variable
-.set Lset442, Ldebug_loc75-Lsection_debug_loc ## DW_AT_location
-	.long	Lset442
-	.long	833                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0x913:0xf DW_TAG_variable
+.set Lset489, Ldebug_loc71-Lsection_debug_loc ## DW_AT_location
+	.long	Lset489
+	.long	889                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	174                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x971:0xf DW_TAG_variable
-.set Lset443, Ldebug_loc76-Lsection_debug_loc ## DW_AT_location
-	.long	Lset443
-	.long	844                     ## DW_AT_name
+	.byte	159                     ## DW_AT_decl_line
+	.long	3103                    ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x922:0xf DW_TAG_variable
+.set Lset490, Ldebug_loc72-Lsection_debug_loc ## DW_AT_location
+	.long	Lset490
+	.long	900                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	160                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x931:0xf DW_TAG_variable
+.set Lset491, Ldebug_loc73-Lsection_debug_loc ## DW_AT_location
+	.long	Lset491
+	.long	902                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	167                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0x940:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp169                 ## DW_AT_low_pc
+.set Lset492, Ltmp170-Ltmp169           ## DW_AT_high_pc
+	.long	Lset492
+	.byte	3                       ## DW_AT_call_file
+	.byte	168                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x953:0x9 DW_TAG_formal_parameter
+.set Lset493, Ldebug_loc70-Lsection_debug_loc ## DW_AT_location
+	.long	Lset493
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x95c:0x9 DW_TAG_formal_parameter
+.set Lset494, Ldebug_loc75-Lsection_debug_loc ## DW_AT_location
+	.long	Lset494
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x965:0x9 DW_TAG_formal_parameter
+.set Lset495, Ldebug_loc74-Lsection_debug_loc ## DW_AT_location
+	.long	Lset495
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	25                      ## Abbrev [25] 0x970:0xa3 DW_TAG_subprogram
+	.quad	Lfunc_begin10           ## DW_AT_low_pc
+.set Lset496, Lfunc_end10-Lfunc_begin10 ## DW_AT_high_pc
+	.long	Lset496
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	715                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	175                     ## DW_AT_decl_line
-	.long	2831                    ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0x980:0xf DW_TAG_variable
-.set Lset444, Ldebug_loc77-Lsection_debug_loc ## DW_AT_location
-	.long	Lset444
-	.long	846                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	182                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0x98f:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp178                 ## DW_AT_low_pc
-.set Lset445, Ltmp179-Ltmp178           ## DW_AT_high_pc
-	.long	Lset445
-	.byte	3                       ## DW_AT_call_file
-	.byte	183                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0x9a2:0x9 DW_TAG_formal_parameter
-.set Lset446, Ldebug_loc74-Lsection_debug_loc ## DW_AT_location
-	.long	Lset446
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x9ab:0x9 DW_TAG_formal_parameter
-.set Lset447, Ldebug_loc79-Lsection_debug_loc ## DW_AT_location
-	.long	Lset447
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0x9b4:0x9 DW_TAG_formal_parameter
-.set Lset448, Ldebug_loc78-Lsection_debug_loc ## DW_AT_location
-	.long	Lset448
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0x9bf:0xa3 DW_TAG_subprogram
-	.quad	Lfunc_begin11           ## DW_AT_low_pc
-.set Lset449, Lfunc_end11-Lfunc_begin11 ## DW_AT_high_pc
-	.long	Lset449
-	.byte	1                       ## DW_AT_frame_base
-	.byte	86
-	.long	723                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	189                     ## DW_AT_decl_line
                                         ## DW_AT_prototyped
 	.long	193                     ## DW_AT_type
                                         ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0x9d8:0xf DW_TAG_formal_parameter
-.set Lset450, Ldebug_loc80-Lsection_debug_loc ## DW_AT_location
-	.long	Lset450
+	.byte	27                      ## Abbrev [27] 0x989:0xf DW_TAG_formal_parameter
+.set Lset497, Ldebug_loc76-Lsection_debug_loc ## DW_AT_location
+	.long	Lset497
 	.long	591                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	189                     ## DW_AT_decl_line
+	.byte	175                     ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x9e7:0xf DW_TAG_formal_parameter
-.set Lset451, Ldebug_loc81-Lsection_debug_loc ## DW_AT_location
-	.long	Lset451
-	.long	823                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0x998:0xf DW_TAG_formal_parameter
+.set Lset498, Ldebug_loc77-Lsection_debug_loc ## DW_AT_location
+	.long	Lset498
+	.long	879                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	189                     ## DW_AT_decl_line
+	.byte	175                     ## DW_AT_decl_line
 	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0x9f6:0xf DW_TAG_formal_parameter
-.set Lset452, Ldebug_loc82-Lsection_debug_loc ## DW_AT_location
-	.long	Lset452
-	.long	828                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0x9a7:0xf DW_TAG_formal_parameter
+.set Lset499, Ldebug_loc78-Lsection_debug_loc ## DW_AT_location
+	.long	Lset499
+	.long	884                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	189                     ## DW_AT_decl_line
+	.byte	175                     ## DW_AT_decl_line
 	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0xa05:0xf DW_TAG_variable
-.set Lset453, Ldebug_loc84-Lsection_debug_loc ## DW_AT_location
-	.long	Lset453
-	.long	833                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0x9b6:0xf DW_TAG_variable
+.set Lset500, Ldebug_loc80-Lsection_debug_loc ## DW_AT_location
+	.long	Lset500
+	.long	889                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	191                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0xa14:0xf DW_TAG_variable
-.set Lset454, Ldebug_loc85-Lsection_debug_loc ## DW_AT_location
-	.long	Lset454
-	.long	844                     ## DW_AT_name
+	.byte	177                     ## DW_AT_decl_line
+	.long	237                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x9c5:0xf DW_TAG_variable
+.set Lset501, Ldebug_loc81-Lsection_debug_loc ## DW_AT_location
+	.long	Lset501
+	.long	900                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	178                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0x9d4:0xf DW_TAG_variable
+.set Lset502, Ldebug_loc82-Lsection_debug_loc ## DW_AT_location
+	.long	Lset502
+	.long	902                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	185                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0x9e3:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp186                 ## DW_AT_low_pc
+.set Lset503, Ltmp187-Ltmp186           ## DW_AT_high_pc
+	.long	Lset503
+	.byte	3                       ## DW_AT_call_file
+	.byte	186                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0x9f6:0x9 DW_TAG_formal_parameter
+.set Lset504, Ldebug_loc79-Lsection_debug_loc ## DW_AT_location
+	.long	Lset504
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0x9ff:0x9 DW_TAG_formal_parameter
+.set Lset505, Ldebug_loc84-Lsection_debug_loc ## DW_AT_location
+	.long	Lset505
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0xa08:0x9 DW_TAG_formal_parameter
+.set Lset506, Ldebug_loc83-Lsection_debug_loc ## DW_AT_location
+	.long	Lset506
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	25                      ## Abbrev [25] 0xa13:0xa3 DW_TAG_subprogram
+	.quad	Lfunc_begin11           ## DW_AT_low_pc
+.set Lset507, Lfunc_end11-Lfunc_begin11 ## DW_AT_high_pc
+	.long	Lset507
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	728                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
 	.byte	192                     ## DW_AT_decl_line
-	.long	237                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0xa23:0xf DW_TAG_variable
-.set Lset455, Ldebug_loc86-Lsection_debug_loc ## DW_AT_location
-	.long	Lset455
-	.long	846                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	199                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0xa32:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp195                 ## DW_AT_low_pc
-.set Lset456, Ltmp196-Ltmp195           ## DW_AT_high_pc
-	.long	Lset456
-	.byte	3                       ## DW_AT_call_file
-	.byte	200                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0xa45:0x9 DW_TAG_formal_parameter
-.set Lset457, Ldebug_loc83-Lsection_debug_loc ## DW_AT_location
-	.long	Lset457
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0xa4e:0x9 DW_TAG_formal_parameter
-.set Lset458, Ldebug_loc88-Lsection_debug_loc ## DW_AT_location
-	.long	Lset458
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0xa57:0x9 DW_TAG_formal_parameter
-.set Lset459, Ldebug_loc87-Lsection_debug_loc ## DW_AT_location
-	.long	Lset459
-	.long	1456                    ## DW_AT_abstract_origin
-	.byte	0                       ## End Of Children Mark
-	.byte	0                       ## End Of Children Mark
-	.byte	25                      ## Abbrev [25] 0xa62:0xa3 DW_TAG_subprogram
-	.quad	Lfunc_begin12           ## DW_AT_low_pc
-.set Lset460, Lfunc_end12-Lfunc_begin12 ## DW_AT_high_pc
-	.long	Lset460
-	.byte	1                       ## DW_AT_frame_base
-	.byte	86
-	.long	736                     ## DW_AT_name
-	.byte	3                       ## DW_AT_decl_file
-	.byte	205                     ## DW_AT_decl_line
                                         ## DW_AT_prototyped
 	.long	193                     ## DW_AT_type
                                         ## DW_AT_APPLE_optimized
-	.byte	27                      ## Abbrev [27] 0xa7b:0xf DW_TAG_formal_parameter
-.set Lset461, Ldebug_loc89-Lsection_debug_loc ## DW_AT_location
-	.long	Lset461
+	.byte	27                      ## Abbrev [27] 0xa2c:0xf DW_TAG_formal_parameter
+.set Lset508, Ldebug_loc85-Lsection_debug_loc ## DW_AT_location
+	.long	Lset508
 	.long	591                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	205                     ## DW_AT_decl_line
+	.byte	192                     ## DW_AT_decl_line
 	.long	244                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0xa8a:0xf DW_TAG_formal_parameter
-.set Lset462, Ldebug_loc90-Lsection_debug_loc ## DW_AT_location
-	.long	Lset462
-	.long	823                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0xa3b:0xf DW_TAG_formal_parameter
+.set Lset509, Ldebug_loc86-Lsection_debug_loc ## DW_AT_location
+	.long	Lset509
+	.long	879                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	205                     ## DW_AT_decl_line
+	.byte	192                     ## DW_AT_decl_line
 	.long	265                     ## DW_AT_type
-	.byte	27                      ## Abbrev [27] 0xa99:0xf DW_TAG_formal_parameter
-.set Lset463, Ldebug_loc91-Lsection_debug_loc ## DW_AT_location
-	.long	Lset463
-	.long	828                     ## DW_AT_name
+	.byte	27                      ## Abbrev [27] 0xa4a:0xf DW_TAG_formal_parameter
+.set Lset510, Ldebug_loc87-Lsection_debug_loc ## DW_AT_location
+	.long	Lset510
+	.long	884                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	205                     ## DW_AT_decl_line
+	.byte	192                     ## DW_AT_decl_line
 	.long	272                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0xaa8:0xf DW_TAG_variable
-.set Lset464, Ldebug_loc93-Lsection_debug_loc ## DW_AT_location
-	.long	Lset464
-	.long	833                     ## DW_AT_name
+	.byte	29                      ## Abbrev [29] 0xa59:0xf DW_TAG_variable
+.set Lset511, Ldebug_loc89-Lsection_debug_loc ## DW_AT_location
+	.long	Lset511
+	.long	889                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	207                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0xab7:0xf DW_TAG_variable
-.set Lset465, Ldebug_loc94-Lsection_debug_loc ## DW_AT_location
-	.long	Lset465
-	.long	844                     ## DW_AT_name
+	.byte	194                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xa68:0xf DW_TAG_variable
+.set Lset512, Ldebug_loc90-Lsection_debug_loc ## DW_AT_location
+	.long	Lset512
+	.long	900                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	207                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	29                      ## Abbrev [29] 0xac6:0xf DW_TAG_variable
-.set Lset466, Ldebug_loc95-Lsection_debug_loc ## DW_AT_location
-	.long	Lset466
-	.long	846                     ## DW_AT_name
+	.byte	195                     ## DW_AT_decl_line
+	.long	3103                    ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xa77:0xf DW_TAG_variable
+.set Lset513, Ldebug_loc91-Lsection_debug_loc ## DW_AT_location
+	.long	Lset513
+	.long	902                     ## DW_AT_name
 	.byte	3                       ## DW_AT_decl_file
-	.byte	214                     ## DW_AT_decl_line
-	.long	791                     ## DW_AT_type
-	.byte	22                      ## Abbrev [22] 0xad5:0x2f DW_TAG_inlined_subroutine
-	.long	1419                    ## DW_AT_abstract_origin
-	.quad	Ltmp213                 ## DW_AT_low_pc
-.set Lset467, Ltmp214-Ltmp213           ## DW_AT_high_pc
-	.long	Lset467
+	.byte	202                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0xa86:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp203                 ## DW_AT_low_pc
+.set Lset514, Ltmp204-Ltmp203           ## DW_AT_high_pc
+	.long	Lset514
 	.byte	3                       ## DW_AT_call_file
-	.byte	215                     ## DW_AT_call_line
-	.byte	21                      ## Abbrev [21] 0xae8:0x9 DW_TAG_formal_parameter
-.set Lset468, Ldebug_loc92-Lsection_debug_loc ## DW_AT_location
-	.long	Lset468
-	.long	1432                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0xaf1:0x9 DW_TAG_formal_parameter
-.set Lset469, Ldebug_loc97-Lsection_debug_loc ## DW_AT_location
-	.long	Lset469
-	.long	1444                    ## DW_AT_abstract_origin
-	.byte	21                      ## Abbrev [21] 0xafa:0x9 DW_TAG_formal_parameter
-.set Lset470, Ldebug_loc96-Lsection_debug_loc ## DW_AT_location
-	.long	Lset470
-	.long	1456                    ## DW_AT_abstract_origin
+	.byte	203                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0xa99:0x9 DW_TAG_formal_parameter
+.set Lset515, Ldebug_loc88-Lsection_debug_loc ## DW_AT_location
+	.long	Lset515
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0xaa2:0x9 DW_TAG_formal_parameter
+.set Lset516, Ldebug_loc93-Lsection_debug_loc ## DW_AT_location
+	.long	Lset516
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0xaab:0x9 DW_TAG_formal_parameter
+.set Lset517, Ldebug_loc92-Lsection_debug_loc ## DW_AT_location
+	.long	Lset517
+	.long	1451                    ## DW_AT_abstract_origin
 	.byte	0                       ## End Of Children Mark
 	.byte	0                       ## End Of Children Mark
-	.byte	8                       ## Abbrev [8] 0xb05:0x5 DW_TAG_pointer_type
+	.byte	25                      ## Abbrev [25] 0xab6:0xa3 DW_TAG_subprogram
+	.quad	Lfunc_begin12           ## DW_AT_low_pc
+.set Lset518, Lfunc_end12-Lfunc_begin12 ## DW_AT_high_pc
+	.long	Lset518
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	741                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	209                     ## DW_AT_decl_line
+                                        ## DW_AT_prototyped
+	.long	193                     ## DW_AT_type
+                                        ## DW_AT_APPLE_optimized
+	.byte	27                      ## Abbrev [27] 0xacf:0xf DW_TAG_formal_parameter
+.set Lset519, Ldebug_loc94-Lsection_debug_loc ## DW_AT_location
+	.long	Lset519
+	.long	591                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	209                     ## DW_AT_decl_line
+	.long	244                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0xade:0xf DW_TAG_formal_parameter
+.set Lset520, Ldebug_loc95-Lsection_debug_loc ## DW_AT_location
+	.long	Lset520
+	.long	879                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	209                     ## DW_AT_decl_line
+	.long	265                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0xaed:0xf DW_TAG_formal_parameter
+.set Lset521, Ldebug_loc96-Lsection_debug_loc ## DW_AT_location
+	.long	Lset521
+	.long	884                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	209                     ## DW_AT_decl_line
+	.long	272                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xafc:0xf DW_TAG_variable
+.set Lset522, Ldebug_loc98-Lsection_debug_loc ## DW_AT_location
+	.long	Lset522
+	.long	889                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	211                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xb0b:0xf DW_TAG_variable
+.set Lset523, Ldebug_loc99-Lsection_debug_loc ## DW_AT_location
+	.long	Lset523
+	.long	900                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	212                     ## DW_AT_decl_line
+	.long	237                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xb1a:0xf DW_TAG_variable
+.set Lset524, Ldebug_loc100-Lsection_debug_loc ## DW_AT_location
+	.long	Lset524
+	.long	902                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	219                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0xb29:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp220                 ## DW_AT_low_pc
+.set Lset525, Ltmp221-Ltmp220           ## DW_AT_high_pc
+	.long	Lset525
+	.byte	3                       ## DW_AT_call_file
+	.byte	220                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0xb3c:0x9 DW_TAG_formal_parameter
+.set Lset526, Ldebug_loc97-Lsection_debug_loc ## DW_AT_location
+	.long	Lset526
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0xb45:0x9 DW_TAG_formal_parameter
+.set Lset527, Ldebug_loc102-Lsection_debug_loc ## DW_AT_location
+	.long	Lset527
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0xb4e:0x9 DW_TAG_formal_parameter
+.set Lset528, Ldebug_loc101-Lsection_debug_loc ## DW_AT_location
+	.long	Lset528
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	25                      ## Abbrev [25] 0xb59:0xa3 DW_TAG_subprogram
+	.quad	Lfunc_begin13           ## DW_AT_low_pc
+.set Lset529, Lfunc_end13-Lfunc_begin13 ## DW_AT_high_pc
+	.long	Lset529
+	.byte	1                       ## DW_AT_frame_base
+	.byte	86
+	.long	754                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	225                     ## DW_AT_decl_line
+                                        ## DW_AT_prototyped
+	.long	193                     ## DW_AT_type
+                                        ## DW_AT_APPLE_optimized
+	.byte	27                      ## Abbrev [27] 0xb72:0xf DW_TAG_formal_parameter
+.set Lset530, Ldebug_loc103-Lsection_debug_loc ## DW_AT_location
+	.long	Lset530
+	.long	591                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	225                     ## DW_AT_decl_line
+	.long	244                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0xb81:0xf DW_TAG_formal_parameter
+.set Lset531, Ldebug_loc104-Lsection_debug_loc ## DW_AT_location
+	.long	Lset531
+	.long	879                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	225                     ## DW_AT_decl_line
+	.long	265                     ## DW_AT_type
+	.byte	27                      ## Abbrev [27] 0xb90:0xf DW_TAG_formal_parameter
+.set Lset532, Ldebug_loc105-Lsection_debug_loc ## DW_AT_location
+	.long	Lset532
+	.long	884                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	225                     ## DW_AT_decl_line
+	.long	272                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xb9f:0xf DW_TAG_variable
+.set Lset533, Ldebug_loc107-Lsection_debug_loc ## DW_AT_location
+	.long	Lset533
+	.long	889                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	227                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xbae:0xf DW_TAG_variable
+.set Lset534, Ldebug_loc108-Lsection_debug_loc ## DW_AT_location
+	.long	Lset534
+	.long	900                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	227                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	29                      ## Abbrev [29] 0xbbd:0xf DW_TAG_variable
+.set Lset535, Ldebug_loc109-Lsection_debug_loc ## DW_AT_location
+	.long	Lset535
+	.long	902                     ## DW_AT_name
+	.byte	3                       ## DW_AT_decl_file
+	.byte	234                     ## DW_AT_decl_line
+	.long	786                     ## DW_AT_type
+	.byte	22                      ## Abbrev [22] 0xbcc:0x2f DW_TAG_inlined_subroutine
+	.long	1414                    ## DW_AT_abstract_origin
+	.quad	Ltmp238                 ## DW_AT_low_pc
+.set Lset536, Ltmp239-Ltmp238           ## DW_AT_high_pc
+	.long	Lset536
+	.byte	3                       ## DW_AT_call_file
+	.byte	235                     ## DW_AT_call_line
+	.byte	21                      ## Abbrev [21] 0xbdf:0x9 DW_TAG_formal_parameter
+.set Lset537, Ldebug_loc106-Lsection_debug_loc ## DW_AT_location
+	.long	Lset537
+	.long	1427                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0xbe8:0x9 DW_TAG_formal_parameter
+.set Lset538, Ldebug_loc111-Lsection_debug_loc ## DW_AT_location
+	.long	Lset538
+	.long	1439                    ## DW_AT_abstract_origin
+	.byte	21                      ## Abbrev [21] 0xbf1:0x9 DW_TAG_formal_parameter
+.set Lset539, Ldebug_loc110-Lsection_debug_loc ## DW_AT_location
+	.long	Lset539
+	.long	1451                    ## DW_AT_abstract_origin
+	.byte	0                       ## End Of Children Mark
+	.byte	0                       ## End Of Children Mark
+	.byte	8                       ## Abbrev [8] 0xbfc:0x5 DW_TAG_pointer_type
 	.long	336                     ## DW_AT_type
-	.byte	8                       ## Abbrev [8] 0xb0a:0x5 DW_TAG_pointer_type
+	.byte	8                       ## Abbrev [8] 0xc01:0x5 DW_TAG_pointer_type
+	.long	160                     ## DW_AT_type
+	.byte	8                       ## Abbrev [8] 0xc06:0x5 DW_TAG_pointer_type
 	.long	737                     ## DW_AT_type
-	.byte	10                      ## Abbrev [10] 0xb0f:0x7 DW_TAG_base_type
-	.long	835                     ## DW_AT_name
+	.byte	9                       ## Abbrev [9] 0xc0b:0x5 DW_TAG_const_type
+	.long	160                     ## DW_AT_type
+	.byte	8                       ## Abbrev [8] 0xc10:0x5 DW_TAG_pointer_type
+	.long	3093                    ## DW_AT_type
+	.byte	9                       ## Abbrev [9] 0xc15:0x5 DW_TAG_const_type
+	.long	742                     ## DW_AT_type
+	.byte	8                       ## Abbrev [8] 0xc1a:0x5 DW_TAG_pointer_type
+	.long	193                     ## DW_AT_type
+	.byte	10                      ## Abbrev [10] 0xc1f:0x7 DW_TAG_base_type
+	.long	891                     ## DW_AT_name
 	.byte	5                       ## DW_AT_encoding
 	.byte	8                       ## DW_AT_byte_size
 	.byte	0                       ## End Of Children Mark
 	.section	__DWARF,__debug_ranges,regular,debug
 Ldebug_range:
 Ldebug_ranges0:
-.set Lset471, Ltmp91-Lfunc_begin0
-	.quad	Lset471
-.set Lset472, Ltmp92-Lfunc_begin0
-	.quad	Lset472
-.set Lset473, Ltmp96-Lfunc_begin0
-	.quad	Lset473
-.set Lset474, Ltmp97-Lfunc_begin0
-	.quad	Lset474
+.set Lset540, Ltmp108-Lfunc_begin0
+	.quad	Lset540
+.set Lset541, Ltmp109-Lfunc_begin0
+	.quad	Lset541
+.set Lset542, Ltmp113-Lfunc_begin0
+	.quad	Lset542
+.set Lset543, Ltmp114-Lfunc_begin0
+	.quad	Lset543
 	.quad	0
 	.quad	0
 Ldebug_ranges1:
-.set Lset475, Ltmp113-Lfunc_begin0
-	.quad	Lset475
-.set Lset476, Ltmp114-Lfunc_begin0
-	.quad	Lset476
-.set Lset477, Ltmp118-Lfunc_begin0
-	.quad	Lset477
-.set Lset478, Ltmp119-Lfunc_begin0
-	.quad	Lset478
+.set Lset544, Ltmp130-Lfunc_begin0
+	.quad	Lset544
+.set Lset545, Ltmp131-Lfunc_begin0
+	.quad	Lset545
+.set Lset546, Ltmp135-Lfunc_begin0
+	.quad	Lset546
+.set Lset547, Ltmp136-Lfunc_begin0
+	.quad	Lset547
 	.quad	0
 	.quad	0
 	.section	__DWARF,__debug_macinfo,regular,debug
@@ -4953,7 +5474,7 @@ Lnames_begin:
 	.short	1                       ## Header Version
 	.short	0                       ## Header Hash Function
 	.long	11                      ## Header Bucket Count
-	.long	22                      ## Header Hash Count
+	.long	23                      ## Header Hash Count
 	.long	12                      ## Header Data Length
 	.long	0                       ## HeaderData Die Offset Base
 	.long	1                       ## HeaderData Atom Count
@@ -4961,17 +5482,18 @@ Lnames_begin:
 	.short	6                       ## DW_FORM_data4
 	.long	0                       ## Bucket 0
 	.long	1                       ## Bucket 1
-	.long	2                       ## Bucket 2
-	.long	5                       ## Bucket 3
-	.long	6                       ## Bucket 4
-	.long	9                       ## Bucket 5
+	.long	3                       ## Bucket 2
+	.long	6                       ## Bucket 3
+	.long	7                       ## Bucket 4
+	.long	10                      ## Bucket 5
 	.long	-1                      ## Bucket 6
 	.long	-1                      ## Bucket 7
-	.long	13                      ## Bucket 8
-	.long	18                      ## Bucket 9
+	.long	14                      ## Bucket 8
+	.long	19                      ## Bucket 9
 	.long	-1                      ## Bucket 10
 	.long	-1385727457             ## Hash in Bucket 0
 	.long	-1847613067             ## Hash in Bucket 1
+	.long	-736705852              ## Hash in Bucket 1
 	.long	258013527               ## Hash in Bucket 2
 	.long	1690711343              ## Hash in Bucket 2
 	.long	-1583130232             ## Hash in Bucket 2
@@ -4992,68 +5514,76 @@ Lnames_begin:
 	.long	-2021626987             ## Hash in Bucket 9
 	.long	-1847612916             ## Hash in Bucket 9
 	.long	-1847612421             ## Hash in Bucket 9
-.set Lset479, LNames20-Lnames_begin     ## Offset in Bucket 0
-	.long	Lset479
-.set Lset480, LNames10-Lnames_begin     ## Offset in Bucket 1
-	.long	Lset480
-.set Lset481, LNames12-Lnames_begin     ## Offset in Bucket 2
-	.long	Lset481
-.set Lset482, LNames8-Lnames_begin      ## Offset in Bucket 2
-	.long	Lset482
-.set Lset483, LNames2-Lnames_begin      ## Offset in Bucket 2
-	.long	Lset483
-.set Lset484, LNames18-Lnames_begin     ## Offset in Bucket 3
-	.long	Lset484
-.set Lset485, LNames15-Lnames_begin     ## Offset in Bucket 4
-	.long	Lset485
-.set Lset486, LNames3-Lnames_begin      ## Offset in Bucket 4
-	.long	Lset486
-.set Lset487, LNames7-Lnames_begin      ## Offset in Bucket 4
-	.long	Lset487
-.set Lset488, LNames16-Lnames_begin     ## Offset in Bucket 5
-	.long	Lset488
-.set Lset489, LNames19-Lnames_begin     ## Offset in Bucket 5
-	.long	Lset489
-.set Lset490, LNames5-Lnames_begin      ## Offset in Bucket 5
-	.long	Lset490
-.set Lset491, LNames1-Lnames_begin      ## Offset in Bucket 5
-	.long	Lset491
-.set Lset492, LNames6-Lnames_begin      ## Offset in Bucket 8
-	.long	Lset492
-.set Lset493, LNames0-Lnames_begin      ## Offset in Bucket 8
-	.long	Lset493
-.set Lset494, LNames4-Lnames_begin      ## Offset in Bucket 8
-	.long	Lset494
-.set Lset495, LNames21-Lnames_begin     ## Offset in Bucket 8
-	.long	Lset495
-.set Lset496, LNames13-Lnames_begin     ## Offset in Bucket 8
-	.long	Lset496
-.set Lset497, LNames17-Lnames_begin     ## Offset in Bucket 9
-	.long	Lset497
-.set Lset498, LNames11-Lnames_begin     ## Offset in Bucket 9
-	.long	Lset498
-.set Lset499, LNames9-Lnames_begin      ## Offset in Bucket 9
-	.long	Lset499
-.set Lset500, LNames14-Lnames_begin     ## Offset in Bucket 9
-	.long	Lset500
+.set Lset548, LNames20-Lnames_begin     ## Offset in Bucket 0
+	.long	Lset548
+.set Lset549, LNames10-Lnames_begin     ## Offset in Bucket 1
+	.long	Lset549
+.set Lset550, LNames22-Lnames_begin     ## Offset in Bucket 1
+	.long	Lset550
+.set Lset551, LNames12-Lnames_begin     ## Offset in Bucket 2
+	.long	Lset551
+.set Lset552, LNames8-Lnames_begin      ## Offset in Bucket 2
+	.long	Lset552
+.set Lset553, LNames2-Lnames_begin      ## Offset in Bucket 2
+	.long	Lset553
+.set Lset554, LNames18-Lnames_begin     ## Offset in Bucket 3
+	.long	Lset554
+.set Lset555, LNames15-Lnames_begin     ## Offset in Bucket 4
+	.long	Lset555
+.set Lset556, LNames3-Lnames_begin      ## Offset in Bucket 4
+	.long	Lset556
+.set Lset557, LNames7-Lnames_begin      ## Offset in Bucket 4
+	.long	Lset557
+.set Lset558, LNames16-Lnames_begin     ## Offset in Bucket 5
+	.long	Lset558
+.set Lset559, LNames19-Lnames_begin     ## Offset in Bucket 5
+	.long	Lset559
+.set Lset560, LNames5-Lnames_begin      ## Offset in Bucket 5
+	.long	Lset560
+.set Lset561, LNames1-Lnames_begin      ## Offset in Bucket 5
+	.long	Lset561
+.set Lset562, LNames6-Lnames_begin      ## Offset in Bucket 8
+	.long	Lset562
+.set Lset563, LNames0-Lnames_begin      ## Offset in Bucket 8
+	.long	Lset563
+.set Lset564, LNames4-Lnames_begin      ## Offset in Bucket 8
+	.long	Lset564
+.set Lset565, LNames21-Lnames_begin     ## Offset in Bucket 8
+	.long	Lset565
+.set Lset566, LNames13-Lnames_begin     ## Offset in Bucket 8
+	.long	Lset566
+.set Lset567, LNames17-Lnames_begin     ## Offset in Bucket 9
+	.long	Lset567
+.set Lset568, LNames11-Lnames_begin     ## Offset in Bucket 9
+	.long	Lset568
+.set Lset569, LNames9-Lnames_begin      ## Offset in Bucket 9
+	.long	Lset569
+.set Lset570, LNames14-Lnames_begin     ## Offset in Bucket 9
+	.long	Lset570
 LNames20:
 	.long	622                     ## enif_make_tuple2
-	.long	10                      ## Num DIEs
-	.long	1584
-	.long	1631
-	.long	1786
-	.long	1833
-	.long	1958
-	.long	2121
-	.long	2284
-	.long	2447
-	.long	2610
-	.long	2773
+	.long	11                      ## Num DIEs
+	.long	1608
+	.long	1771
+	.long	1818
+	.long	1973
+	.long	2020
+	.long	2205
+	.long	2368
+	.long	2531
+	.long	2694
+	.long	2857
+	.long	3020
 	.long	0
 LNames10:
-	.long	671                     ## asm_1_nif_bb
+	.long	689                     ## asm_1_nif_bb
 	.long	1                       ## Num DIEs
-	.long	1873
+	.long	2060
+	.long	0
+LNames22:
+	.long	645                     ## enif_make_big_num
+	.long	1                       ## Num DIEs
+	.long	1464
 	.long	0
 LNames12:
 	.long	281                     ## entry
@@ -5078,59 +5608,59 @@ LNames18:
 LNames15:
 	.long	348                     ## reload
 	.long	1                       ## Num DIEs
-	.long	942
+	.long	937
 	.long	0
 LNames3:
 	.long	363                     ## unload
 	.long	1                       ## Num DIEs
-	.long	894
+	.long	889
 	.long	0
 LNames7:
 	.long	577                     ## init_nif_llvm
 	.long	2                       ## Num DIEs
-	.long	864
-	.long	1184
+	.long	859
+	.long	1179
 	.long	0
 LNames16:
-	.long	736                     ## asm_1_nif_ff
+	.long	754                     ## asm_1_nif_ff
 	.long	1                       ## Num DIEs
-	.long	2658
+	.long	2905
 	.long	0
 LNames19:
-	.long	684                     ## asm_1_nif_if
+	.long	702                     ## asm_1_nif_if
 	.long	1                       ## Num DIEs
-	.long	2006
+	.long	2253
 	.long	0
 LNames5:
-	.long	697                     ## asm_1_nif_uf
+	.long	715                     ## asm_1_nif_uf
 	.long	1                       ## Num DIEs
-	.long	2169
+	.long	2416
 	.long	0
 LNames1:
 	.long	605                     ## enif_get_big_num
 	.long	1                       ## Num DIEs
-	.long	1215
+	.long	1210
 	.long	0
 LNames6:
 	.long	355                     ## upgrade
 	.long	1                       ## Num DIEs
-	.long	1053
+	.long	1048
 	.long	0
 LNames0:
 	.long	343                     ## load
 	.long	2                       ## Num DIEs
-	.long	818
-	.long	1138
+	.long	813
+	.long	1133
 	.long	0
 LNames4:
-	.long	710                     ## asm_1_nif_fi
+	.long	728                     ## asm_1_nif_fi
 	.long	1                       ## Num DIEs
-	.long	2332
+	.long	2579
 	.long	0
 LNames21:
-	.long	645                     ## asm_1_nif_ii
+	.long	663                     ## asm_1_nif_ii
 	.long	1                       ## Num DIEs
-	.long	1469
+	.long	1656
 	.long	0
 LNames13:
 	.long	451                     ## arithmetic_error
@@ -5143,19 +5673,19 @@ LNames17:
 	.long	661
 	.long	0
 LNames11:
-	.long	749                     ## nif_init
+	.long	767                     ## nif_init
 	.long	1                       ## Num DIEs
 	.long	289
 	.long	0
 LNames9:
-	.long	723                     ## asm_1_nif_fu
+	.long	741                     ## asm_1_nif_fu
 	.long	1                       ## Num DIEs
-	.long	2495
+	.long	2742
 	.long	0
 LNames14:
-	.long	658                     ## asm_1_nif_uu
+	.long	676                     ## asm_1_nif_uu
 	.long	1                       ## Num DIEs
-	.long	1671
+	.long	1858
 	.long	0
 	.section	__DWARF,__apple_objc,regular,debug
 Lobjc_begin:
@@ -5233,52 +5763,52 @@ Ltypes_begin:
 	.long	878862258               ## Hash in Bucket 10
 	.long	1212248465              ## Hash in Bucket 10
 	.long	-1239759867             ## Hash in Bucket 10
-.set Lset501, Ltypes7-Ltypes_begin      ## Offset in Bucket 0
-	.long	Lset501
-.set Lset502, Ltypes22-Ltypes_begin     ## Offset in Bucket 0
-	.long	Lset502
-.set Lset503, Ltypes13-Ltypes_begin     ## Offset in Bucket 1
-	.long	Lset503
-.set Lset504, Ltypes3-Ltypes_begin      ## Offset in Bucket 2
-	.long	Lset504
-.set Lset505, Ltypes2-Ltypes_begin      ## Offset in Bucket 2
-	.long	Lset505
-.set Lset506, Ltypes15-Ltypes_begin     ## Offset in Bucket 2
-	.long	Lset506
-.set Lset507, Ltypes10-Ltypes_begin     ## Offset in Bucket 3
-	.long	Lset507
-.set Lset508, Ltypes20-Ltypes_begin     ## Offset in Bucket 4
-	.long	Lset508
-.set Lset509, Ltypes1-Ltypes_begin      ## Offset in Bucket 5
-	.long	Lset509
-.set Lset510, Ltypes16-Ltypes_begin     ## Offset in Bucket 5
-	.long	Lset510
-.set Lset511, Ltypes14-Ltypes_begin     ## Offset in Bucket 5
-	.long	Lset511
-.set Lset512, Ltypes17-Ltypes_begin     ## Offset in Bucket 5
-	.long	Lset512
-.set Lset513, Ltypes6-Ltypes_begin      ## Offset in Bucket 6
-	.long	Lset513
-.set Lset514, Ltypes18-Ltypes_begin     ## Offset in Bucket 6
-	.long	Lset514
-.set Lset515, Ltypes21-Ltypes_begin     ## Offset in Bucket 7
-	.long	Lset515
-.set Lset516, Ltypes5-Ltypes_begin      ## Offset in Bucket 7
-	.long	Lset516
-.set Lset517, Ltypes11-Ltypes_begin     ## Offset in Bucket 8
-	.long	Lset517
-.set Lset518, Ltypes4-Ltypes_begin      ## Offset in Bucket 8
-	.long	Lset518
-.set Lset519, Ltypes9-Ltypes_begin      ## Offset in Bucket 9
-	.long	Lset519
-.set Lset520, Ltypes19-Ltypes_begin     ## Offset in Bucket 9
-	.long	Lset520
-.set Lset521, Ltypes12-Ltypes_begin     ## Offset in Bucket 10
-	.long	Lset521
-.set Lset522, Ltypes8-Ltypes_begin      ## Offset in Bucket 10
-	.long	Lset522
-.set Lset523, Ltypes0-Ltypes_begin      ## Offset in Bucket 10
-	.long	Lset523
+.set Lset571, Ltypes7-Ltypes_begin      ## Offset in Bucket 0
+	.long	Lset571
+.set Lset572, Ltypes22-Ltypes_begin     ## Offset in Bucket 0
+	.long	Lset572
+.set Lset573, Ltypes13-Ltypes_begin     ## Offset in Bucket 1
+	.long	Lset573
+.set Lset574, Ltypes3-Ltypes_begin      ## Offset in Bucket 2
+	.long	Lset574
+.set Lset575, Ltypes2-Ltypes_begin      ## Offset in Bucket 2
+	.long	Lset575
+.set Lset576, Ltypes15-Ltypes_begin     ## Offset in Bucket 2
+	.long	Lset576
+.set Lset577, Ltypes10-Ltypes_begin     ## Offset in Bucket 3
+	.long	Lset577
+.set Lset578, Ltypes20-Ltypes_begin     ## Offset in Bucket 4
+	.long	Lset578
+.set Lset579, Ltypes1-Ltypes_begin      ## Offset in Bucket 5
+	.long	Lset579
+.set Lset580, Ltypes16-Ltypes_begin     ## Offset in Bucket 5
+	.long	Lset580
+.set Lset581, Ltypes14-Ltypes_begin     ## Offset in Bucket 5
+	.long	Lset581
+.set Lset582, Ltypes17-Ltypes_begin     ## Offset in Bucket 5
+	.long	Lset582
+.set Lset583, Ltypes6-Ltypes_begin      ## Offset in Bucket 6
+	.long	Lset583
+.set Lset584, Ltypes18-Ltypes_begin     ## Offset in Bucket 6
+	.long	Lset584
+.set Lset585, Ltypes21-Ltypes_begin     ## Offset in Bucket 7
+	.long	Lset585
+.set Lset586, Ltypes5-Ltypes_begin      ## Offset in Bucket 7
+	.long	Lset586
+.set Lset587, Ltypes11-Ltypes_begin     ## Offset in Bucket 8
+	.long	Lset587
+.set Lset588, Ltypes4-Ltypes_begin      ## Offset in Bucket 8
+	.long	Lset588
+.set Lset589, Ltypes9-Ltypes_begin      ## Offset in Bucket 9
+	.long	Lset589
+.set Lset590, Ltypes19-Ltypes_begin     ## Offset in Bucket 9
+	.long	Lset590
+.set Lset591, Ltypes12-Ltypes_begin     ## Offset in Bucket 10
+	.long	Lset591
+.set Lset592, Ltypes8-Ltypes_begin      ## Offset in Bucket 10
+	.long	Lset592
+.set Lset593, Ltypes0-Ltypes_begin      ## Offset in Bucket 10
+	.long	Lset593
 Ltypes7:
 	.long	178                     ## ErlNapiUInt
 	.long	1                       ## Num DIEs
@@ -5329,9 +5859,9 @@ Ltypes10:
 	.byte	0
 	.long	0
 Ltypes20:
-	.long	835                     ## long int
+	.long	891                     ## long int
 	.long	1                       ## Num DIEs
-	.long	2831
+	.long	3103
 	.short	36
 	.byte	0
 	.long	0
@@ -5415,7 +5945,7 @@ Ltypes9:
 Ltypes19:
 	.long	570                     ## double
 	.long	1                       ## Num DIEs
-	.long	791
+	.long	786
 	.short	36
 	.byte	0
 	.long	0

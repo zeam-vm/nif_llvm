@@ -4,10 +4,10 @@
 
 typedef struct vector {
   int size;
-  int *value;
+  unsigned long *value;
 } VECTOR;
 
-int enif_get_big_num(ErlNifEnv *env, ERL_NIF_TERM term, VECTOR **value)
+int enif_get_big_num(ErlNifEnv *env, ERL_NIF_TERM term, unsigned *is_negative, VECTOR **value)
 {
   int tuple_arity;
   const ERL_NIF_TERM *tuple;
@@ -17,11 +17,10 @@ int enif_get_big_num(ErlNifEnv *env, ERL_NIF_TERM term, VECTOR **value)
   if(__builtin_expect(tuple_arity != 2, 0)) {
     return 0;
   }
-  unsigned is_negative;
-  if(__builtin_expect((enif_get_int(env, tuple[0], &is_negative) == 0), 0)) {
+  if(__builtin_expect((enif_get_uint(env, tuple[0], is_negative) == 0), 0)) {
     return 0;
   }
-  int length;
+  unsigned int length;
   if(__builtin_expect((enif_get_list_length(env, tuple[1], &length) == 0), 0)) {
     return 0;
   }
@@ -56,6 +55,18 @@ int enif_get_big_num(ErlNifEnv *env, ERL_NIF_TERM term, VECTOR **value)
   (*value)->size = length;
   (*value)->value = v;
   return 1;
+}
+
+ERL_NIF_TERM enif_make_big_num(ErlNifEnv *env, const unsigned is_negative, const VECTOR *value)
+{
+	ERL_NIF_TERM term_is_negative = enif_make_uint(env, is_negative);
+	ERL_NIF_TERM *term_array = enif_alloc(sizeof(ERL_NIF_TERM) * value->size);
+	for(int i = 0; i < value->size; i++) {
+		term_array[i] = enif_make_uint64(env, value->value[i]);
+	}
+	ERL_NIF_TERM term_list = enif_make_list_from_array(env, term_array, value->size);
+	enif_free(term_array);
+	return enif_make_tuple2(env, term_is_negative, term_list);
 }
 
 static ERL_NIF_TERM arithmetic_error;
@@ -123,14 +134,23 @@ error2:
 static
 ERL_NIF_TERM asm_1_nif_bb(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[])
 {
-  VECTOR *a;
-  if(__builtin_expect((enif_get_big_num(env, argv[0], &a) == 0), 0)) {
+  unsigned a_neg, b_neg;
+  VECTOR *a_v, *b_v;
+  if(__builtin_expect((enif_get_big_num(env, argv[0], &a_neg, &a_v) == 0), 0)) {
     return arithmetic_error;
   }
-  //ERL_NIF_TERM result = enif_make_bignum(env, a);
-  enif_free(a->value);
-  enif_free(a);
-  return enif_make_tuple2(env, error_atom, arithmetic_error_atom);
+  if(__builtin_expect((enif_get_big_num(env, argv[1], &b_neg, &b_v) == 0), 0)) {
+    return arithmetic_error;
+  }
+
+	ERL_NIF_TERM result = enif_make_big_num(env, a_neg, a_v);
+
+  enif_free(a_v->value);
+  enif_free(a_v);
+  enif_free(b_v->value);
+  enif_free(b_v);
+
+  return enif_make_tuple2(env, ok_atom, result);
 }
 
 static
